@@ -1,5 +1,3 @@
-
-
 package proyectosupermercado;
 
 import java.io.*;

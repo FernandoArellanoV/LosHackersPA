@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 26c142aa7eb92cca1aba4f79c340b3d6ba2d9190
 package proyectosupermercado;
 
 import java.util.ArrayList;

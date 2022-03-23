@@ -1,4 +1,3 @@
-
 package proyectosupermercado;
 
 import java.util.ArrayList;
