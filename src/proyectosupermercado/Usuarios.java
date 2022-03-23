@@ -1,9 +1,7 @@
 package proyectosupermercado;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Vector; 
 
 public class Usuarios {
     
@@ -47,7 +45,6 @@ public class Usuarios {
     }
     
     public String xd (){
-
         return ""+ this.nombre + " " + this.contraseña + " " + this.correo;
     }
 }
