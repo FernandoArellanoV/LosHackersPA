@@ -13,6 +13,16 @@ public class Usuarios {
     private String correo;
     private List <productoDelCarrito> carrito;
 
+    public Usuarios(String nombre,String contraseña,String correo){
+        
+        this.nombre = nombre;
+        this.contraseña = contraseña;
+        this.correo = correo;
+        
+        this.carrito = new ArrayList<productoDelCarrito>();
+
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -36,5 +46,9 @@ public class Usuarios {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
-        
+    
+    public String xd (){
+
+        return ""+ this.nombre + " " + this.contraseña + " " + this.correo;
+    }
 }
