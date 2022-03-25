@@ -1,4 +1,6 @@
+
 package proyectosupermercado;
+
 
 public class Producto {
     
@@ -16,6 +18,7 @@ public class Producto {
         this.precio = Integer.parseInt(precio);        
         this.tipo = tipo;
     }
+
             
     public String getNombre() {
         return nombre;
@@ -56,5 +59,9 @@ public class Producto {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-  
+    
+     public String lectorDeProducto (){
+
+        return ""+ this.nombre + " " + this.codigo + " " + this.stock + " " + this.precio + " " + this.tipo;
+    }
 }

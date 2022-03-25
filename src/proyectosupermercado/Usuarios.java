@@ -1,3 +1,4 @@
+
 package proyectosupermercado;
 
 import java.util.ArrayList;
@@ -46,7 +47,7 @@ public class Usuarios {
         this.correo = correo;
     }
     
-    public String xd (){
+    public String lectorDeUsuario (){
 
         return ""+ this.nombre + " " + this.contraseña + " " + this.correo;
     }
