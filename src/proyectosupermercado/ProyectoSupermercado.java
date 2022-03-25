@@ -8,9 +8,7 @@ import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ProyectoSupermercado {
-    
-   
+public class ProyectoSupermercado{
     public static void main(String args[]) throws IOException {
         Map <String,Usuarios> mapaDeUsuario = new HashMap <>();
         Map <String,Producto> mapaDeProductos = new HashMap<>();

@@ -10,7 +10,7 @@ public class productoDelCarrito {
     private int precio;
     private String tipo;
     
-     public productoDelCarrito(String nombre, String codigo,String stock,String precio,String tipo){
+    public productoDelCarrito(String nombre, String codigo,String stock,String precio,String tipo){
     
         this.nombre = nombre;
         this.codigo = Integer.parseInt(codigo);
