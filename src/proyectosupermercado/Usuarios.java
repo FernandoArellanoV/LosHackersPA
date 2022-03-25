@@ -1,54 +1,56 @@
-
 package proyectosupermercado;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Vector; 
 
-public class Usuarios {
-    
+public class Usuarios
+{
+    //VARIABLES DE INSTANCIA
     private String nombre;
     private String contraseña;
     private String correo;
     private List <productoDelCarrito> carrito;
 
-    public Usuarios(String nombre,String contraseña,String correo){
-        
+    //CONSTRUCTOR
+    public Usuarios(String nombre,String contraseña,String correo)
+    {
         this.nombre = nombre;
         this.contraseña = contraseña;
         this.correo = correo;
-        
         this.carrito = new ArrayList<productoDelCarrito>();
-
     }
 
-    public String getNombre() {
+    //GETTERS
+    public String getNombre()
+    {
         return nombre;
     }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getContraseña() {
+    public String getContraseña()
+    {
         return contraseña;
     }
-
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
-    }
-
-    public String getCorreo() {
+    public String getCorreo()
+    {
         return correo;
     }
 
-    public void setCorreo(String correo) {
+    //SETTERS
+    public void setNombre(String nombre)
+    {
+        this.nombre = nombre;
+    }
+    public void setContraseña(String contraseña)
+    {
+        this.contraseña = contraseña;
+    }
+    public void setCorreo(String correo)
+    {
         this.correo = correo;
     }
     
-    public String lectorDeUsuario (){
-
-        return ""+ this.nombre + " " + this.contraseña + " " + this.correo;
+    //MÉTODO 1: LECTOR DE USUARIOS
+    public String lectorDeUsuario()
+    {
+        return "Nombre: " + this.nombre + " Contraseña: (100% seguridad) " + this.contraseña + " Correo: " + this.correo;
     }
 }
