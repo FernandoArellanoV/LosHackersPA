@@ -1,2 +1,2 @@
-# Programaci-nAvanzada
+# Programacion Avanzada
 Proyecto programación avanzada
