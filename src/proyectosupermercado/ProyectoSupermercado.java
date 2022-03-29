@@ -12,7 +12,7 @@ public class ProyectoSupermercado
     public static void main(String args[]) throws IOException
     {
         //INICIALIZACIÓN DE MAPAS
-        Map <String,Usuarios> mapaDeUsuario = new HashMap <>();
+        Map <String,Usuario> mapaDeUsuario = new HashMap <>();
         Map <String,Producto> mapaDeProductos = new HashMap<>();
         
         // MAPA DE USUARIOS
@@ -24,11 +24,11 @@ public class ProyectoSupermercado
             {
                 String linea = input.nextLine();
                 datosUsuario = linea.split("-");
-                Usuarios User = new Usuarios(datosUsuario[0],datosUsuario[1],datosUsuario[2]);
+                Usuario User = new Usuario(datosUsuario[0],datosUsuario[1],datosUsuario[2]);
                 mapaDeUsuario.put(User.getCorreo(), User);
             } 
             input.close();
-            for(Usuarios aux: mapaDeUsuario.values())
+            for(Usuario aux: mapaDeUsuario.values())
             {
                 System.out.println(aux.lectorDeUsuario());
             }
