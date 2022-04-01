@@ -11,12 +11,13 @@ public class ProyectoSupermercado
 {
     public static void main(String args[]) throws IOException
     {
-        //INICIALIZACIÓN DE MAPASs
+        //INICIALIZACIÓN DE MAPAS
         BaseDeProductos productos = new BaseDeProductos();
         BaseDeUsuarios usuarios = new BaseDeUsuarios();
-        LectorTxt.llenarProductos(productos);
-        LectorTxt.llenarUsuarios(usuarios);
-        productos.MostrarPor("Arroz");
+        LectorTXT.llenarProductos(productos);
+        LectorTXT.llenarUsuarios(usuarios);
+        productos.MostrarPor("Spaghetti");
         productos.MostrarProductos();
+        usuarios.MostrarUsuarios();
     }
 }

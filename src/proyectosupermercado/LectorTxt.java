@@ -1,10 +1,10 @@
 package proyectosupermercado;
 
-import java.io.*;
 import java.io.File;
 import java.util.Scanner;
 
-public class LectorTxt {
+public class LectorTXT
+{
     
     public static void llenarUsuarios(BaseDeUsuarios objetoUsuario)
     {
@@ -24,7 +24,6 @@ public class LectorTxt {
             ex.printStackTrace();
         }
     }
-    
     public static void llenarProductos(BaseDeProductos objetoProducto)
     {
         try

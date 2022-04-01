@@ -63,8 +63,9 @@ public class Producto
         this.tipo = tipo;
     }
 
-    @Override
-    public String toString() {
-        return "Producto{" + "nombre=" + nombre + ", codigo=" + codigo + ", stock=" + stock + ", precio=" + precio + ", tipo=" + tipo + '}';
+    //@Override
+    public String toString()
+    {
+        return "Producto (" + "Nombre: " + nombre + " | Código: " + codigo + " | Stock: " + stock + " | Precio: $" + precio + " | Tipo: " + tipo + ")";
     }
 }
