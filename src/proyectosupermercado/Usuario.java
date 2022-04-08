@@ -2,23 +2,22 @@ package proyectosupermercado;
 
 import java.util.ArrayList;
 import java.util.List;
-import proyectosupermercado.BaseDeProductos;
 
 public class Usuario
 {
     //VARIABLES DE INSTANCIA
     private String nombre;
-    private String contrasena;
+    private String contraseña;
     private String correo;
-    private final List <BaseDeProductos> carrito;
+    private List <BaseDeProductos> carrito;
 
     //CONSTRUCTOR
-    public Usuario(String nombre,String contrasena,String correo)
+    public Usuario(String nombre,String contraseña,String correo)
     {
         this.nombre = nombre;
-        this.contrasena = contrasena;
+        this.contraseña = contraseña;
         this.correo = correo;
-        carrito = new ArrayList<>();
+        carrito = new ArrayList<BaseDeProductos>();
     }
 
     //GETTERS
@@ -26,9 +25,9 @@ public class Usuario
     {
         return nombre;
     }
-    public String getContrasena()
+    public String getContraseña()
     {
-        return contrasena;
+        return contraseña;
     }
     public String getCorreo()
     {
@@ -40,9 +39,9 @@ public class Usuario
     {
         this.nombre = nombre;
     }
-    public void setContrasena(String contrasena)
+    public void setContraseña(String contraseña)
     {
-        this.contrasena = contrasena;
+        this.contraseña = contraseña;
     }
     public void setCorreo(String correo)
     {
@@ -52,6 +51,6 @@ public class Usuario
     @Override
     public String toString()
     {
-        return "Usuario (" + "Nombre: " + nombre + " | Contraseña: " + contrasena + " | Correo: " + correo + ")";
+        return "Usuario (" + "Nombre: " + nombre + " | Contraseña: " + contraseña + " | Correo: " + correo + ")";
     }
 }
