@@ -1,8 +1,8 @@
-package proyectosupermercado;
+package src.proyectosupermercado;
 
 import java.util.ArrayList;
 import java.util.List;
-import proyectosupermercado.BaseDeProductos;
+//import proyectosupermercado.BaseDeProductos;
 
 public class Usuario
 {
@@ -10,7 +10,7 @@ public class Usuario
     private String nombre;
     private String contrasena;
     private String correo;
-    private final List <BaseDeProductos> carrito;
+    private final List <BaseDeProductos>carrito; // final = la lista no puede ser declarada nada más que "BaseDeProductos"
 
     //CONSTRUCTOR
     public Usuario(String nombre,String contrasena,String correo)
@@ -49,7 +49,7 @@ public class Usuario
         this.correo = correo;
     }
 
-    @Override
+    @Override //?
     public String toString()
     {
         return "Usuario (" + "Nombre: " + nombre + " | Contraseña: " + contrasena + " | Correo: " + correo + ")";

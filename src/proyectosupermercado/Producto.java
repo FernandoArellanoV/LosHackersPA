@@ -1,4 +1,4 @@
-package proyectosupermercado;
+package src.proyectosupermercado;
 
 public class Producto
 {

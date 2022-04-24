@@ -1,4 +1,4 @@
-package proyectosupermercado;
+package src.proyectosupermercado;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,15 +11,16 @@ public class BaseDeUsuarios
     //CONSTRUCTOR
     public BaseDeUsuarios()
     {
-        mapaPorCorreo = new HashMap();
+        mapaPorCorreo = new HashMap<>();
     }
     
     //MÉTODOS
     public void MostrarUsuarios()
     {
-        for(Usuario aux: mapaPorCorreo.values())
+        System.out.println("Los usuarios guardados son:\n");
+        for(Usuario aux : mapaPorCorreo.values()) //for hace una operación hasta el final de "mapaPorCorreo"
         {
-            System.out.println(aux.toString());
+            System.out.println(aux);
         }
         System.out.println();
     }
@@ -28,11 +29,12 @@ public class BaseDeUsuarios
     {
         if(mapaPorCorreo.containsKey(correo) == false)
         {
-            System.out.println("No existe el producto");
+            System.out.println("No existe el usuario ingresado");
         }
         else
         {
-            System.out.println(mapaPorCorreo.get(correo).toString());
+            System.out.println("Datos del usuario ingresado:\n");
+            System.out.println(mapaPorCorreo.get(correo));
         }
         System.out.println();
     }

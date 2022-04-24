@@ -1,4 +1,4 @@
-package proyectosupermercado;
+package src.proyectosupermercado;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,9 +14,9 @@ public class BaseDeProductos
     //CONSTRUCTOR
     public BaseDeProductos()
     {
-        mapaPorCodigo = new HashMap();
-        mapaPorNombre = new HashMap();
-        listaDeProductos = new ArrayList <Producto>();    
+        mapaPorCodigo = new HashMap<>();
+        mapaPorNombre = new HashMap<>();
+        listaDeProductos = new ArrayList<Producto>();    
     }
 
     //MÉTODOS
@@ -38,12 +38,13 @@ public class BaseDeProductos
     
     public void MostrarProductos()
     {
-        for (int i = 0; i<listaDeProductos.size() ; i++)
+        for (int i = 0; i < listaDeProductos.size(); i++)
         {
             System.out.println(listaDeProductos.get(i));
         }
         System.out.println();
     }
+
     public void MostrarPor(String nombre)
     {
         if(mapaPorNombre.containsKey(nombre) == false)
@@ -59,6 +60,7 @@ public class BaseDeProductos
         }
         System.out.println();
     }
+
     public void MostrarPor(int codigo)
     {
         if(mapaPorCodigo.containsKey(codigo) == false)
