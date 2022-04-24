@@ -26,7 +26,7 @@ public class ProyectoSupermercado
             System.out.println("5. Buscar usuario por correo");
             System.out.println("6. Buscar producto por nombre");
             System.out.println("7. Buscar producto por código");
-            System.out.println("8. Salir");
+            System.out.println("8. Salir del programa");
             try
             {
                 System.out.println("Elija una opcion");
