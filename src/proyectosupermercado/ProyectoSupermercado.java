@@ -24,7 +24,9 @@ public class ProyectoSupermercado
             System.out.println("3. Mostrar productos");
             System.out.println("4. Mostrar usuarios");
             System.out.println("5. Buscar usuario por correo");
-            System.out.println("6. Salir");
+            System.out.println("6. Buscar producto por nombre");
+            System.out.println("7. Buscar producto por código");
+            System.out.println("8. Salir");
             try
             {
                 System.out.println("Elija una opcion");
@@ -73,7 +75,19 @@ public class ProyectoSupermercado
                         usuarios.MostrarUsuarios(correo);
                         break;
 
-                    case 6: //SALIR
+                    case 6: ////MOSTRAR PRODUCTO POR NOMBRE
+                        System.out.println("Ingrese el nombre del producto a buscar\n");
+                        String nombreProd = lector.next();
+                        productos.MostrarPor(nombreProd);
+                        break;
+
+                    case 7: ////MOSTRAR PRODUCTO POR CÓDIGO
+                        System.out.println("Ingrese el código del producto a buscar\n");
+                        int códigoProd = lector.nextInt();
+                        productos.MostrarPor(códigoProd);
+                        break;
+
+                    case 8: //SALIR
                         salir = true;
                         break;
 
@@ -86,7 +100,7 @@ public class ProyectoSupermercado
                 System.out.println("Debe ingresar un número\n");
                 lector.next();
             }
-            lector.close();
         }
+        lector.close();
     }
 }
