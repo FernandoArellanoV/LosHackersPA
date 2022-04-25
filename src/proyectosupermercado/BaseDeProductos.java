@@ -1,4 +1,4 @@
-package src.proyectosupermercado;
+package proyectosupermercado;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,8 +7,8 @@ import java.util.Map;
 public class BaseDeProductos
 {
     //VARIABLES DE INSTANCIA
-        private Map <Integer,Producto> mapaPorCodigo;
-        private Map <String,ArrayList<Producto>> mapaPorNombre;
+    private Map <Integer,Producto> mapaPorCodigo;
+    private Map <String,ArrayList<Producto>> mapaPorNombre;
     private ArrayList <Producto> listaDeProductos;
     
     //CONSTRUCTOR
@@ -70,6 +70,23 @@ public class BaseDeProductos
         else
         {
             System.out.println(mapaPorCodigo.get(codigo).toString());
+        }
+        System.out.println();
+    }
+    
+    public void EliminarProducto(int codigo)
+    {
+        if(mapaPorCodigo.containsKey(codigo) == false)
+        {
+            System.out.println("No existe el producto");
+        }
+        else
+        {
+            Producto aux = mapaPorCodigo.get(codigo);
+            mapaPorCodigo.remove(aux.getCodigo(), aux);
+            mapaPorNombre.remove(aux.getNombre(), aux);
+            listaDeProductos.remove(aux);
+            System.out.println("Se elimino con exito");
         }
         System.out.println();
     }

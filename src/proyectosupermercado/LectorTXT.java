@@ -1,9 +1,9 @@
-package src.proyectosupermercado;
+package proyectosupermercado;
 
 import java.io.File;
 import java.util.Scanner;
 
-public class LectorTXT
+public class LectorTxt
 {
     public static void llenarUsuarios(BaseDeUsuarios objetoUsuario)
     { //"try" prueba durante ejecución el bloque de código para ver si hay errores

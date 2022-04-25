@@ -1,4 +1,4 @@
-package src.proyectosupermercado;
+package proyectosupermercado;
 
 import java.util.ArrayList;
 import java.util.List;

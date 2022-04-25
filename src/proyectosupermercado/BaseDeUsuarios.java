@@ -1,4 +1,4 @@
-package src.proyectosupermercado;
+package proyectosupermercado;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -42,5 +42,20 @@ public class BaseDeUsuarios
     public void AgregarUsuario(Usuario datosUsuario)
     {
         mapaPorCorreo.put(datosUsuario.getCorreo(), datosUsuario);
+    }
+    
+    public void EliminarUsuario(String correo)
+    {
+        if(mapaPorCorreo.containsKey(correo)==false)
+        {
+            System.out.println("No existe el usuario ingresado");
+        }
+        else
+        {
+            Usuario aux = mapaPorCorreo.get(correo);
+            mapaPorCorreo.remove(correo, aux);
+            System.out.println("Se elimino el usuario con exito");
+        }
+        System.out.println();
     }
 }

@@ -1,4 +1,4 @@
-package src.proyectosupermercado;
+package proyectosupermercado;
 
 import java.util.Scanner;
 import java.util.InputMismatchException;
@@ -11,8 +11,8 @@ public class ProyectoSupermercado
         //INICIALIZACIÓN DE VARIABLES, MAPAS Y OBJETOS
         BaseDeProductos productos = new BaseDeProductos();
         BaseDeUsuarios usuarios = new BaseDeUsuarios();
-        LectorTXT.llenarProductos(productos);
-        LectorTXT.llenarUsuarios(usuarios);
+        LectorTxt.llenarProductos(productos);
+        LectorTxt.llenarUsuarios(usuarios);
         Scanner lector = new Scanner(System.in); //Crea un objeto que contendrá lo escaneado
         boolean salir = false;
         int opcion;
@@ -26,7 +26,9 @@ public class ProyectoSupermercado
             System.out.println("5. Buscar usuario por correo");
             System.out.println("6. Buscar producto por nombre");
             System.out.println("7. Buscar producto por código");
-            System.out.println("8. Salir del programa");
+            System.out.println("8. Eliminar producto");
+            System.out.println("9. Eliminar Usuario");
+            System.out.println("10. Salir del programa");
             try
             {
                 System.out.println("Elija una opcion");
@@ -86,8 +88,20 @@ public class ProyectoSupermercado
                         int códigoProd = lector.nextInt();
                         productos.MostrarPor(códigoProd);
                         break;
-
-                    case 8: //SALIR
+                    
+                    case 8: ///ELIMINAR PRODUCTO POR CODIGO
+                        System.out.println("Ingrese el código del producto que desea eliminar\n");
+                        int codigo = lector.nextInt();
+                        productos.EliminarProducto(codigo);
+                        break;
+                        
+                    case 9:
+                        System.out.println("Ingrese el correo del usuario que desea eliminar\n");
+                        String correoUsuario = lector.next();
+                        usuarios.EliminarUsuario(correoUsuario);
+                        break;
+                        
+                    case 10: //SALIR
                         salir = true;
                         break;
 
