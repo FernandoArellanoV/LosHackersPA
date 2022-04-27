@@ -3,27 +3,30 @@ package proyectosupermercado;
 import java.io.File;
 import java.util.Scanner;
 
-public class LectorTXT
+public class LectorTxt
 {
-    
     public static void llenarUsuarios(BaseDeUsuarios objetoUsuario)
-    {
+    { //"try" prueba durante ejecución el bloque de código para ver si hay errores
         try
         {
-            String[] datosUsuario = new String[3];
+            String[] datosUsuario = new String[3]; // 3 = nombre + contraseña + correo
             Scanner input = new Scanner(new File("Usuarios.txt")); 
-            while(input.hasNextLine())
+            while(input.hasNextLine()) //Mientras existan lineas en el txt
             {
-                String linea = input.nextLine();
-                datosUsuario = linea.split("-");
+                String linea = input.nextLine(); //saltando línea
+                datosUsuario = linea.split("-"); //separando por "-"
                 Usuario User = new Usuario(datosUsuario[0],datosUsuario[1],datosUsuario[2]);
-                objetoUsuario.AgregarUsuario(User);
+                objetoUsuario.AgregarUsuario(User); //Subiendo al mapa
             } 
             input.close();
-        }catch(Exception ex){
-            ex.printStackTrace();
         }
+        catch(Exception ex) //"catch" es lo que sucederá si es que SI hay un error
+        {
+            ex.getMessage();
+        }
+        //"finally" ejecuta un bloque de código indeferentemente de los resultados anteriores
     }
+
     public static void llenarProductos(BaseDeProductos objetoProducto)
     {
         try
@@ -41,7 +44,7 @@ public class LectorTXT
         }
         catch(Exception ex)
         {
-            ex.printStackTrace();
+            ex.getMessage(); //Se usa para obtener un mensaje de error asociado con una excepción
         }
     } 
 }
