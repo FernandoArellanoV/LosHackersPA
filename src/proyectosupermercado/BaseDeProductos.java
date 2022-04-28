@@ -8,6 +8,10 @@ public class BaseDeProductos
 {
     //VARIABLES DE INSTANCIA
     private Map <Integer,Producto> mapaPorCodigo;
+    public Map<Integer, Producto> getMapaPorCodigo()
+    {
+        return mapaPorCodigo;
+    }
     private Map <String,ArrayList<Producto>> mapaPorNombre;
     private ArrayList <Producto> listaDeProductos;
     
@@ -71,9 +75,20 @@ public class BaseDeProductos
         {
             System.out.println(mapaPorCodigo.get(codigo).toString());
         }
-        System.out.println();
     }
     
+    public Producto BuscarProducto(int codigo)
+    {
+        if(mapaPorCodigo.containsKey(codigo) == false)
+        {
+            return null;
+        }
+        else
+        {
+            return mapaPorCodigo.get(codigo);
+        }
+    }
+
     public void EliminarProducto(int codigo)
     {
         if(mapaPorCodigo.containsKey(codigo) == false)
@@ -92,7 +107,6 @@ public class BaseDeProductos
     }
     
     public void ModificarNombre(String nombre , int codigo){
-          
         if(mapaPorCodigo.containsKey(codigo)){
             Producto aux = mapaPorCodigo.get(codigo);
             ArrayList<Producto> lista = mapaPorNombre.get(aux.getNombre());

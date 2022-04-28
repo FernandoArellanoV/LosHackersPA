@@ -1,0 +1,20 @@
+
+ Andre S.A.
+
+
+Nombre del comprador: sdfg
+Correo del comprador: angel@gmail.com
+Fecha de la compra: 27/04/2022 20:19
+Nombre del producto: Nuggets
+Cantidad comprada : 4
+Precio: $4800
+Nombre del producto: Spaghetti
+Cantidad comprada : 10
+Precio: $9000
+Nombre del producto: milk
+Cantidad comprada : 100
+Precio: $100
+
+Cantidad total a pagar: $13900
+
+---GRACIAS POR SU COMPRA---

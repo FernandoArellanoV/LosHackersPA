@@ -10,7 +10,13 @@ public class Usuario
     private String nombre;
     private String contrasena;
     private String correo;
-    private final List <BaseDeProductos>carrito; // final = la lista no puede ser declarada nada más que "BaseDeProductos"
+    private final List <Producto> carrito; // final = la lista no puede ser llenada con nada más que "Productos"
+
+    //GETTER
+    public List<Producto> getCarrito()
+    {
+        return carrito;
+    }
 
     //CONSTRUCTOR
     public Usuario(String nombre,String contrasena,String correo)
@@ -19,6 +25,11 @@ public class Usuario
         this.contrasena = contrasena;
         this.correo = correo;
         carrito = new ArrayList<>();
+    }
+
+    public void AgregarAlCarrito(Producto prod)
+    {
+        carrito.add(prod);
     }
 
     //GETTERS

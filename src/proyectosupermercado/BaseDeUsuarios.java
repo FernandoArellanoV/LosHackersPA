@@ -8,6 +8,10 @@ public class BaseDeUsuarios
     //VARIABLES DE INSTANCIA
     private Map <String,Usuario> mapaPorCorreo;
     
+    public Map<String, Usuario> getMapaPorCorreo()
+    {
+        return mapaPorCorreo;
+    }
     //CONSTRUCTOR
     public BaseDeUsuarios()
     {
@@ -23,6 +27,12 @@ public class BaseDeUsuarios
             System.out.println(aux);
         }
         System.out.println();
+    }
+
+    public void AgregarProducto(Producto prod, String correo)
+    {
+        Usuario user = mapaPorCorreo.get(correo);
+        user.AgregarAlCarrito(prod);
     }
 
     public void MostrarUsuarios(String correo)
@@ -72,8 +82,8 @@ public class BaseDeUsuarios
         }     
     }
     
-    public void ModificarCorreo(String correoNuevo,String correoAntiguo){
-         
+    public void ModificarCorreo(String correoNuevo,String correoAntiguo)
+    {
         if(mapaPorCorreo.containsKey(correoAntiguo)){
             Usuario aux = mapaPorCorreo.get(correoAntiguo);
             mapaPorCorreo.remove(correoAntiguo,aux);
@@ -85,8 +95,8 @@ public class BaseDeUsuarios
         }
     }
     
-    public void ModificarContraseña(String contraseña,String correo){
-         
+    public void ModificarContraseña(String contraseña,String correo)
+    {
         if(mapaPorCorreo.containsKey(correo)){
             Usuario aux = mapaPorCorreo.get(correo);
             aux.setContrasena(contraseña);

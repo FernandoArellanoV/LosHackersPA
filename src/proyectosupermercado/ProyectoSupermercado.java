@@ -30,7 +30,8 @@ public class ProyectoSupermercado
             System.out.println("9. Modificar usuario");
             System.out.println("10. Eliminar producto");
             System.out.println("11. Eliminar Usuario");
-            System.out.println("12. Salir del programa");
+            System.out.println("12. Comprar");
+            System.out.println("13. Salir del programa");
             try
             {
                 System.out.println("Elija una opcion");
@@ -79,19 +80,19 @@ public class ProyectoSupermercado
                         usuarios.MostrarUsuarios(correo);
                         break;
 
-                    case 6: ////MOSTRAR PRODUCTO POR NOMBRE
+                    case 6: //MOSTRAR PRODUCTO POR NOMBRE
                         System.out.println("Ingrese el nombre del producto a buscar\n");
                         String nombreProd = lector.next();
                         productos.MostrarPor(nombreProd);
                         break;
 
-                    case 7: ////MOSTRAR PRODUCTO POR CÓDIGO
+                    case 7: //MOSTRAR PRODUCTO POR CÓDIGO
                         System.out.println("Ingrese el código del producto a buscar\n");
                         int códigoProd = lector.nextInt();
                         productos.MostrarPor(códigoProd);
                         break;
                     
-                    case 8:////MODIFICAR PRODUCTO
+                    case 8://MODIFICAR PRODUCTO
                         System.out.println("Ingrese lo que desea modificar del producto\n");
                         System.out.println("1.Nombre 2.Codigo 3.Stock 4.Precio");
                         int eleccion = lector.nextInt();
@@ -121,12 +122,12 @@ public class ProyectoSupermercado
                                 códigoProd = lector.nextInt();
                                 productos.ModificarPrecio(precio, códigoProd);
                                 break;
+                            default:
+                                System.out.println("Ingrese una opción válida\n");
                         }
                         break;
-                      
-                     
                     
-                    case 9:////MODIFICAR USUARIO
+                    case 9://MODIFICAR USUARIO
                         System.out.println("Ingrese lo que desea modificar del producto\n");
                         System.out.println("1.Nombre 2.Correo 3.Constraseña");
                         int op = lector.nextInt();
@@ -150,11 +151,13 @@ public class ProyectoSupermercado
                                 correo = lector.next();
                                 usuarios.ModificarContraseña(contraseña, correo);
                                 break;
-                            
+                            default:
+                            System.out.println("Ingrese una opción válida\n");
                         }
+                        
                         break;
                     
-                    case 10: ///ELIMINAR PRODUCTO POR CODIGO
+                    case 10: //ELIMINAR PRODUCTO POR CODIGO
                         System.out.println("Ingrese el código del producto que desea eliminar\n");
                         int codigo = lector.nextInt();
                         productos.EliminarProducto(codigo);
@@ -166,10 +169,29 @@ public class ProyectoSupermercado
                         usuarios.EliminarUsuario(correoUsuario);
                         break;
                         
-                    case 12: //SALIR
-                        salir = true;
+                    case 12:
+                        System.out.println("Ingrese el correo electrónico del usuario");
+                        correo = lector.next();
+                        int parar = 0;
+                        Producto prod; 
+                        while (parar == 0)
+                        {
+                            productos.MostrarProductos();
+                            System.out.println("Ingrese el código del producto que desea y la cantidad de este");
+                            codigo = lector.nextInt();
+                            prod = productos.BuscarProducto(codigo);
+                            int stock = lector.nextInt();
+                            prod.setStock(stock);
+                            usuarios.AgregarProducto(prod, correo);
+                            System.out.println("¿Desea seguir comprando? (0 = Sí || 1 = No)\n");
+                            parar = lector.nextInt();
+                        }
+                        ImportarTxt.importarBoleta(usuarios, correo);
                         break;
 
+                    case 13: //SALIR
+                        salir = true;
+                        break;
                     default:
                         System.out.println("Ingrese una opción válida\n");
                 }
@@ -180,6 +202,8 @@ public class ProyectoSupermercado
                 lector.next();
             }
         }
+        ImportarTxt.importarUsuario(usuarios);
+        ImportarTxt.importarProducto(productos);
         lector.close();
     }
 }
