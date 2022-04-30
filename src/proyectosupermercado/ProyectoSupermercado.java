@@ -181,8 +181,14 @@ public class ProyectoSupermercado
                             codigo = lector.nextInt();
                             prod = productos.BuscarProducto(codigo);
                             int stock = lector.nextInt();
-                            prod.setStock(stock);
-                            usuarios.AgregarProducto(prod, correo);
+                            Producto aux = new Producto();
+                            aux.setNombre(prod.getNombre());
+                            aux.setCodigo(prod.getCodigo());
+                            aux.setStock(stock);
+                            aux.setPrecio(prod.getPrecio());
+                            aux.setTipo(prod.getTipo());
+                            prod.setStock(prod.getStock() - stock);
+                            usuarios.AgregarProducto(aux, correo);
                             System.out.println("¿Desea seguir comprando? (0 = Sí || 1 = No)\n");
                             parar = lector.nextInt();
                         }
