@@ -23,7 +23,7 @@ public class Producto
     {
         
     }
-
+    
     //GETTERS
     public String getNombre()
     {

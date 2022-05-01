@@ -128,25 +128,25 @@ public class ProyectoSupermercado
                         break;
                     
                     case 9://MODIFICAR USUARIO
-                        System.out.println("Ingrese lo que desea modificar del producto\n");
+                        System.out.println("Ingrese la variable que desea modificar del producto\n");
                         System.out.println("1.Nombre 2.Correo 3.Constraseña");
                         int op = lector.nextInt();
                         switch(op){
                             
                             case 1:
-                                System.out.println("Ingrese el nuevo nombre y el correo asociado al usuario\n");
+                                System.out.println("Ingrese el nuevo nombre y el correo electrónico asociado al usuario\n");
                                 String nombre = lector.next();
                                 correo = lector.next();
                                 usuarios.ModificarNombre(nombre,correo);
                                 break;
                             case 2:
-                                System.out.println("Ingrese el nuevo correo y el correo antiguo del usuario\n");
+                                System.out.println("Ingrese el nuevo correo y el correo electrónico anterior del usuario\n");
                                 String correoNuevo = lector.next();
                                 correo = lector.next();
                                 usuarios.ModificarCorreo(correoNuevo, correo);
                                 break;
                             case 3:
-                                System.out.println("Ingrese la nueva contraseña y el correo asociado al usuario\n");
+                                System.out.println("Ingrese la nueva contraseña y el correo electrónico asociado al usuario\n");
                                 String contraseña =lector.next();
                                 correo = lector.next();
                                 usuarios.ModificarContraseña(contraseña, correo);
