@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
+import java.util.ArrayList;
 
 public class ImportarTxt
 {
@@ -14,19 +14,28 @@ public class ImportarTxt
     {
         try
         {
-            File archivo = new File("Clientes.txt");
+            File archivo = new File("Usuarios.txt");
             FileWriter fichero = new FileWriter(archivo);
             BufferedWriter escritor = new BufferedWriter(fichero);
-            Map <String,Cliente> mapaAux = bdu.getMapaPorCorreo();
-            for (Cliente aux : mapaAux.values())
+            Map <String,Usuario> mapaAux = bdu.getMapaPorCorreo();
+            for (Usuario aux : mapaAux.values())
             {
-                escritor.write(aux.getNombre() + "-" + aux.getContrasena() + "-" + aux.getCorreo() + "\n");
+                if (aux.EsAdmin())
+                {
+                    Administrador admin = (Administrador) aux;
+                    escritor.write(admin.getNombre() + "-" + admin.getContrasena() + "-" + admin.getCorreo() + "-" + admin.getId() + "\n");
+                }
+                else
+                {
+                    Cliente client = (Cliente) aux;
+                    escritor.write(client.getNombre() + "-" + client.getContrasena() + "-" + client.getCorreo() + "-" + "0" + "\n");
+                }
             }
             escritor.close();
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            e.printStackTrace();
+            ex.printStackTrace();
         }
     }
 
@@ -37,9 +46,10 @@ public class ImportarTxt
             File archivo = new File("Productos.txt");
             FileWriter fichero = new FileWriter(archivo);
             BufferedWriter escritor = new BufferedWriter(fichero);
-            Map <Integer,Producto> mapaAux = bdp.getMapaPorCodigo();
-            for (Producto aux : mapaAux.values())
+            ArrayList <Producto> listaAux = bdp.getListaDeProductos();
+            for (int i = 0; i < listaAux.size(); i++)
             {
+                Producto aux = listaAux.get(i);
                 escritor.write(aux.getNombre() + "-" + aux.getCodigo() + "-" + aux.getStock() + "-" + aux.getPrecio() + "-" + aux.getTipo() + "\n");
             }
             escritor.close();
@@ -55,8 +65,8 @@ public class ImportarTxt
         try
         {
             String ruta = null;
-            Map <String,Cliente> mapaAux = bdu.getMapaPorCorreo();
-            Cliente user = mapaAux.get(correo);
+            Map <String,Usuario> mapaAux = bdu.getMapaPorCorreo();
+            Cliente user = (Cliente) mapaAux.get(correo);
             ruta = user.getNombre() + ".txt";
             File archivo = new File(ruta);
             FileWriter fichero = new FileWriter(archivo);
@@ -66,7 +76,7 @@ public class ImportarTxt
             escritor.write("Correo del comprador: " + user.getCorreo() + "\n");
             DateTimeFormatter dtf4 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
             escritor.write ("Fecha de la compra: " + dtf4.format(LocalDateTime.now()) + "\n");
-            List <Producto> listaProductos = user.getCarrito();
+            ArrayList <Producto> listaProductos = user.getCarrito();
             int total = 0;
             for (int i = 0; i < listaProductos.size(); i++)
             {
@@ -80,9 +90,9 @@ public class ImportarTxt
             escritor.write("---GRACIAS POR SU COMPRA---");
             escritor.close();
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            e.printStackTrace();
+            ex.printStackTrace();
         }
     }
 }

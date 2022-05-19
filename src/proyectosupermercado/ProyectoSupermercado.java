@@ -1,7 +1,8 @@
 package proyectosupermercado;
 
-import java.util.Scanner;
-import java.util.InputMismatchException;
+//import java.util.Scanner;
+//import java.util.InputMismatchException;
+import java.util.*;
 
 //MAIN
 public class ProyectoSupermercado
@@ -31,13 +32,27 @@ public class ProyectoSupermercado
                         String correo = lector.next();
                         System.out.println("Ingrese la contraseña");
                         String contrasena = lector.next();
-                        if (usuarios.getMapaPorCorreo().containsKey(correo))
+                        if (usuarios.ExisteCorreo(correo))
                         {
-                            Menu.MenuCliente(usuarios,productos);
+                            if (usuarios.ContrasenaCoincide(correo, contrasena))
+                            {
+                                if (usuarios.EsAdministrador(correo))
+                                {
+                                    Menu.MenuAdministrador(usuarios, productos);
+                                }
+                                else
+                                {
+                                    Menu.MenuCliente(usuarios,productos);
+                                }
+                            }
+                            else
+                            {
+                                System.out.println("La contraseña ingresada no es válida");
+                            }
                         }
                         else
                         {
-                            System.out.println("El usuario que usted ha ingresando no existe");
+                            System.out.println("El correo que usted ha ingresando no existe");
                         }
                         break; 
                     case 2:
@@ -59,7 +74,6 @@ public class ProyectoSupermercado
             }
             catch (InputMismatchException ex)
             {
-                
                 System.out.println("Debe ingresar un número entre 1 y 3\n");
                 lector.next();
             }

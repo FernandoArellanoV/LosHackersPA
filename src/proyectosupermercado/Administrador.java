@@ -30,4 +30,9 @@ public class Administrador extends Usuario
         System.out.println("Correo: " + getCorreo());
         System.out.println("Código de identificación: " + getId());
     }
+
+    public boolean EsAdmin()
+    {
+        return true;
+    }
 }

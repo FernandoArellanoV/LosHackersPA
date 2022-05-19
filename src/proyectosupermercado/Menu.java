@@ -1,7 +1,8 @@
 package proyectosupermercado;
 
-import java.util.Scanner;
-import java.util.InputMismatchException;
+//import java.util.Scanner;
+//import java.util.InputMismatchException;
+import java.util.*;
 
 public class Menu
 {
@@ -67,7 +68,7 @@ public class Menu
             }
             catch (InputMismatchException ex)
             {
-                System.out.println("Debe ingresar un número entre 1 y 3\n");
+                System.out.println("Debe ingresar un número entre 1 y 5\n");
                 lector.next();
             }
         }
@@ -137,8 +138,8 @@ public class Menu
                         System.out.println("Ingrese lo que desea modificar del producto\n");
                         System.out.println("1.Nombre 2.Codigo 3.Stock 4.Precio");
                         int eleccion = lector.nextInt();
-                        switch(eleccion){
-                            
+                        switch(eleccion)
+                        {
                             case 1:
                                 System.out.println("Ingrese el nuevo nombre y el codigo asociado al producto\n");
                                 String nombre = lector.next();
@@ -212,7 +213,7 @@ public class Menu
             }
             catch (InputMismatchException ex)
             {
-                System.out.println("Debe ingresar un número entre 1 y 3\n");
+                System.out.println("Debe ingresar un número entre 1 y 11\n");
                 lector.next();
             }
         }

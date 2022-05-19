@@ -8,10 +8,11 @@ public class BaseDeUsuarios implements Mostrador
     //VARIABLES DE INSTANCIA
     private Map <String,Usuario> mapaPorCorreo;
     
-    public Map<String, Usuario> getMapaPorCorreo()
+    public Map<String,Usuario> getMapaPorCorreo()
     {
         return mapaPorCorreo;
     }
+    
     //CONSTRUCTOR
     public BaseDeUsuarios()
     {
@@ -19,6 +20,42 @@ public class BaseDeUsuarios implements Mostrador
     }
     
     //MÉTODOS
+    public boolean ExisteCorreo(String correo)
+    {
+        if (mapaPorCorreo.containsKey(correo))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public boolean ContrasenaCoincide(String correo, String contrasena)
+    {
+        if ((mapaPorCorreo.get(correo)).getContrasena().equals(contrasena))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public boolean EsAdministrador(String correo)
+    {
+        if ((mapaPorCorreo.get(correo)).EsAdmin())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public void Mostrar()
     {
         System.out.println("Los usuarios guardados son:\n");

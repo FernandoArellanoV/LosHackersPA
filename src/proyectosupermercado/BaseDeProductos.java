@@ -8,12 +8,18 @@ public class BaseDeProductos implements Mostrador
 {
     //VARIABLES DE INSTANCIA
     private Map <Integer,Producto> mapaPorCodigo;
-    public Map<Integer, Producto> getMapaPorCodigo()
-    {
-        return mapaPorCodigo;
-    }
     private Map <String,ArrayList<Producto>> mapaPorNombre;
+    
     private ArrayList <Producto> listaDeProductos;
+    
+    public ArrayList<Producto> getListaDeProductos()
+    {
+        return listaDeProductos;
+    }
+    public void setListaDeProductos(ArrayList<Producto> listaDeProductos)
+    {
+        this.listaDeProductos = listaDeProductos;
+    }
     
     //CONSTRUCTOR
     public BaseDeProductos()
