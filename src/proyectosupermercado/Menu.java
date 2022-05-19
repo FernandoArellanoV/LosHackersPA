@@ -1,56 +1,66 @@
+
 package proyectosupermercado;
 
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
-//MAIN
-public class ProyectoSupermercado
-{
-    public static void main(String args[])
+public class Menu {
+    
+    public static void MenuCliente(BaseDeUsuarios usuarios,BaseDeProductos productos)
     {
-        //INICIALIZACIÓN DE VARIABLES, MAPAS Y OBJETOS
-        BaseDeProductos productos = new BaseDeProductos();
-        BaseDeUsuarios usuarios = new BaseDeUsuarios();
-        LectorTxt.llenarProductos(productos);
-        LectorTxt.llenarUsuarios(usuarios);
-        Scanner lector = new Scanner(System.in); //Crea un objeto que contendrá lo escaneado
+        Scanner lector = new Scanner(System.in);
         boolean salir = false;
         int opcion;
-        while (salir == false) {
-            
-            System.out.println("1. Iniciar sesion");
-            System.out.println("2. Registrarse");
-            System.out.println("3. Salir");
+        while(salir == false)
+        {
+            System.out.println("1. Mostrar productos");
+            System.out.println("2. Buscar producto por nombre");
+            System.out.println("3. Buscar producto por código");
+            System.out.println("4. Comprar");
+            System.out.println("5. Cerrar sesion");
             opcion = lector.nextInt();
             try {
                 switch(opcion)
                 {
                     case 1: 
-                        System.out.println("Ingrese su correo");
-                        String correo = lector.next();
-                        System.out.println("Ingrese la contraseña");
-                        String contrasena = lector.next();
-                        if (usuarios.getMapaPorCorreo().containsKey(correo)){
-                            Menu.MenuCliente(usuarios,productos);
-                        }
-                        else
-                        {
-                          System.out.println("El usuario que usted ha ingresando no existe");
-                        }
+                        productos.Mostrar();
                         break;
                     case 2:
-                        String[] datosUsuario = new String[3];
-                        System.out.println("Ingrese el nombre");
-                        datosUsuario[0] = lector.next();
-                        System.out.println("Ingrese la contraseña");
-                        datosUsuario[1] = lector.next();
-                        System.out.println("Ingrese el correo");
-                        datosUsuario[2] = lector.next();
-                        Usuario usuarioDatos = new Cliente(datosUsuario[0],datosUsuario[1],datosUsuario[2]);
-                        usuarios.AgregarUsuario(usuarioDatos);
-                        Menu.MenuCliente(usuarios,productos);
+                        System.out.println("Ingrese el nombre del producto a buscar\n");
+                        String nombreProd = lector.next();
+                        productos.MostrarPor(nombreProd);
                         break;
                     case 3:
+                        System.out.println("Ingrese el código del producto a buscar\n");
+                        int códigoProd = lector.nextInt();
+                        productos.MostrarPor(códigoProd);
+                        break;
+                    case 4:
+                        System.out.println("Ingrese el correo electrónico del usuario");
+                        String correo = lector.next();
+                        int parar = 0;
+                        Producto prod; 
+                        while (parar == 0)
+                        {
+                            productos.Mostrar();
+                            System.out.println("Ingrese el código del producto que desea y la cantidad de este");
+                            int codigo = lector.nextInt();
+                            prod = productos.BuscarProducto(codigo);
+                            int stock = lector.nextInt();
+                            Producto aux = new Producto();
+                            aux.setNombre(prod.getNombre());
+                            aux.setCodigo(prod.getCodigo());
+                            aux.setStock(stock);
+                            aux.setPrecio(prod.getPrecio());
+                            aux.setTipo(prod.getTipo());
+                            prod.setStock(prod.getStock() - stock);
+                            usuarios.AgregarProducto(aux, correo);
+                            System.out.println("¿Desea seguir comprando? (0 = Sí || 1 = No)\n");
+                            parar = lector.nextInt();
+                        }
+                        ImportarTxt.importarBoleta(usuarios, correo);
+                        break;
+                    case 5:
                         salir = true;
                         break;
                 }
@@ -60,41 +70,31 @@ public class ProyectoSupermercado
                 lector.next();
             }
         }
-        
-        /*while(salir == false)
+    }
+    
+    public static void MenuAdministrador(BaseDeUsuarios usuarios,BaseDeProductos productos)
+    {
+        Scanner lector = new Scanner(System.in);
+        boolean salir = false;
+        int opcion;
+        while(salir == false)
         {
-            System.out.println("1. Registrarse");
-            System.out.println("2. Agregar productos");
-            System.out.println("3. Mostrar productos");
-            System.out.println("4. Mostrar usuarios");
-            System.out.println("5. Buscar usuario por correo");
-            System.out.println("6. Buscar producto por nombre");
-            System.out.println("7. Buscar producto por código");
-            System.out.println("8. Modificar producto");
-            System.out.println("9. Modificar usuario");
-            System.out.println("10. Eliminar producto");
-            System.out.println("11. Eliminar Usuario");
-            System.out.println("12. Comprar");
-            System.out.println("13. Salir del programa");
-            try
-            {
-                System.out.println("Elija una opcion");
-                opcion = lector.nextInt();
-                switch (opcion)
+            System.out.println("1. Agregar productos");
+            System.out.println("2. Mostrar productos");
+            System.out.println("3. Mostrar usuarios");
+            System.out.println("4. Buscar usuario por correo");
+            System.out.println("5. Buscar producto por nombre");
+            System.out.println("6. Buscar producto por código");
+            System.out.println("7. Modificar producto");
+            System.out.println("8. Modificar usuario");
+            System.out.println("9. Eliminar producto");
+            System.out.println("10. Eliminar Usuario");
+            System.out.println("11. Cerrar sesion");
+            opcion = lector.nextInt();
+            try {
+                switch(opcion)
                 {
-                    case 1: //REGISTRARSE
-                    String[] datosUsuario = new String[3];
-                    System.out.println("Ingrese el nombre");
-                    datosUsuario[0] = lector.next();
-                    System.out.println("Ingrese la contraseña");
-                    datosUsuario[1] = lector.next();
-                    System.out.println("Ingrese el correo");
-                    datosUsuario[2] = lector.next();
-                    Usuario usuarioDatos = new Usuario(datosUsuario[0],datosUsuario[1],datosUsuario[2]);
-                    usuarios.AgregarUsuario(usuarioDatos);
-                    break;
-
-                    case 2: //AGREGAR PRODUCTO
+                    case 1: 
                         String[] datosProducto = new String[5];
                         System.out.println("Nombre producto");
                         datosProducto[0] = lector.next();
@@ -109,34 +109,28 @@ public class ProyectoSupermercado
                         Producto productoDatos = new Producto(datosProducto[0],datosProducto[1],datosProducto[2],datosProducto[3],datosProducto[4]);
                         productos.AgregarProducto(productoDatos);
                         break;
-
-                    case 3: //MOSTRAR PRODUCTO
+                    case 2:
                         productos.Mostrar();
                         break;
-
-                    case 4: //MOSTRAR USUARIOS
+                    case 3:
                         usuarios.Mostrar();
                         break;
-
-                    case 5: //Buscar USUARIO POR CORREO
+                    case 4:
                         System.out.println("Ingrese el correo a buscar\n");
                         String correo = lector.next();
                         usuarios.MostrarUsuarios(correo);
                         break;
-
-                    case 6: //Buscar PRODUCTO POR NOMBRE
+                    case 5:
                         System.out.println("Ingrese el nombre del producto a buscar\n");
                         String nombreProd = lector.next();
                         productos.MostrarPor(nombreProd);
                         break;
-
-                    case 7: //Buscar PRODUCTO POR CÓDIGO
+                    case 6:
                         System.out.println("Ingrese el código del producto a buscar\n");
                         int códigoProd = lector.nextInt();
                         productos.MostrarPor(códigoProd);
                         break;
-                    
-                    case 8://MODIFICAR PRODUCTO
+                    case 7:
                         System.out.println("Ingrese lo que desea modificar del producto\n");
                         System.out.println("1.Nombre 2.Codigo 3.Stock 4.Precio");
                         int eleccion = lector.nextInt();
@@ -170,8 +164,7 @@ public class ProyectoSupermercado
                                 System.out.println("Ingrese una opción válida\n");
                         }
                         break;
-                    
-                    case 9://MODIFICAR USUARIO
+                    case 8:
                         System.out.println("Ingrese la variable que desea modificar del producto\n");
                         System.out.println("1.Nombre 2.Correo 3.Constraseña");
                         int op = lector.nextInt();
@@ -198,62 +191,27 @@ public class ProyectoSupermercado
                             default:
                             System.out.println("Ingrese una opción válida\n");
                         }
-                        
                         break;
-                    
-                    case 10: //ELIMINAR PRODUCTO POR CODIGO
+                    case 9:
                         System.out.println("Ingrese el código del producto que desea eliminar\n");
                         int codigo = lector.nextInt();
                         productos.EliminarProducto(codigo);
                         break;
-                        
-                    case 11:
+                    case 10:
                         System.out.println("Ingrese el correo del usuario que desea eliminar\n");
                         String correoUsuario = lector.next();
                         usuarios.EliminarUsuario(correoUsuario);
                         break;
-                        
-                    case 12:
-                        System.out.println("Ingrese el correo electrónico del usuario");
-                        correo = lector.next();
-                        int parar = 0;
-                        Producto prod; 
-                        while (parar == 0)
-                        {
-                            productos.Mostrar();
-                            System.out.println("Ingrese el código del producto que desea y la cantidad de este");
-                            codigo = lector.nextInt();
-                            prod = productos.BuscarProducto(codigo);
-                            int stock = lector.nextInt();
-                            Producto aux = new Producto();
-                            aux.setNombre(prod.getNombre());
-                            aux.setCodigo(prod.getCodigo());
-                            aux.setStock(stock);
-                            aux.setPrecio(prod.getPrecio());
-                            aux.setTipo(prod.getTipo());
-                            prod.setStock(prod.getStock() - stock);
-                            usuarios.AgregarProducto(aux, correo);
-                            System.out.println("¿Desea seguir comprando? (0 = Sí || 1 = No)\n");
-                            parar = lector.nextInt();
-                        }
-                        ImportarTxt.importarBoleta(usuarios, correo);
-                        break;
-
-                    case 13: //SALIR
+                    case 11:
                         salir = true;
                         break;
-                    default:
-                        System.out.println("Ingrese una opción válida\n");
                 }
-            }
-            catch(InputMismatchException ex)
-            {
-                System.out.println("Debe ingresar un número\n");
+            } catch (InputMismatchException ex) {
+                
+                System.out.println("Debe ingresar un número entre 1 y 3\n");
                 lector.next();
             }
-        }*/
-        ImportarTxt.importarUsuario(usuarios);
-        ImportarTxt.importarProducto(productos);
-        lector.close();
     }
+        }
+        
 }

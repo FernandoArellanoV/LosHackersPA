@@ -3,11 +3,15 @@ package proyectosupermercado;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BaseDeUsuarios
+public class BaseDeUsuarios implements Mostrador
 {
     //VARIABLES DE INSTANCIA
     private Map <String,Usuario> mapaPorCorreo;
     
+    public Map<String, Usuario> getMapaPorCorreo()
+    {
+        return mapaPorCorreo;
+    }
     //CONSTRUCTOR
     public BaseDeUsuarios()
     {
@@ -15,7 +19,7 @@ public class BaseDeUsuarios
     }
     
     //MÉTODOS
-    public void MostrarUsuarios()
+    public void Mostrar()
     {
         System.out.println("Los usuarios guardados son:\n");
         for(Usuario aux : mapaPorCorreo.values()) //for hace una operación hasta el final de "mapaPorCorreo"
@@ -23,6 +27,12 @@ public class BaseDeUsuarios
             System.out.println(aux);
         }
         System.out.println();
+    }
+
+    public void AgregarProducto(Producto prod, String correo)
+    {
+        Cliente user = (Cliente)mapaPorCorreo.get(correo);
+        user.AgregarAlCarrito(prod);
     }
 
     public void MostrarUsuarios(String correo)
@@ -59,40 +69,49 @@ public class BaseDeUsuarios
         System.out.println();
     }
     
-    public void ModificarNombre(String nombre,String correo){
+    public void ModificarNombre(String nombre,String correo)
+    {
         
-        if(mapaPorCorreo.containsKey(correo)){
+        if(mapaPorCorreo.containsKey(correo))
+        {
             Usuario aux = mapaPorCorreo.get(correo);
             aux.setNombre(nombre);
             mapaPorCorreo.put(correo, aux);
             System.out.println("El nombre se ha modificado con exito");
-        }else{
-            
+        }
+        else
+        {
             System.out.println("No existe el usuario del correo asociado");
         }     
     }
     
-    public void ModificarCorreo(String correoNuevo,String correoAntiguo){
-         
-        if(mapaPorCorreo.containsKey(correoAntiguo)){
+    public void ModificarCorreo(String correoNuevo,String correoAntiguo)
+    {
+        if(mapaPorCorreo.containsKey(correoAntiguo))
+        {
             Usuario aux = mapaPorCorreo.get(correoAntiguo);
             mapaPorCorreo.remove(correoAntiguo,aux);
             aux.setCorreo(correoNuevo);
             mapaPorCorreo.put(correoNuevo, aux);
             System.out.println("El correo se ha modificado con exito");
-        }else{
+        }
+        else
+        {
             System.out.println("No existe el usuario del correo asociado");
         }
     }
     
-    public void ModificarContraseña(String contraseña,String correo){
-         
-        if(mapaPorCorreo.containsKey(correo)){
+    public void ModificarContrasena(String contrasena,String correo)
+    {
+        if(mapaPorCorreo.containsKey(correo))
+        {
             Usuario aux = mapaPorCorreo.get(correo);
-            aux.setContrasena(contraseña);
+            aux.setContrasena(contrasena);
             mapaPorCorreo.put(correo, aux);
             System.out.println("La contraseña se ha modificado con exito");
-        }else{
+        }
+        else
+        {
             System.out.println("No existe el usuario del correo asociado");
         }
     }

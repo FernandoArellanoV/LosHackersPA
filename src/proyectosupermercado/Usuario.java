@@ -4,23 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 //import proyectosupermercado.BaseDeProductos;
 
-public class Usuario
+public abstract class Usuario
 {
     //VARIABLES DE INSTANCIA
     private String nombre;
     private String contrasena;
     private String correo;
-    private final List <BaseDeProductos>carrito; // final = la lista no puede ser declarada nada más que "BaseDeProductos"
+    private String id;
 
+    
     //CONSTRUCTOR
-    public Usuario(String nombre,String contrasena,String correo)
+    public Usuario(String nombre,String contrasena,String correo,String id)
     {
         this.nombre = nombre;
         this.contrasena = contrasena;
         this.correo = correo;
-        carrito = new ArrayList<>();
+        this.id = id;
     }
-
+    
     //GETTERS
     public String getNombre()
     {
@@ -34,6 +35,7 @@ public class Usuario
     {
         return correo;
     }
+    public abstract String getId();
 
     //SETTERS
     public void setNombre(String nombre)
@@ -48,6 +50,7 @@ public class Usuario
     {
         this.correo = correo;
     }
+    public abstract void setId(String id);
 
     @Override //?
     public String toString()

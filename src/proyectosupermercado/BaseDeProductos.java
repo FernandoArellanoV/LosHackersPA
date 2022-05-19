@@ -4,10 +4,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BaseDeProductos
+public class BaseDeProductos implements Mostrador
 {
     //VARIABLES DE INSTANCIA
     private Map <Integer,Producto> mapaPorCodigo;
+    public Map<Integer, Producto> getMapaPorCodigo()
+    {
+        return mapaPorCodigo;
+    }
     private Map <String,ArrayList<Producto>> mapaPorNombre;
     private ArrayList <Producto> listaDeProductos;
     
@@ -36,7 +40,7 @@ public class BaseDeProductos
         listaDeProductos.add(datosProducto);
     }
     
-    public void MostrarProductos()
+    public void Mostrar()
     {
         for (int i = 0; i < listaDeProductos.size(); i++)
         {
@@ -71,9 +75,20 @@ public class BaseDeProductos
         {
             System.out.println(mapaPorCodigo.get(codigo).toString());
         }
-        System.out.println();
     }
     
+    public Producto BuscarProducto(int codigo)
+    {
+        if(mapaPorCodigo.containsKey(codigo) == false)
+        {
+            return null;
+        }
+        else
+        {
+            return mapaPorCodigo.get(codigo);
+        }
+    }
+
     public void EliminarProducto(int codigo)
     {
         if(mapaPorCodigo.containsKey(codigo) == false)
@@ -91,9 +106,10 @@ public class BaseDeProductos
         System.out.println();
     }
     
-    public void ModificarNombre(String nombre , int codigo){
-          
-        if(mapaPorCodigo.containsKey(codigo)){
+    public void ModificarNombre(String nombre , int codigo)
+    {
+        if(mapaPorCodigo.containsKey(codigo))
+        {
             Producto aux = mapaPorCodigo.get(codigo);
             ArrayList<Producto> lista = mapaPorNombre.get(aux.getNombre());
             lista.remove(aux);
@@ -112,83 +128,105 @@ public class BaseDeProductos
                 }
             }
             System.out.println("El nombre se ha modificado con exito");
-        }else{
+        }
+        else
+        {
             System.out.println("No existe el producto del codigo asociado");
         }  
     }
-     
-    public void ModificarCodigo(int codigoNuevo , int codigoAntiguo){
+    
+    public void ModificarCodigo(int codigoNuevo , int codigoAntiguo)
+    {
         
-        if(mapaPorCodigo.containsKey(codigoAntiguo)){
+        if(mapaPorCodigo.containsKey(codigoAntiguo))
+        {
             Producto aux = mapaPorCodigo.get(codigoAntiguo);
             mapaPorCodigo.remove(codigoAntiguo,aux);
             aux.setCodigo(codigoNuevo);
             mapaPorCodigo.put(codigoNuevo, aux);
-            for (int i = 0; i < listaDeProductos.size(); i++) {
-                if(listaDeProductos.get(i).getCodigo() == codigoAntiguo){
+            for (int i = 0; i < listaDeProductos.size(); i++)
+            {
+                if(listaDeProductos.get(i).getCodigo() == codigoAntiguo)
+                {
                     listaDeProductos.get(i).setCodigo(codigoNuevo);
                 }
             }
             ArrayList<Producto> lista = mapaPorNombre.get(aux.getNombre());
-            for (int i = 0; i < lista.size(); i++) {
-                if(lista.get(i).getCodigo() == codigoAntiguo){
+            for (int i = 0; i < lista.size(); i++)
+            {
+                if(lista.get(i).getCodigo() == codigoAntiguo)
+                {
                     lista.get(i).setCodigo(codigoNuevo);
                 }
             }
             mapaPorNombre.put(aux.getNombre(), lista);
             System.out.println("El codigo se ha modificado con exito");
         }
-        else{
+        else
+        {
             System.out.println("No existe el producto del codigo asociado");
         }
     }
-     
-    public void ModificarStock(int stock , int codigo){
+    
+    public void ModificarStock(int stock , int codigo)
+    {
         
-        if(mapaPorCodigo.containsKey(codigo)){
+        if(mapaPorCodigo.containsKey(codigo))
+        {
             Producto aux = mapaPorCodigo.get(codigo);
             aux.setStock(stock);
             mapaPorCodigo.put(codigo, aux);
-            for (int i = 0; i < listaDeProductos.size(); i++) {
-                if(listaDeProductos.get(i).getCodigo()== codigo){
+            for (int i = 0; i < listaDeProductos.size(); i++)
+            {
+                if(listaDeProductos.get(i).getCodigo()== codigo)
+                {
                     listaDeProductos.get(i).setStock(stock);
                 }
             }
             ArrayList<Producto> lista = mapaPorNombre.get(aux.getNombre());
-            for (int i = 0; i < lista.size(); i++) {
-                if(lista.get(i).getCodigo() == codigo){
+            for (int i = 0; i < lista.size(); i++)
+            {
+                if(lista.get(i).getCodigo() == codigo)
+                {
                     lista.get(i).setStock(stock);
                 }
             }
             mapaPorNombre.put(aux.getNombre(), lista);
             System.out.println("El stock se ha modificado con exito");
         }
-        else{
+        else
+        {
             System.out.println("No existe el producto del codigo asociado");
         }  
     }
-     
-    public void ModificarPrecio(int precio , int codigo){
-         
-        if(mapaPorCodigo.containsKey(codigo)){
+    
+    public void ModificarPrecio(int precio , int codigo)
+    {
+        if(mapaPorCodigo.containsKey(codigo))
+        {
             Producto aux = mapaPorCodigo.get(codigo);
             aux.setPrecio(precio);
             mapaPorCodigo.put(codigo, aux);
-            for (int i = 0; i < listaDeProductos.size(); i++) {
-                if(listaDeProductos.get(i).getCodigo()== codigo){
+            for (int i = 0; i < listaDeProductos.size(); i++)
+            {
+                if(listaDeProductos.get(i).getCodigo()== codigo)
+                {
                     listaDeProductos.get(i).setPrecio(precio);
                 }
             }
             ArrayList<Producto> lista = mapaPorNombre.get(aux.getNombre());
-            for (int i = 0; i < lista.size(); i++) {
-                if(lista.get(i).getCodigo() == codigo){
+            for (int i = 0; i < lista.size(); i++)
+            {
+                if(lista.get(i).getCodigo() == codigo)
+                {
                     lista.get(i).setPrecio(precio);
                 }
             }
             mapaPorNombre.put(aux.getNombre(), lista);
             System.out.println("El precio se ha modificado con exito");
         }
-        else{
+        else
+        {
             System.out.println("No existe el producto del codigo asociado");
         }  
     }

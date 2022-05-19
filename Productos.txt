@@ -1,4 +1,5 @@
-Nuggets-1234-7-1200-Congelados
-Spaghetti-2345-5-900-Pastas
-ShampooH&S-3456-12-700-Higiene
+ShampooH&S-3456-10-700-Higiene
 Nuggets-4321-8-1300-Congelados
+Nuggets-1234-4-1200-Congelados
+milk-5555-60-1-lacteo
+Spaghetti-2345-10-900-Pastas

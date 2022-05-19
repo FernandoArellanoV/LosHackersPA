@@ -18,7 +18,12 @@ public class Producto
         this.precio = Integer.parseInt(precio);        
         this.tipo = tipo;
     }
-
+    
+    public Producto()
+    {
+        
+    }
+    
     //GETTERS
     public String getNombre()
     {

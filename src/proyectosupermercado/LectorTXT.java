@@ -9,13 +9,20 @@ public class LectorTxt
     { //"try" prueba durante ejecución el bloque de código para ver si hay errores
         try
         {
-            String[] datosUsuario = new String[3]; // 3 = nombre + contraseña + correo
+            String[] datosUsuario = new String[4]; // 3 = nombre + contraseña + correo
             Scanner input = new Scanner(new File("Usuarios.txt")); 
             while(input.hasNextLine()) //Mientras existan lineas en el txt
             {
                 String linea = input.nextLine(); //saltando línea
                 datosUsuario = linea.split("-"); //separando por "-"
-                Usuario User = new Usuario(datosUsuario[0],datosUsuario[1],datosUsuario[2]);
+                Usuario User;
+                if (datosUsuario[3].equals("0")) {
+                    User = new Cliente(datosUsuario[0],datosUsuario[1],datosUsuario[2]);
+                }
+                else
+                {
+                    User = new Administrador(datosUsuario[0],datosUsuario[1],datosUsuario[2],datosUsuario[3]);
+                }
                 objetoUsuario.AgregarUsuario(User); //Subiendo al mapa
             } 
             input.close();
