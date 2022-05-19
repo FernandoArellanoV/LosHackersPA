@@ -35,7 +35,7 @@ public class ProyectoSupermercado
                         }
                         else
                         {
-                          System.out.println("El usuario que usted ha ingresando no existe");
+                            System.out.println("El usuario que usted ha ingresando no existe");
                         }
                         break;
                     case 2:

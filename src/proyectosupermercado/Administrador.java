@@ -1,25 +1,33 @@
-
 package proyectosupermercado;
 
-public class Administrador extends Usuario{
-   
+public class Administrador extends Usuario
+{
+    private String id;
     
     public Administrador()
     {   
-       super("", "", "","");
+        super("","","");
     }
     public Administrador(String nombre, String contrasena, String correo,String id)
     {
-        super(nombre, contrasena, correo,id);
-    }
-
-    public String getId() {
-        return getId();
-    }
-
-    public void setId(String id) {
+        super(nombre, contrasena, correo);
         this.id = id;
     }
-    
-    
+
+    public String getId()
+    {
+        return id;
+    }
+    public void setId(String id)
+    {
+        this.id = id;
+    }
+
+    public void Reportarse()
+    {
+        System.out.println("Tipo de usuario: Administrador");
+        System.out.println("Nombre: " + getNombre());
+        System.out.println("Correo: " + getCorreo());
+        System.out.println("Código de identificación: " + getId());
+    }
 }

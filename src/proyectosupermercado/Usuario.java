@@ -1,7 +1,7 @@
 package proyectosupermercado;
 
-import java.util.ArrayList;
-import java.util.List;
+//import java.util.ArrayList;
+//import java.util.List;
 //import proyectosupermercado.BaseDeProductos;
 
 public abstract class Usuario
@@ -10,18 +10,18 @@ public abstract class Usuario
     private String nombre;
     private String contrasena;
     private String correo;
-    private String id;
 
-    
     //CONSTRUCTOR
-    public Usuario(String nombre,String contrasena,String correo,String id)
+
+    public Usuario(String nombre,String contrasena,String correo)
     {
         this.nombre = nombre;
         this.contrasena = contrasena;
         this.correo = correo;
-        this.id = id;
     }
-    
+
+    public abstract void Reportarse();
+
     //GETTERS
     public String getNombre()
     {
@@ -35,8 +35,6 @@ public abstract class Usuario
     {
         return correo;
     }
-    public abstract String getId();
-
     //SETTERS
     public void setNombre(String nombre)
     {
@@ -50,8 +48,6 @@ public abstract class Usuario
     {
         this.correo = correo;
     }
-    public abstract void setId(String id);
-
     @Override //?
     public String toString()
     {

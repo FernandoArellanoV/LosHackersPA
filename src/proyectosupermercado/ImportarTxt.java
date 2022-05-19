@@ -14,11 +14,11 @@ public class ImportarTxt
     {
         try
         {
-            File archivo = new File("Usuarios.txt");
+            File archivo = new File("Clientes.txt");
             FileWriter fichero = new FileWriter(archivo);
             BufferedWriter escritor = new BufferedWriter(fichero);
-            Map <String,Usuario> mapaAux = bdu.getMapaPorCorreo();
-            for (Usuario aux : mapaAux.values())
+            Map <String,Cliente> mapaAux = bdu.getMapaPorCorreo();
+            for (Cliente aux : mapaAux.values())
             {
                 escritor.write(aux.getNombre() + "-" + aux.getContrasena() + "-" + aux.getCorreo() + "\n");
             }
@@ -53,8 +53,8 @@ public class ImportarTxt
         try
         {
             String ruta = null;
-            Map <String,Usuario> mapaAux = bdu.getMapaPorCorreo();
-            Usuario user = mapaAux.get(correo);
+            Map <String,Cliente> mapaAux = bdu.getMapaPorCorreo();
+            Cliente user = mapaAux.get(correo);
             ruta = user.getNombre() + ".txt";
             File archivo = new File(ruta);
             FileWriter fichero = new FileWriter(archivo);
