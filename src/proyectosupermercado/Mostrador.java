@@ -1,8 +1,6 @@
 package proyectosupermercado;
 
-
-
-public interface Mostrador {
-    
+public interface Mostrador
+{
     public void Mostrar();    
 }

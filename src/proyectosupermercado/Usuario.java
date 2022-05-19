@@ -35,6 +35,7 @@ public abstract class Usuario
     {
         return correo;
     }
+    
     //SETTERS
     public void setNombre(String nombre)
     {
@@ -48,6 +49,7 @@ public abstract class Usuario
     {
         this.correo = correo;
     }
+    
     @Override //?
     public String toString()
     {

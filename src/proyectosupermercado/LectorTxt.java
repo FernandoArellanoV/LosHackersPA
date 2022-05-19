@@ -16,7 +16,8 @@ public class LectorTxt
                 String linea = input.nextLine(); //saltando línea
                 datosUsuario = linea.split("-"); //separando por "-"
                 Usuario User;
-                if (datosUsuario[3].equals("0")) {
+                if(datosUsuario[3].equals("0"))
+                {
                     User = new Cliente(datosUsuario[0],datosUsuario[1],datosUsuario[2]);
                 }
                 else

@@ -23,7 +23,8 @@ public class ImportarTxt
                 escritor.write(aux.getNombre() + "-" + aux.getContrasena() + "-" + aux.getCorreo() + "\n");
             }
             escritor.close();
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             e.printStackTrace();
         }
@@ -42,9 +43,10 @@ public class ImportarTxt
                 escritor.write(aux.getNombre() + "-" + aux.getCodigo() + "-" + aux.getStock() + "-" + aux.getPrecio() + "-" + aux.getTipo() + "\n");
             }
             escritor.close();
-        } catch (Exception e)
+        }
+        catch (Exception ex)
         {
-            e.printStackTrace();
+            ex.printStackTrace();
         }
     }
 
@@ -77,7 +79,8 @@ public class ImportarTxt
             escritor.write("\nCantidad total a pagar: $" + total + "\n\n");
             escritor.write("---GRACIAS POR SU COMPRA---");
             escritor.close();
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             e.printStackTrace();
         }

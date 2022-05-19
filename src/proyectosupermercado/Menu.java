@@ -1,11 +1,10 @@
-
 package proyectosupermercado;
 
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
-public class Menu {
-    
+public class Menu
+{
     public static void MenuCliente(BaseDeUsuarios usuarios,BaseDeProductos productos)
     {
         Scanner lector = new Scanner(System.in);
@@ -19,7 +18,8 @@ public class Menu {
             System.out.println("4. Comprar");
             System.out.println("5. Cerrar sesion");
             opcion = lector.nextInt();
-            try {
+            try
+            {
                 switch(opcion)
                 {
                     case 1: 
@@ -64,12 +64,14 @@ public class Menu {
                         salir = true;
                         break;
                 }
-            } catch (InputMismatchException ex) {
-                
+            }
+            catch (InputMismatchException ex)
+            {
                 System.out.println("Debe ingresar un número entre 1 y 3\n");
                 lector.next();
             }
         }
+        lector.close();
     }
     
     public static void MenuAdministrador(BaseDeUsuarios usuarios,BaseDeProductos productos)
@@ -91,7 +93,8 @@ public class Menu {
             System.out.println("10. Eliminar Usuario");
             System.out.println("11. Cerrar sesion");
             opcion = lector.nextInt();
-            try {
+            try
+            {
                 switch(opcion)
                 {
                     case 1: 
@@ -206,12 +209,13 @@ public class Menu {
                         salir = true;
                         break;
                 }
-            } catch (InputMismatchException ex) {
-                
+            }
+            catch (InputMismatchException ex)
+            {
                 System.out.println("Debe ingresar un número entre 1 y 3\n");
                 lector.next();
             }
-    }
         }
-        
+        lector.close();
+    }
 }

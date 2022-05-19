@@ -33,7 +33,7 @@ public class BaseDeProductos implements Mostrador
             listaDeNombre.add(datosProducto);
             mapaPorNombre.put(datosProducto.getNombre(), listaDeNombre);
         }
-        else
+        else 
         {
             mapaPorNombre.get(datosProducto.getNombre()).add(datosProducto);
         }
