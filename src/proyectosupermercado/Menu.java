@@ -6,9 +6,9 @@ import java.util.*;
 
 public class Menu
 {
-    public static void MenuCliente(BaseDeUsuarios usuarios,BaseDeProductos productos)
+    public static void MenuCliente(BaseDeUsuarios usuarios,BaseDeProductos productos, Scanner lector)
     {
-        Scanner lector = new Scanner(System.in);
+        //Scanner lector = new Scanner(System.in);
         boolean salir = false;
         int opcion;
         while(salir == false)
@@ -17,7 +17,8 @@ public class Menu
             System.out.println("2. Buscar producto por nombre");
             System.out.println("3. Buscar producto por código");
             System.out.println("4. Comprar");
-            System.out.println("5. Cerrar sesion");
+            System.out.println("5. Mostrar producto más barato");
+            System.out.println("6. Cerrar sesion");
             opcion = lector.nextInt();
             try
             {
@@ -37,7 +38,7 @@ public class Menu
                         productos.MostrarPor(códigoProd);
                         break;
                     case 4:
-                        System.out.println("Ingrese el correo electrónico del usuario");
+                        System.out.println("Ingrese el correo electortrónico del usuario");
                         String correo = lector.next();
                         int parar = 0;
                         Producto prod; 
@@ -62,22 +63,25 @@ public class Menu
                         ImportarTxt.importarBoleta(usuarios, correo);
                         break;
                     case 5:
+                        productos.ProductoMasBarato();
+                        break;
+                    case 6:
                         salir = true;
                         break;
                 }
             }
             catch (InputMismatchException ex)
             {
-                System.out.println("Debe ingresar un número entre 1 y 5\n");
+                System.out.println("Debe ingresar un número entre 1 y 6\n");
                 lector.next();
             }
         }
-        lector.close();
+        //lector.close();
     }
     
-    public static void MenuAdministrador(BaseDeUsuarios usuarios,BaseDeProductos productos)
+    public static void MenuAdministrador(BaseDeUsuarios usuarios,BaseDeProductos productos, Scanner lector)
     {
-        Scanner lector = new Scanner(System.in);
+        //Scanner lector = new Scanner(System.in);
         boolean salir = false;
         int opcion;
         while(salir == false)
@@ -137,8 +141,8 @@ public class Menu
                     case 7:
                         System.out.println("Ingrese lo que desea modificar del producto\n");
                         System.out.println("1.Nombre 2.Codigo 3.Stock 4.Precio");
-                        int eleccion = lector.nextInt();
-                        switch(eleccion)
+                        int electorcion = lector.nextInt();
+                        switch(electorcion)
                         {
                             case 1:
                                 System.out.println("Ingrese el nuevo nombre y el codigo asociado al producto\n");
@@ -175,19 +179,19 @@ public class Menu
                         switch(op){
                             
                             case 1:
-                                System.out.println("Ingrese el nuevo nombre y el correo electrónico asociado al usuario\n");
+                                System.out.println("Ingrese el nuevo nombre y el correo electortrónico asociado al usuario\n");
                                 String nombre = lector.next();
                                 correo = lector.next();
                                 usuarios.ModificarNombre(nombre,correo);
                                 break;
                             case 2:
-                                System.out.println("Ingrese el nuevo correo y el correo electrónico anterior del usuario\n");
+                                System.out.println("Ingrese el nuevo correo y el correo electortrónico anterior del usuario\n");
                                 String correoNuevo = lector.next();
                                 correo = lector.next();
                                 usuarios.ModificarCorreo(correoNuevo, correo);
                                 break;
                             case 3:
-                                System.out.println("Ingrese la nueva contraseña y el correo electrónico asociado al usuario\n");
+                                System.out.println("Ingrese la nueva contraseña y el correo electortrónico asociado al usuario\n");
                                 String contrasena =lector.next();
                                 correo = lector.next();
                                 usuarios.ModificarContrasena(contrasena, correo);
@@ -217,6 +221,6 @@ public class Menu
                 lector.next();
             }
         }
-        lector.close();
+        //lector.close();
     }
 }

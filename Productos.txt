@@ -1,5 +1,7 @@
 ShampooH&S-3456-10-700-Higiene
 Nuggets-4321-8-1300-Congelados
-Nuggets-1234-4-1200-Congelados
-milk-5555-60-1-lacteo
+Leche-5555-60-700-Lacteos
 Spaghetti-2345-10-900-Pastas
+Mayonesa-1232-69-1200-Condimento
+Helado-3456-44-2000-Congelados
+Cafe-23587-35-800-Infuciones

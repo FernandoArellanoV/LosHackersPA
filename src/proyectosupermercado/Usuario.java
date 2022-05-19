@@ -20,7 +20,12 @@ public abstract class Usuario
         this.correo = correo;
     }
 
-    public abstract void Reportarse();
+    public void Reportarse()
+    {
+        System.out.println("Tipo de usuario: x");
+        System.out.println("Nombre: " + getNombre());
+        System.out.println("Correo: " + getCorreo());
+    }
 
     public abstract boolean EsAdmin();
 

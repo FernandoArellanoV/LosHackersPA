@@ -30,6 +30,29 @@ public class BaseDeProductos implements Mostrador
     }
 
     //MÉTODOS
+
+    public void ProductoMasBarato()
+    {
+        int precioMenor = (listaDeProductos.get(0)).getPrecio();
+        System.out.println("¡Productos con precios imperdible! ¡No dejes la oportunidad!\n");
+
+        for (int i = 1; i < listaDeProductos.size(); i++)
+        {
+            if (precioMenor > (listaDeProductos.get(i)).getPrecio())
+            {
+                precioMenor = (listaDeProductos.get(i)).getPrecio();
+            }
+        }
+        for (int i = 0; i < listaDeProductos.size(); i++)
+        {
+            if (precioMenor == (listaDeProductos.get(i)).getPrecio())
+            {
+                System.out.println( "-" + (listaDeProductos.get(i)).getCodigo() + " " + (listaDeProductos.get(i)).getNombre() + " " + (listaDeProductos.get(i)).getPrecio());
+            }
+            System.out.println("\n");
+        }
+    }
+
     public void AgregarProducto(Producto datosProducto)
     {
         mapaPorCodigo.put(datosProducto.getCodigo(), datosProducto);

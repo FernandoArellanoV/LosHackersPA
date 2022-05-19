@@ -1,8 +1,7 @@
 package proyectosupermercado;
 
-//import java.util.Scanner;
-//import java.util.InputMismatchException;
-import java.util.*;
+import java.util.Scanner;
+import java.util.InputMismatchException;
 
 //MAIN
 public class ProyectoSupermercado
@@ -14,8 +13,8 @@ public class ProyectoSupermercado
         BaseDeUsuarios usuarios = new BaseDeUsuarios();
         LectorTxt.llenarProductos(productos);
         LectorTxt.llenarUsuarios(usuarios);
-        Scanner lector = new Scanner(System.in);
         boolean salir = false;
+        Scanner lector = new Scanner(System.in);
         int opcion;
         while (salir == false)
         {
@@ -27,7 +26,7 @@ public class ProyectoSupermercado
             {
                 switch(opcion)
                 {
-                    case 1: 
+                    case 1:
                         System.out.println("Ingrese su correo");
                         String correo = lector.next();
                         System.out.println("Ingrese la contraseña");
@@ -38,11 +37,11 @@ public class ProyectoSupermercado
                             {
                                 if (usuarios.EsAdministrador(correo))
                                 {
-                                    Menu.MenuAdministrador(usuarios, productos);
+                                    Menu.MenuAdministrador(usuarios, productos, lector);
                                 }
                                 else
                                 {
-                                    Menu.MenuCliente(usuarios,productos);
+                                    Menu.MenuCliente(usuarios, productos, lector);
                                 }
                             }
                             else
@@ -65,7 +64,7 @@ public class ProyectoSupermercado
                         datosUsuario[2] = lector.next();
                         Usuario usuarioDatos = new Cliente(datosUsuario[0],datosUsuario[1],datosUsuario[2]);
                         usuarios.AgregarUsuario(usuarioDatos);
-                        Menu.MenuCliente(usuarios,productos);
+                        Menu.MenuCliente(usuarios, productos, lector);
                         break;
                     case 3:
                         salir = true;
@@ -74,7 +73,7 @@ public class ProyectoSupermercado
             }
             catch (InputMismatchException ex)
             {
-                System.out.println("Debe ingresar un número entre 1 y 3\n");
+                System.out.println("Debe ingresar un número entre 1 y 5\n");
                 lector.next();
             }
         }
