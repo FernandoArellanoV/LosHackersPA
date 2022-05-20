@@ -1,8 +1,7 @@
 package proyectosupermercado;
 
-//import java.util.Scanner;
-//import java.util.InputMismatchException;
-import java.util.*;
+import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Menu
 {
@@ -16,9 +15,10 @@ public class Menu
             System.out.println("1. Mostrar productos");
             System.out.println("2. Buscar producto por nombre");
             System.out.println("3. Buscar producto por código");
-            System.out.println("4. Comprar");
+            System.out.println("4. Comprar un producto");
             System.out.println("5. Mostrar producto más barato");
-            System.out.println("6. Cerrar sesion");
+            System.out.println("6. Buscar por un rango de precios");
+            System.out.println("7. Cerrar sesion");
             opcion = lector.nextInt();
             try
             {
@@ -66,13 +66,25 @@ public class Menu
                         productos.ProductoMasBarato();
                         break;
                     case 6:
+                        System.out.println("Ingrese el precio mínimo");
+                        int precioMin = lector.nextInt();
+                        System.out.println("Ingrese el precio máximo");
+                        int precioMax = lector.nextInt();
+                        if (precioMin >= precioMax)
+                        {
+                            System.out.println("Debe ingresar un rango válido");
+                            break;
+                        }
+                        productos.BuscarPorRango(precioMin, precioMax);
+                        break;
+                    case 7:
                         salir = true;
                         break;
                 }
             }
             catch (InputMismatchException ex)
             {
-                System.out.println("Debe ingresar un número entre 1 y 6\n");
+                System.out.println("Debe ingresar un número entre 1 y 7\n");
                 lector.next();
             }
         }

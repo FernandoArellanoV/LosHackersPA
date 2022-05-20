@@ -35,7 +35,6 @@ public class BaseDeProductos implements Mostrador
     {
         int precioMenor = (listaDeProductos.get(0)).getPrecio();
         System.out.println("¡Productos con precios imperdible! ¡No dejes la oportunidad!\n");
-
         for (int i = 1; i < listaDeProductos.size(); i++)
         {
             if (precioMenor > (listaDeProductos.get(i)).getPrecio())
@@ -51,6 +50,19 @@ public class BaseDeProductos implements Mostrador
             }
             System.out.println("\n");
         }
+    }
+
+    public void BuscarPorRango(int precioMin, int precioMax)
+    {
+        for (int i = 0; i < listaDeProductos.size(); i++)
+        {
+            Producto auxProd = listaDeProductos.get(i);
+            if (auxProd.getPrecio() >= precioMin && auxProd.getPrecio() <= precioMax)
+            {
+                System.out.println("- Nombre: " + auxProd.getNombre() + " | Precio: " + auxProd.getPrecio());
+            }
+        }
+        System.out.println("\n");
     }
 
     public void AgregarProducto(Producto datosProducto)

@@ -1,9 +1,5 @@
 package proyectosupermercado;
 
-//import java.util.ArrayList;
-//import java.util.List;
-//import proyectosupermercado.BaseDeProductos;
-
 public abstract class Usuario
 {
     //VARIABLES DE INSTANCIA
