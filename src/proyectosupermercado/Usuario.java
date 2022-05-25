@@ -16,14 +16,15 @@ public abstract class Usuario
         this.correo = correo;
     }
 
-    public void Reportarse()
-    {
-        System.out.println("Tipo de usuario: x");
-        System.out.println("Nombre: " + getNombre());
-        System.out.println("Correo: " + getCorreo());
-    }
+    public abstract void Reportarse();
 
     public abstract boolean EsAdmin();
+    
+    public abstract void Inicio();
+    
+    public abstract void Cierre();
+    
+    public abstract boolean EstaConectado();
 
     //GETTERS
     public String getNombre()

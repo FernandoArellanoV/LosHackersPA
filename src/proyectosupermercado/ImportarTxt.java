@@ -60,13 +60,12 @@ public class ImportarTxt
         }
     }
 
-    public static void importarBoleta(BaseDeUsuarios bdu, String correo)
+    public static void importarBoleta(BaseDeUsuarios bdu)
     {
         try
         {
-            String ruta = null;
-            Map <String,Usuario> mapaAux = bdu.getMapaPorCorreo();
-            Cliente user = (Cliente) mapaAux.get(correo);
+            String ruta;
+            Cliente user = (Cliente)(bdu.BuscarConectado());
             ruta = user.getNombre() + ".txt";
             File archivo = new File(ruta);
             FileWriter fichero = new FileWriter(archivo);

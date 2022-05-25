@@ -22,38 +22,22 @@ public class BaseDeUsuarios implements Mostrador
     //MÉTODOS
     public boolean ExisteCorreo(String correo)
     {
-        if (mapaPorCorreo.containsKey(correo))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return mapaPorCorreo.containsKey(correo);
     }
 
     public boolean ContrasenaCoincide(String correo, String contrasena)
     {
-        if ((mapaPorCorreo.get(correo)).getContrasena().equals(contrasena))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return (mapaPorCorreo.get(correo)).getContrasena().equals(contrasena);
+    }
+    
+    public boolean CorreoCoincide(String correo, String correoConectado)
+    {
+        return (mapaPorCorreo.get(correo)).getCorreo().equals(correoConectado);
     }
 
     public boolean EsAdministrador(String correo)
     {
-        if ((mapaPorCorreo.get(correo)).EsAdmin())
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return (mapaPorCorreo.get(correo)).EsAdmin();
     }
 
     public void Mostrar()
@@ -66,9 +50,9 @@ public class BaseDeUsuarios implements Mostrador
         System.out.println();
     }
 
-    public void AgregarProducto(Producto prod, String correo)
+    public void AgregarProducto(Producto prod)
     {
-        Cliente user = (Cliente)mapaPorCorreo.get(correo);
+        Cliente user = (Cliente)BuscarConectado();
         user.AgregarAlCarrito(prod);
     }
 
@@ -89,6 +73,20 @@ public class BaseDeUsuarios implements Mostrador
     public void AgregarUsuario(Usuario datosUsuario)
     {
         mapaPorCorreo.put(datosUsuario.getCorreo(), datosUsuario);
+    }
+    
+    public Usuario CrearUsuario(String[] datos)
+    {
+        Usuario user;
+        if(datos[3].equals("0"))
+        {
+            user = new Cliente(datos[0],datos[1],datos[2]);
+        }
+        else
+        {
+            user = new Administrador(datos[0],datos[1],datos[2],datos[3]);
+        }
+        return user;
     }
     
     public void EliminarUsuario(String correo)
@@ -151,5 +149,29 @@ public class BaseDeUsuarios implements Mostrador
         {
             System.out.println("No existe el usuario del correo asociado");
         }
+    }
+    
+    public void InicioSecion(String correo)
+    {
+        Usuario aux = mapaPorCorreo.get(correo);
+        aux.Inicio();
+    }
+    
+    public void CierreSecion()
+    {
+        Usuario aux = BuscarConectado();
+        aux.Cierre();
+    }
+    
+    public Usuario BuscarConectado()
+    {
+        for (Usuario aux : mapaPorCorreo.values())
+        {
+            if (aux.EstaConectado())
+            {
+                return aux;
+            }
+        }
+        return null;
     }
 }

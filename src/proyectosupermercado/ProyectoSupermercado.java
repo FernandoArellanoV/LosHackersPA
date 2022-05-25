@@ -1,7 +1,6 @@
 package proyectosupermercado;
 
 import java.util.Scanner;
-import java.util.InputMismatchException;
 
 //MAIN
 public class ProyectoSupermercado
@@ -13,70 +12,8 @@ public class ProyectoSupermercado
         BaseDeUsuarios usuarios = new BaseDeUsuarios();
         LectorTxt.llenarProductos(productos);
         LectorTxt.llenarUsuarios(usuarios);
-        boolean salir = false;
         Scanner lector = new Scanner(System.in);
-        int opcion;
-        while (salir == false)
-        {
-            System.out.println("1. Iniciar sesion");
-            System.out.println("2. Registrarse");
-            System.out.println("3. Salir");
-            opcion = lector.nextInt();
-            try
-            {
-                switch(opcion)
-                {
-                    case 1:
-                        System.out.println("Ingrese su correo");
-                        String correo = lector.next();
-                        System.out.println("Ingrese la contraseña");
-                        String contrasena = lector.next();
-                        if (usuarios.ExisteCorreo(correo))
-                        {
-                            if (usuarios.ContrasenaCoincide(correo, contrasena))
-                            {
-                                if (usuarios.EsAdministrador(correo))
-                                {
-                                    Menu.MenuAdministrador(usuarios, productos, lector);
-                                }
-                                else
-                                {
-                                    Menu.MenuCliente(usuarios, productos, lector);
-                                }
-                            }
-                            else
-                            {
-                                System.out.println("La contraseña ingresada no es válida");
-                            }
-                        }
-                        else
-                        {
-                            System.out.println("El correo que usted ha ingresando no existe");
-                        }
-                        break; 
-                    case 2:
-                        String[] datosUsuario = new String[3];
-                        System.out.println("Ingrese el nombre");
-                        datosUsuario[0] = lector.next();
-                        System.out.println("Ingrese la contraseña");
-                        datosUsuario[1] = lector.next();
-                        System.out.println("Ingrese el correo");
-                        datosUsuario[2] = lector.next();
-                        Usuario usuarioDatos = new Cliente(datosUsuario[0],datosUsuario[1],datosUsuario[2]);
-                        usuarios.AgregarUsuario(usuarioDatos);
-                        Menu.MenuCliente(usuarios, productos, lector);
-                        break;
-                    case 3:
-                        salir = true;
-                        break;
-                }
-            }
-            catch (InputMismatchException ex)
-            {
-                System.out.println("Debe ingresar un número entre 1 y 5\n");
-                lector.next();
-            }
-        }
+        Menu.menuPrincipal(usuarios, productos, lector);
         ImportarTxt.importarUsuario(usuarios);
         ImportarTxt.importarProducto(productos);
         lector.close();

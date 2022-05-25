@@ -5,7 +5,77 @@ import java.util.InputMismatchException;
 
 public class Menu
 {
-    public static void MenuCliente(BaseDeUsuarios usuarios,BaseDeProductos productos, Scanner lector)
+    public static void menuPrincipal(BaseDeUsuarios usuarios,BaseDeProductos productos, Scanner lector)
+    {
+        boolean salir = false;
+        int opcion;
+        while (salir == false)
+        {
+            System.out.println("1. Iniciar sesion");
+            System.out.println("2. Registrarse");
+            System.out.println("3. Salir");
+            opcion = lector.nextInt();
+            try
+            {
+                switch(opcion)
+                {
+                    case 1:
+                        System.out.println("Ingrese su correo");
+                        String correo = lector.next();
+                        System.out.println("Ingrese la contraseña");
+                        String contrasena = lector.next();
+                        if (usuarios.ExisteCorreo(correo))
+                        {
+                            if (usuarios.ContrasenaCoincide(correo, contrasena))
+                            {
+                                usuarios.InicioSecion(correo);
+                                if (usuarios.EsAdministrador(correo))
+                                {
+                                    menuAdministrador(usuarios, productos, lector);
+                                }
+                                else
+                                {
+                                    menuCliente(usuarios, productos, lector);
+                                }
+                            }
+                            else
+                            {
+                                System.out.println("La contraseña ingresada no es válida");
+                            }
+                        }
+                        else
+                        {
+                            System.out.println("El correo que usted ha ingresando no existe");
+                        }
+                        break; 
+                    case 2:
+                        String[] datosUsuario = new String[4];
+                        System.out.println("Ingrese el nombre");
+                        datosUsuario[0] = lector.next();
+                        System.out.println("Ingrese la contraseña");
+                        datosUsuario[1] = lector.next();
+                        System.out.println("Ingrese el correo");
+                        datosUsuario[2] = lector.next();
+                        datosUsuario[3] = "0";
+                        Usuario usuarioDatos = usuarios.CrearUsuario(datosUsuario);
+                        usuarios.AgregarUsuario(usuarioDatos);
+                        usuarios.InicioSecion(datosUsuario[2]);
+                        menuCliente(usuarios, productos, lector);
+                        break;
+                    case 3:
+                        salir = true;
+                        break;
+                }
+            }
+            catch (InputMismatchException ex)
+            {
+                System.out.println("Debe ingresar un número entre 1 y 5\n");
+                lector.next();
+            }
+        }
+    }
+    
+    public static void menuCliente(BaseDeUsuarios usuarios,BaseDeProductos productos, Scanner lector)
     {
         //Scanner lector = new Scanner(System.in);
         boolean salir = false;
@@ -38,8 +108,6 @@ public class Menu
                         productos.MostrarPor(códigoProd);
                         break;
                     case 4:
-                        System.out.println("Ingrese el correo electortrónico del usuario");
-                        String correo = lector.next();
                         int parar = 0;
                         Producto prod; 
                         while (parar == 0)
@@ -56,11 +124,11 @@ public class Menu
                             aux.setPrecio(prod.getPrecio());
                             aux.setTipo(prod.getTipo());
                             prod.setStock(prod.getStock() - stock);
-                            usuarios.AgregarProducto(aux, correo);
+                            usuarios.AgregarProducto(aux);
                             System.out.println("¿Desea seguir comprando? (0 = Sí || 1 = No)\n");
                             parar = lector.nextInt();
                         }
-                        ImportarTxt.importarBoleta(usuarios, correo);
+                        ImportarTxt.importarBoleta(usuarios);
                         break;
                     case 5:
                         productos.ProductoMasBarato();
@@ -79,6 +147,7 @@ public class Menu
                         break;
                     case 7:
                         salir = true;
+                        usuarios.CierreSecion();
                         break;
                 }
             }
@@ -91,7 +160,7 @@ public class Menu
         //lector.close();
     }
     
-    public static void MenuAdministrador(BaseDeUsuarios usuarios,BaseDeProductos productos, Scanner lector)
+    public static void menuAdministrador(BaseDeUsuarios usuarios,BaseDeProductos productos, Scanner lector)
     {
         //Scanner lector = new Scanner(System.in);
         boolean salir = false;
@@ -185,7 +254,7 @@ public class Menu
                         }
                         break;
                     case 8:
-                        System.out.println("Ingrese la variable que desea modificar del producto\n");
+                        System.out.println("Ingrese lo que desea modificar del usuario\n");
                         System.out.println("1.Nombre 2.Correo 3.Constraseña");
                         int op = lector.nextInt();
                         switch(op){
@@ -220,10 +289,18 @@ public class Menu
                     case 10:
                         System.out.println("Ingrese el correo del usuario que desea eliminar\n");
                         String correoUsuario = lector.next();
-                        usuarios.EliminarUsuario(correoUsuario);
+                        if(usuarios.CorreoCoincide(correoUsuario, (usuarios.BuscarConectado()).getCorreo()))
+                        {
+                            usuarios.EliminarUsuario(correoUsuario);
+                            salir = true;
+                        }else
+                        {
+                            usuarios.EliminarUsuario(correoUsuario);
+                        }
                         break;
                     case 11:
                         salir = true;
+                        usuarios.CierreSecion();
                         break;
                 }
             }
