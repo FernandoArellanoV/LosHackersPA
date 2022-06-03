@@ -22,15 +22,6 @@ public class Administrador extends Usuario
     }
 
     @Override
-    public void Reportarse()
-    {
-        System.out.println("Tipo de usuario: Administrador");
-        System.out.println("Nombre: " + getNombre());
-        System.out.println("Correo: " + getCorreo());
-        System.out.println("Código de identificación: " + getId());
-    }
-
-    @Override
     public boolean EsAdmin()
     {
         return true;

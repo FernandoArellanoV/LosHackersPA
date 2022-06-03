@@ -31,14 +31,6 @@ public class Cliente extends Usuario
     }
 
     @Override
-    public void Reportarse()
-    {
-        System.out.println("Tipo de usuario: Cliente");
-        System.out.println("Nombre: " + getNombre());
-        System.out.println("Correo: " + getCorreo());
-    }
-
-    @Override
     public boolean EsAdmin()
     {
         return false;

@@ -16,9 +16,10 @@ public abstract class Usuario
         this.correo = correo;
     }
 
-    public abstract void Reportarse();
-
-    public abstract boolean EsAdmin();
+    public boolean EsAdmin()
+    {
+        return false;
+    }
     
     public abstract void Inicio();
     
