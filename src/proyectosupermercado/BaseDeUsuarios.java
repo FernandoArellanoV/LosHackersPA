@@ -2,16 +2,24 @@ package proyectosupermercado;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ArrayList;
 
 public class BaseDeUsuarios implements Mostrador
 {
     //VARIABLES DE INSTANCIA
     private Map <String,Usuario> mapaPorCorreo;
-    
+    private ArrayList <Usuario> listaDeUsuarios;
+
+    public ArrayList<Usuario> getListaDeUsuarios()
+    {
+        return listaDeUsuarios;
+    }
+
     //CONSTRUCTOR
     public BaseDeUsuarios()
     {
         mapaPorCorreo = new HashMap<>();
+        listaDeUsuarios = new ArrayList<Usuario>();
     }
     
     //MÉTODOS
@@ -68,6 +76,7 @@ public class BaseDeUsuarios implements Mostrador
     public void AgregarUsuario(Usuario datosUsuario)
     {
         mapaPorCorreo.put(datosUsuario.getCorreo(), datosUsuario);
+        listaDeUsuarios.add(datosUsuario);
     }
     
     public Usuario CrearUsuario(String[] datos)

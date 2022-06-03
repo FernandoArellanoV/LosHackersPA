@@ -1,6 +1,5 @@
 package proyectosupermercado;
 
-import java.util.Map;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -17,17 +16,17 @@ public class ImportarTxt
             File archivo = new File("Usuarios.txt");
             FileWriter fichero = new FileWriter(archivo);
             BufferedWriter escritor = new BufferedWriter(fichero);
-            Map <String,Usuario> mapaAux = bdu.getMapaPorCorreo();
-            for (Usuario aux : mapaAux.values())
+            ArrayList <Usuario> listaAux = bdu.getListaDeUsuarios();
+            for (int i = 0; i < listaAux.size(); i++)
             {
-                if (aux.EsAdmin())
+                if ((listaAux.get(i)).EsAdmin())
                 {
-                    Administrador admin = (Administrador) aux;
+                    Administrador admin = (Administrador) listaAux.get(i);
                     escritor.write(admin.getNombre() + "-" + admin.getContrasena() + "-" + admin.getCorreo() + "-" + admin.getId() + "\n");
                 }
                 else
                 {
-                    Cliente client = (Cliente) aux;
+                    Cliente client = (Cliente) listaAux.get(i);
                     escritor.write(client.getNombre() + "-" + client.getContrasena() + "-" + client.getCorreo() + "-" + "0" + "\n");
                 }
             }
@@ -81,7 +80,7 @@ public class ImportarTxt
             {
                 Producto prod = listaProductos.get(i);
                 total = total + (prod.getPrecio() * prod.getStock()); 
-                escritor.write("Nombre del producto: " + prod.getNombre() + "\n");
+                escritor.write("\nNombre del producto: " + prod.getNombre() + "\n");
                 escritor.write("Cantidad comprada : " + prod.getStock() + "\n");
                 escritor.write("Precio: $" + (prod.getPrecio() * prod.getStock()) + "\n");
             }

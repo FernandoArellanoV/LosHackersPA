@@ -101,6 +101,7 @@ public class Menu
                     case 2:
                         System.out.println("Ingrese el nombre del producto a buscar\n");
                         String nombreProd = lector.next();
+                        nombreProd = nombreProd.toLowerCase();
                         productos.MostrarPor(nombreProd);
                         break;
                     case 3:
@@ -118,14 +119,21 @@ public class Menu
                             int codigo = lector.nextInt();
                             prod = productos.BuscarProducto(codigo);
                             int stock = lector.nextInt();
-                            Producto aux = new Producto();
-                            aux.setNombre(prod.getNombre());
-                            aux.setCodigo(prod.getCodigo());
-                            aux.setStock(stock);
-                            aux.setPrecio(prod.getPrecio());
-                            aux.setTipo(prod.getTipo());
-                            prod.setStock(prod.getStock() - stock);
-                            usuarios.AgregarProducto(aux);
+                            if(productos.ConfirmarStock(prod,stock) == false)
+                            {
+                                System.out.println("La cantidad ingresada es mayor al stock disponible");
+                            }
+                            else
+                            {
+                                Producto aux = new Producto();
+                                aux.setNombre(prod.getNombre());
+                                aux.setCodigo(prod.getCodigo());
+                                aux.setStock(stock);
+                                aux.setPrecio(prod.getPrecio());
+                                aux.setTipo(prod.getTipo());
+                                prod.setStock(prod.getStock() - stock);
+                                usuarios.AgregarProducto(aux);
+                            }
                             System.out.println("¿Desea seguir comprando? (0 = Sí || 1 = No)\n");
                             parar = lector.nextInt();
                         }
