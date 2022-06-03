@@ -65,7 +65,7 @@ public class ImportarTxt
         try
         {
             String ruta;
-            Cliente user = (Cliente)(bdu.BuscarConectado());
+            Cliente user = (Cliente) bdu.BuscarConectado();
             ruta = user.getNombre() + ".txt";
             File archivo = new File(ruta);
             FileWriter fichero = new FileWriter(archivo);

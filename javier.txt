@@ -1,0 +1,14 @@
+
+ Andre S.A.
+
+
+Nombre del comprador: javier
+Correo del comprador: javierperez@gmail.com
+Fecha de la compra: 03/06/2022 15:19
+Nombre del producto: Cafe
+Cantidad comprada : 10
+Precio: $8000
+
+Cantidad total a pagar: $8000
+
+---GRACIAS POR SU COMPRA---

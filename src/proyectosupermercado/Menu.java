@@ -28,7 +28,7 @@ public class Menu
                         {
                             if (usuarios.ContrasenaCoincide(correo, contrasena))
                             {
-                                usuarios.InicioSecion(correo);
+                                usuarios.InicioSesion(correo);
                                 if (usuarios.EsAdministrador(correo))
                                 {
                                     menuAdministrador(usuarios, productos, lector);
@@ -59,10 +59,11 @@ public class Menu
                         datosUsuario[3] = "0";
                         Usuario usuarioDatos = usuarios.CrearUsuario(datosUsuario);
                         usuarios.AgregarUsuario(usuarioDatos);
-                        usuarios.InicioSecion(datosUsuario[2]);
+                        usuarios.InicioSesion(datosUsuario[2]);
                         menuCliente(usuarios, productos, lector);
                         break;
                     case 3:
+                        System.out.println("Cerrando el programa...");
                         salir = true;
                         break;
                 }
@@ -147,7 +148,7 @@ public class Menu
                         break;
                     case 7:
                         salir = true;
-                        usuarios.CierreSecion();
+                        usuarios.CierreSesion();
                         break;
                 }
             }
@@ -157,12 +158,10 @@ public class Menu
                 lector.next();
             }
         }
-        //lector.close();
     }
     
     public static void menuAdministrador(BaseDeUsuarios usuarios,BaseDeProductos productos, Scanner lector)
     {
-        //Scanner lector = new Scanner(System.in);
         boolean salir = false;
         int opcion;
         while(salir == false)
@@ -300,7 +299,7 @@ public class Menu
                         break;
                     case 11:
                         salir = true;
-                        usuarios.CierreSecion();
+                        usuarios.CierreSesion();
                         break;
                 }
             }
@@ -310,6 +309,5 @@ public class Menu
                 lector.next();
             }
         }
-        //lector.close();
     }
 }

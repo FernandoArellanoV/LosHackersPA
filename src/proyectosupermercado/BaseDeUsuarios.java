@@ -8,11 +8,6 @@ public class BaseDeUsuarios implements Mostrador
     //VARIABLES DE INSTANCIA
     private Map <String,Usuario> mapaPorCorreo;
     
-    public Map<String,Usuario> getMapaPorCorreo()
-    {
-        return mapaPorCorreo;
-    }
-    
     //CONSTRUCTOR
     public BaseDeUsuarios()
     {
@@ -43,7 +38,7 @@ public class BaseDeUsuarios implements Mostrador
     public void Mostrar()
     {
         System.out.println("Los usuarios guardados son:\n");
-        for(Usuario aux : mapaPorCorreo.values()) //for hace una operación hasta el final de "mapaPorCorreo"
+        for(Usuario aux : mapaPorCorreo.values())
         {
             System.out.println(aux);
         }
@@ -151,13 +146,12 @@ public class BaseDeUsuarios implements Mostrador
         }
     }
     
-    public void InicioSecion(String correo)
+    public void InicioSesion(String correo)
     {
-        Usuario aux = mapaPorCorreo.get(correo);
-        aux.Inicio();
+        (mapaPorCorreo.get(correo)).Inicio();
     }
     
-    public void CierreSecion()
+    public void CierreSesion()
     {
         Usuario aux = BuscarConectado();
         aux.Cierre();
@@ -169,7 +163,7 @@ public class BaseDeUsuarios implements Mostrador
         {
             if (aux.EstaConectado())
             {
-                return aux;
+                return (Usuario) aux;
             }
         }
         return null;
