@@ -34,7 +34,7 @@ public class ImportarTxt
         }
         catch (Exception ex)
         {
-            ex.printStackTrace();
+            System.out.println("No se ha encontrado un archivo  de nombre Usuarios.txt");
         }
     }
 
@@ -55,7 +55,7 @@ public class ImportarTxt
         }
         catch (Exception ex)
         {
-            ex.printStackTrace();
+            System.out.println("No se ha encontrado un archivo  de nombre Productos.txt");
         }
     }
 
@@ -90,7 +90,7 @@ public class ImportarTxt
         }
         catch (Exception ex)
         {
-            ex.printStackTrace();
+            System.out.println("No se ha podido generar correctamente la boleta de compra");
         }
     }
 }

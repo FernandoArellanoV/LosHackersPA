@@ -70,7 +70,7 @@ public class Menu
             }
             catch (InputMismatchException ex)
             {
-                System.out.println("Debe ingresar un número entre 1 y 5\n");
+                System.out.println("Debe ingresar un número entre 1 y 3\n");
                 lector.next();
             }
         }
