@@ -22,7 +22,7 @@ public class LectorTxt
         }
         catch(Exception ex) //"catch" es lo que sucederá si es que SI hay un error
         {
-            System.out.println("No se ha encontrado un archivo  de nombre Usuarios.txt");
+            ex.getMessage();
         }
         //"finally" ejecuta un bloque de código indeferentemente de los resultados anteriores
     }
@@ -44,7 +44,7 @@ public class LectorTxt
         }
         catch(Exception ex)
         {
-            System.out.println("No se ha encontrado un archivo  de nombre Productos.txt");
+            ex.getMessage(); //Se usa para obtener un mensaje de error asociado con una excepción
         }
     } 
 }

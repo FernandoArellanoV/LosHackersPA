@@ -70,7 +70,7 @@ public class Menu
             }
             catch (InputMismatchException ex)
             {
-                System.out.println("Debe ingresar un número entre 1 y 3\n");
+                System.out.println("Debe ingresar un número entre 1 y 5\n");
                 lector.next();
             }
         }
@@ -89,7 +89,7 @@ public class Menu
             System.out.println("4. Comprar un producto");
             System.out.println("5. Mostrar producto más barato");
             System.out.println("6. Buscar por un rango de precios");
-            System.out.println("7. Cerrar sesión");
+            System.out.println("7. Cerrar sesion");
             opcion = lector.nextInt();
             try
             {
@@ -184,7 +184,7 @@ public class Menu
             System.out.println("8. Modificar usuario");
             System.out.println("9. Eliminar producto");
             System.out.println("10. Eliminar Usuario");
-            System.out.println("11. Cerrar sesión");
+            System.out.println("11. Cerrar sesion");
             opcion = lector.nextInt();
             try
             {
