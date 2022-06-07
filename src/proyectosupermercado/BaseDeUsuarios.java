@@ -9,7 +9,6 @@ public class BaseDeUsuarios implements Mostrador
     //VARIABLES DE INSTANCIA
     private Map <String,Usuario> mapaPorCorreo;
     private ArrayList <Usuario> listaDeUsuarios;
-
     public ArrayList<Usuario> getListaDeUsuarios()
     {
         return listaDeUsuarios;
@@ -27,7 +26,7 @@ public class BaseDeUsuarios implements Mostrador
     {
         return mapaPorCorreo.containsKey(correo);
     }
-
+    
     public boolean ContrasenaCoincide(String correo, String contrasena)
     {
         return (mapaPorCorreo.get(correo)).getContrasena().equals(contrasena);

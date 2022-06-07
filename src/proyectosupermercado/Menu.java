@@ -10,7 +10,7 @@ public class Menu
         boolean salir = false;
         int opcion;
         while (salir == false)
-        {
+        {   //MENÚ GENERAL
             System.out.println("1. Iniciar sesion");
             System.out.println("2. Registrarse");
             System.out.println("3. Salir");
@@ -77,8 +77,7 @@ public class Menu
     }
     
     public static void menuCliente(BaseDeUsuarios usuarios,BaseDeProductos productos, Scanner lector)
-    {
-        //Scanner lector = new Scanner(System.in);
+    {   //MENÚ USUARIO-CLIENTE
         boolean salir = false;
         int opcion;
         while(salir == false)
@@ -169,7 +168,7 @@ public class Menu
     }
     
     public static void menuAdministrador(BaseDeUsuarios usuarios,BaseDeProductos productos, Scanner lector)
-    {
+    {   //MENÚ USUARIO-ADMINISTRADOR
         boolean salir = false;
         int opcion;
         while(salir == false)

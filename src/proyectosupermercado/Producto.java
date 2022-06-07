@@ -9,7 +9,7 @@ public class Producto
     private int precio;
     private String tipo;
 
-    //CONSTRUCTOR
+    //CONSTRUCTORES
     public Producto(String nombre, String codigo,String stock,String precio,String tipo)
     {
         this.nombre = nombre;
@@ -18,10 +18,9 @@ public class Producto
         this.precio = Integer.parseInt(precio);        
         this.tipo = tipo;
     }
-    
     public Producto()
     {
-        //????
+        
     }
     
     //GETTERS
