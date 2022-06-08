@@ -9,11 +9,7 @@ import java.util.ArrayList;
 
 public class ImportarTxt
 {   //Escribe los cambios hechos durante la ejecución del código en los txt respectivos, se llama al cerrar el programa
-<<<<<<< HEAD
     public static void importarUsuario(BaseDeUsuarios bdu) //throws ArchivoNoModificadoException
-=======
-    public static void importarUsuario(BaseDeUsuarios bdu) throws ArchivoNoModificadoException
->>>>>>> e01f3bf97dd5d87f5c9da5a74d530736d59f0dcf
     {
         try
         {
@@ -42,11 +38,7 @@ public class ImportarTxt
         }
     }
 
-<<<<<<< HEAD
     public static void importarProducto(BaseDeProductos bdp) //throws ArchivoNoModificadoException
-=======
-    public static void importarProducto(BaseDeProductos bdp) throws ArchivoNoModificadoException
->>>>>>> e01f3bf97dd5d87f5c9da5a74d530736d59f0dcf
     {
         try
         {
@@ -67,11 +59,7 @@ public class ImportarTxt
         }
     }
 
-<<<<<<< HEAD
     public static void importarBoleta(BaseDeUsuarios bdu) //throws BoletaNoGeneradaException
-=======
-    public static void importarBoleta(BaseDeUsuarios bdu) throws BoletaNoGeneradaException
->>>>>>> e01f3bf97dd5d87f5c9da5a74d530736d59f0dcf
     {
         try
         {

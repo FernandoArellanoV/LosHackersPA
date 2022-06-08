@@ -3,10 +3,7 @@ package proyectosupermercado;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
-<<<<<<< HEAD
 
-=======
->>>>>>> e01f3bf97dd5d87f5c9da5a74d530736d59f0dcf
 
 public class BaseDeUsuarios implements Mostrador
 {
@@ -82,11 +79,7 @@ public class BaseDeUsuarios implements Mostrador
         listaDeUsuarios.add(datosUsuario);
     }
     
-<<<<<<< HEAD
     public void CrearUsuario(String[] datos)
-=======
-    public Usuario CrearUsuario(String[] datos)
->>>>>>> e01f3bf97dd5d87f5c9da5a74d530736d59f0dcf
     {
         Usuario user;
         if(datos[3].equals("0"))
@@ -97,11 +90,7 @@ public class BaseDeUsuarios implements Mostrador
         {
             user = new Administrador(datos[0],datos[1],datos[2],datos[3]);
         }
-<<<<<<< HEAD
         AgregarUsuario(user);
-=======
-        return user;
->>>>>>> e01f3bf97dd5d87f5c9da5a74d530736d59f0dcf
     }
     
     public void EliminarUsuario(String correo)
@@ -188,7 +177,6 @@ public class BaseDeUsuarios implements Mostrador
         }
         return null;
     }
-<<<<<<< HEAD
     public int confirmarUsuario ( String correo, String contrasena)
     {
         if (ExisteCorreo(correo))
@@ -216,6 +204,3 @@ public class BaseDeUsuarios implements Mostrador
         }
     }
 }
-=======
-}
->>>>>>> e01f3bf97dd5d87f5c9da5a74d530736d59f0dcf

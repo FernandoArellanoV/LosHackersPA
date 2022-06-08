@@ -15,12 +15,7 @@ public class LectorTxt
             {
                 String linea = input.nextLine();
                 datosUsuario = linea.split("-");
-<<<<<<< HEAD
                 objetoUsuario.CrearUsuario(datosUsuario);
-=======
-                Usuario User = objetoUsuario.CrearUsuario(datosUsuario);
-                objetoUsuario.AgregarUsuario(User);
->>>>>>> e01f3bf97dd5d87f5c9da5a74d530736d59f0dcf
             } 
             input.close();
         }

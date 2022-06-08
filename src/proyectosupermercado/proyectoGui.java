@@ -1,7 +1,6 @@
 
 package proyectosupermercado;
 
-<<<<<<< HEAD
 import javax.swing.JOptionPane;
 
 
@@ -21,25 +20,10 @@ public class proyectoGui extends javax.swing.JFrame
     private void initComponents() {
 
         jDialog1 = new javax.swing.JDialog();
-=======
-
-public class proyectoGui extends javax.swing.JFrame
-{
-    public proyectoGui()
-    {
-        initComponents();
-        setLocationRelativeTo(null);
-    }
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
->>>>>>> e01f3bf97dd5d87f5c9da5a74d530736d59f0dcf
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-<<<<<<< HEAD
         correoLogin = new javax.swing.JTextField();
         correoRegistro = new javax.swing.JTextField();
         nombreRegistro = new javax.swing.JTextField();
@@ -105,41 +89,10 @@ public class proyectoGui extends javax.swing.JFrame
 
         jLabel6.setText("Contraseña:");
 
-=======
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        jButton1.setText("Iniciar Seción");
-        jButton1.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Supermercado Andre S.A");
-        jLabel1.setToolTipText("");
-        jButton2.setText("Registrarse");
-        jButton2.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jButton3.setText("Salir");
-        jButton3.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                jButton3ActionPerformed(evt);
-            }
-        });
->>>>>>> e01f3bf97dd5d87f5c9da5a74d530736d59f0dcf
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
@@ -176,25 +129,10 @@ public class proyectoGui extends javax.swing.JFrame
                             .addComponent(jLabel4)
                             .addComponent(contraseñaRegistro))))
                 .addGap(64, 64, 64))
-=======
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(70, Short.MAX_VALUE))
->>>>>>> e01f3bf97dd5d87f5c9da5a74d530736d59f0dcf
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-<<<<<<< HEAD
                 .addGap(42, 42, 42)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
@@ -226,24 +164,11 @@ public class proyectoGui extends javax.swing.JFrame
                 .addGap(50, 50, 50))
         );
 
-=======
-                .addGap(41, 41, 41)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
-                .addContainerGap(91, Short.MAX_VALUE))
-        );
->>>>>>> e01f3bf97dd5d87f5c9da5a74d530736d59f0dcf
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)
     {//GEN-FIRST:event_jButton1ActionPerformed
-<<<<<<< HEAD
         char contraArray[] = claveLogin.getPassword();
         String contrasena = new String(contraArray);
         if (usuarios.confirmarUsuario(correoLogin.getText() ,contrasena)== 2) 
@@ -261,15 +186,10 @@ public class proyectoGui extends javax.swing.JFrame
                 //cliente
             }
         }
-=======
-        dispose();
-        IniciarSesion.main(null);
->>>>>>> e01f3bf97dd5d87f5c9da5a74d530736d59f0dcf
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt)
     {//GEN-FIRST:event_jButton2ActionPerformed
-<<<<<<< HEAD
         char contraArray[] = contraseñaRegistro.getPassword();
         String[] datosUsuario = new String[4];
         datosUsuario[0] = nombreRegistro.getText();
@@ -295,14 +215,10 @@ public class proyectoGui extends javax.swing.JFrame
         {
             e.printStackTrace();
         }
-=======
-        // TODO add your handling code here:
->>>>>>> e01f3bf97dd5d87f5c9da5a74d530736d59f0dcf
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt)
     {//GEN-FIRST:event_jButton3ActionPerformed
-<<<<<<< HEAD
         ImportarTxt.importarUsuario(usuarios);
         ImportarTxt.importarProducto(productos);
         dispose();
@@ -329,59 +245,5 @@ public class proyectoGui extends javax.swing.JFrame
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField nombreRegistro;
-=======
-        dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[])
-    {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-            {
-                if ("Nimbus".equals(info.getName()))
-                {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(proyectoGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(proyectoGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(proyectoGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(proyectoGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        BaseDeProductos productos = new BaseDeProductos();
-        BaseDeUsuarios usuarios = new BaseDeUsuarios();
-        LectorTxt.llenarProductos(productos);
-        LectorTxt.llenarUsuarios(usuarios);
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable()
-        {
-            public void run()
-            {
-                new proyectoGui().setVisible(true);
-            }
-        });
-    }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
->>>>>>> e01f3bf97dd5d87f5c9da5a74d530736d59f0dcf
     // End of variables declaration//GEN-END:variables
 }
