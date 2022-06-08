@@ -1,6 +1,5 @@
 package proyectosupermercado;
 
-import java.util.Map;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -9,25 +8,29 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class ImportarTxt
-{
-    public static void importarUsuario(BaseDeUsuarios bdu)
+{   //Escribe los cambios hechos durante la ejecución del código en los txt respectivos, se llama al cerrar el programa
+<<<<<<< HEAD
+    public static void importarUsuario(BaseDeUsuarios bdu) //throws ArchivoNoModificadoException
+=======
+    public static void importarUsuario(BaseDeUsuarios bdu) throws ArchivoNoModificadoException
+>>>>>>> e01f3bf97dd5d87f5c9da5a74d530736d59f0dcf
     {
         try
         {
             File archivo = new File("Usuarios.txt");
             FileWriter fichero = new FileWriter(archivo);
             BufferedWriter escritor = new BufferedWriter(fichero);
-            Map <String,Usuario> mapaAux = bdu.getMapaPorCorreo();
-            for (Usuario aux : mapaAux.values())
+            ArrayList <Usuario> listaAux = bdu.getListaDeUsuarios();
+            for (int i = 0; i < listaAux.size(); i++)
             {
-                if (aux.EsAdmin())
+                if ((listaAux.get(i)).EsAdmin())
                 {
-                    Administrador admin = (Administrador) aux;
+                    Administrador admin = (Administrador) listaAux.get(i);
                     escritor.write(admin.getNombre() + "-" + admin.getContrasena() + "-" + admin.getCorreo() + "-" + admin.getId() + "\n");
                 }
                 else
                 {
-                    Cliente client = (Cliente) aux;
+                    Cliente client = (Cliente) listaAux.get(i);
                     escritor.write(client.getNombre() + "-" + client.getContrasena() + "-" + client.getCorreo() + "-" + "0" + "\n");
                 }
             }
@@ -39,7 +42,11 @@ public class ImportarTxt
         }
     }
 
-    public static void importarProducto(BaseDeProductos bdp)  
+<<<<<<< HEAD
+    public static void importarProducto(BaseDeProductos bdp) //throws ArchivoNoModificadoException
+=======
+    public static void importarProducto(BaseDeProductos bdp) throws ArchivoNoModificadoException
+>>>>>>> e01f3bf97dd5d87f5c9da5a74d530736d59f0dcf
     {
         try
         {
@@ -54,19 +61,22 @@ public class ImportarTxt
             }
             escritor.close();
         }
-        catch (Exception ex)
+        catch (Exception e)
         {
-            ex.printStackTrace();
+            e.printStackTrace();
         }
     }
 
-    public static void importarBoleta(BaseDeUsuarios bdu, String correo)
+<<<<<<< HEAD
+    public static void importarBoleta(BaseDeUsuarios bdu) //throws BoletaNoGeneradaException
+=======
+    public static void importarBoleta(BaseDeUsuarios bdu) throws BoletaNoGeneradaException
+>>>>>>> e01f3bf97dd5d87f5c9da5a74d530736d59f0dcf
     {
         try
         {
-            String ruta = null;
-            Map <String,Usuario> mapaAux = bdu.getMapaPorCorreo();
-            Cliente user = (Cliente) mapaAux.get(correo);
+            String ruta;
+            Cliente user = (Cliente) bdu.BuscarConectado();
             ruta = user.getNombre() + ".txt";
             File archivo = new File(ruta);
             FileWriter fichero = new FileWriter(archivo);
@@ -82,7 +92,7 @@ public class ImportarTxt
             {
                 Producto prod = listaProductos.get(i);
                 total = total + (prod.getPrecio() * prod.getStock()); 
-                escritor.write("Nombre del producto: " + prod.getNombre() + "\n");
+                escritor.write("\nNombre del producto: " + prod.getNombre() + "\n");
                 escritor.write("Cantidad comprada : " + prod.getStock() + "\n");
                 escritor.write("Precio: $" + (prod.getPrecio() * prod.getStock()) + "\n");
             }

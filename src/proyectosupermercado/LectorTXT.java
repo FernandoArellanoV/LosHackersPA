@@ -5,38 +5,33 @@ import java.util.Scanner;
 
 public class LectorTxt
 {
-    public static void llenarUsuarios(BaseDeUsuarios objetoUsuario)
-    { //"try" prueba durante ejecución el bloque de código para ver si hay errores
+    public static void llenarUsuarios(BaseDeUsuarios objetoUsuario) throws ArchivoInexistenteException
+    {   //Lee el txt de usuarios y llena el mapa y la lista
         try
         {
-            String[] datosUsuario = new String[4]; // 3 = nombre + contraseña + correo
+            String[] datosUsuario = new String[4];
             Scanner input = new Scanner(new File("Usuarios.txt")); 
-            while(input.hasNextLine()) //Mientras existan lineas en el txt
+            while(input.hasNextLine())
             {
-                String linea = input.nextLine(); //saltando línea
-                datosUsuario = linea.split("-"); //separando por "-"
-                Usuario User;
-                if(datosUsuario[3].equals("0"))
-                {
-                    User = new Cliente(datosUsuario[0],datosUsuario[1],datosUsuario[2]);
-                }
-                else
-                {
-                    User = new Administrador(datosUsuario[0],datosUsuario[1],datosUsuario[2],datosUsuario[3]);
-                }
-                objetoUsuario.AgregarUsuario(User); //Subiendo al mapa
+                String linea = input.nextLine();
+                datosUsuario = linea.split("-");
+<<<<<<< HEAD
+                objetoUsuario.CrearUsuario(datosUsuario);
+=======
+                Usuario User = objetoUsuario.CrearUsuario(datosUsuario);
+                objetoUsuario.AgregarUsuario(User);
+>>>>>>> e01f3bf97dd5d87f5c9da5a74d530736d59f0dcf
             } 
             input.close();
         }
-        catch(Exception ex) //"catch" es lo que sucederá si es que SI hay un error
+        catch(Exception ex)
         {
-            ex.getMessage();
+            ex.printStackTrace();
         }
-        //"finally" ejecuta un bloque de código indeferentemente de los resultados anteriores
     }
 
-    public static void llenarProductos(BaseDeProductos objetoProducto)
-    {
+    public static void llenarProductos(BaseDeProductos objetoProducto) throws ArchivoInexistenteException
+    {   //Lee el txt de productos y llena los mapas y la lista
         try
         {
             String[] datosProducto = new String[4];
@@ -52,7 +47,7 @@ public class LectorTxt
         }
         catch(Exception ex)
         {
-            ex.getMessage(); //Se usa para obtener un mensaje de error asociado con una excepción
+            ex.printStackTrace();
         }
     } 
 }

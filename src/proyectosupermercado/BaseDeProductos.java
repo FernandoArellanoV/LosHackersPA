@@ -9,7 +9,6 @@ public class BaseDeProductos implements Mostrador
     //VARIABLES DE INSTANCIA
     private Map <Integer,Producto> mapaPorCodigo;
     private Map <String,ArrayList<Producto>> mapaPorNombre;
-    
     private ArrayList <Producto> listaDeProductos;
     
     public ArrayList<Producto> getListaDeProductos()
@@ -26,10 +25,18 @@ public class BaseDeProductos implements Mostrador
     {
         mapaPorCodigo = new HashMap<>();
         mapaPorNombre = new HashMap<>();
-        listaDeProductos = new ArrayList<Producto>();    
+        listaDeProductos = new ArrayList<Producto>();
     }
 
     //MÉTODOS
+    public boolean ConfirmarStock(Producto prod, int stock)
+    {
+        if (prod.getStock() >= stock)
+        {
+            return true;
+        }
+        return false;
+    }
 
     public void ProductoMasBarato()
     {

@@ -2,73 +2,63 @@ package proyectosupermercado;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ArrayList;
+<<<<<<< HEAD
+
+=======
+>>>>>>> e01f3bf97dd5d87f5c9da5a74d530736d59f0dcf
 
 public class BaseDeUsuarios implements Mostrador
 {
     //VARIABLES DE INSTANCIA
     private Map <String,Usuario> mapaPorCorreo;
-    
-    public Map<String,Usuario> getMapaPorCorreo()
+    private ArrayList <Usuario> listaDeUsuarios;
+    public ArrayList<Usuario> getListaDeUsuarios()
     {
-        return mapaPorCorreo;
+        return listaDeUsuarios;
     }
-    
+
     //CONSTRUCTOR
     public BaseDeUsuarios()
     {
         mapaPorCorreo = new HashMap<>();
+        listaDeUsuarios = new ArrayList<Usuario>();
     }
     
     //MÉTODOS
     public boolean ExisteCorreo(String correo)
     {
-        if (mapaPorCorreo.containsKey(correo))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return mapaPorCorreo.containsKey(correo);
     }
-
+    
     public boolean ContrasenaCoincide(String correo, String contrasena)
     {
-        if ((mapaPorCorreo.get(correo)).getContrasena().equals(contrasena))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return (mapaPorCorreo.get(correo)).getContrasena().equals(contrasena);
+    }
+    
+    public boolean CorreoCoincide(String correo, String correoConectado)
+    {
+        return (mapaPorCorreo.get(correo)).getCorreo().equals(correoConectado);
     }
 
     public boolean EsAdministrador(String correo)
     {
-        if ((mapaPorCorreo.get(correo)).EsAdmin())
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return (mapaPorCorreo.get(correo)).EsAdmin();
     }
 
     public void Mostrar()
     {
         System.out.println("Los usuarios guardados son:\n");
-        for(Usuario aux : mapaPorCorreo.values()) //for hace una operación hasta el final de "mapaPorCorreo"
+        for(Usuario aux : mapaPorCorreo.values())
         {
             System.out.println(aux);
         }
         System.out.println();
     }
 
-    public void AgregarProducto(Producto prod, String correo)
+    public void AgregarProducto(Producto prod)
     {
-        Cliente user = (Cliente)mapaPorCorreo.get(correo);
+        Cliente user = (Cliente)BuscarConectado();
         user.AgregarAlCarrito(prod);
     }
 
@@ -89,6 +79,29 @@ public class BaseDeUsuarios implements Mostrador
     public void AgregarUsuario(Usuario datosUsuario)
     {
         mapaPorCorreo.put(datosUsuario.getCorreo(), datosUsuario);
+        listaDeUsuarios.add(datosUsuario);
+    }
+    
+<<<<<<< HEAD
+    public void CrearUsuario(String[] datos)
+=======
+    public Usuario CrearUsuario(String[] datos)
+>>>>>>> e01f3bf97dd5d87f5c9da5a74d530736d59f0dcf
+    {
+        Usuario user;
+        if(datos[3].equals("0"))
+        {
+            user = new Cliente(datos[0],datos[1],datos[2]);
+        }
+        else
+        {
+            user = new Administrador(datos[0],datos[1],datos[2],datos[3]);
+        }
+<<<<<<< HEAD
+        AgregarUsuario(user);
+=======
+        return user;
+>>>>>>> e01f3bf97dd5d87f5c9da5a74d530736d59f0dcf
     }
     
     public void EliminarUsuario(String correo)
@@ -152,4 +165,57 @@ public class BaseDeUsuarios implements Mostrador
             System.out.println("No existe el usuario del correo asociado");
         }
     }
+    
+    public void InicioSesion(String correo)
+    {
+        (mapaPorCorreo.get(correo)).Inicio();
+    }
+    
+    public void CierreSesion()
+    {
+        Usuario aux = BuscarConectado();
+        aux.Cierre();
+    }
+    
+    public Usuario BuscarConectado()
+    {
+        for (Usuario aux : mapaPorCorreo.values())
+        {
+            if (aux.EstaConectado())
+            {
+                return (Usuario) aux;
+            }
+        }
+        return null;
+    }
+<<<<<<< HEAD
+    public int confirmarUsuario ( String correo, String contrasena)
+    {
+        if (ExisteCorreo(correo))
+        {
+            if (ContrasenaCoincide(correo, contrasena))
+            {
+                InicioSesion(correo);
+                if (EsAdministrador(correo))
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            else
+            {
+                return 2;
+            }
+        }
+        else
+        {
+            return 2;
+        }
+    }
 }
+=======
+}
+>>>>>>> e01f3bf97dd5d87f5c9da5a74d530736d59f0dcf
