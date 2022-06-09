@@ -4,12 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
 
+
 public class BaseDeUsuarios implements Mostrador
 {
     //VARIABLES DE INSTANCIA
     private Map <String,Usuario> mapaPorCorreo;
     private ArrayList <Usuario> listaDeUsuarios;
-
     public ArrayList<Usuario> getListaDeUsuarios()
     {
         return listaDeUsuarios;
@@ -27,7 +27,7 @@ public class BaseDeUsuarios implements Mostrador
     {
         return mapaPorCorreo.containsKey(correo);
     }
-
+    
     public boolean ContrasenaCoincide(String correo, String contrasena)
     {
         return (mapaPorCorreo.get(correo)).getContrasena().equals(contrasena);
@@ -79,7 +79,7 @@ public class BaseDeUsuarios implements Mostrador
         listaDeUsuarios.add(datosUsuario);
     }
     
-    public Usuario CrearUsuario(String[] datos)
+    public void CrearUsuario(String[] datos)
     {
         Usuario user;
         if(datos[3].equals("0"))
@@ -90,7 +90,7 @@ public class BaseDeUsuarios implements Mostrador
         {
             user = new Administrador(datos[0],datos[1],datos[2],datos[3]);
         }
-        return user;
+        AgregarUsuario(user);
     }
     
     public void EliminarUsuario(String correo)
@@ -176,5 +176,31 @@ public class BaseDeUsuarios implements Mostrador
             }
         }
         return null;
+    }
+    public int confirmarUsuario ( String correo, String contrasena)
+    {
+        if (ExisteCorreo(correo))
+        {
+            if (ContrasenaCoincide(correo, contrasena))
+            {
+                InicioSesion(correo);
+                if (EsAdministrador(correo))
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            else
+            {
+                return 2;
+            }
+        }
+        else
+        {
+            return 2;
+        }
     }
 }

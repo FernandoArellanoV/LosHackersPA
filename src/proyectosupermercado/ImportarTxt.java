@@ -8,8 +8,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class ImportarTxt
-{
-    public static void importarUsuario(BaseDeUsuarios bdu)
+{   //Escribe los cambios hechos durante la ejecución del código en los txt respectivos, se llama al cerrar el programa
+    public static void importarUsuario(BaseDeUsuarios bdu) //throws ArchivoNoModificadoException
     {
         try
         {
@@ -38,7 +38,7 @@ public class ImportarTxt
         }
     }
 
-    public static void importarProducto(BaseDeProductos bdp)  
+    public static void importarProducto(BaseDeProductos bdp) //throws ArchivoNoModificadoException
     {
         try
         {
@@ -53,13 +53,13 @@ public class ImportarTxt
             }
             escritor.close();
         }
-        catch (Exception ex)
+        catch (Exception e)
         {
-            ex.printStackTrace();
+            e.printStackTrace();
         }
     }
 
-    public static void importarBoleta(BaseDeUsuarios bdu)
+    public static void importarBoleta(BaseDeUsuarios bdu) //throws BoletaNoGeneradaException
     {
         try
         {

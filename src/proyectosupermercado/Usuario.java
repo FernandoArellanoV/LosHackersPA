@@ -7,8 +7,7 @@ public abstract class Usuario
     private String contrasena;
     private String correo;
 
-    //CONSTRUCTOR
-
+    //CONSTRUCTORES
     public Usuario(String nombre,String contrasena,String correo)
     {
         this.nombre = nombre;
@@ -16,7 +15,8 @@ public abstract class Usuario
         this.correo = correo;
     }
 
-    public boolean EsAdmin()
+    //MÉTODOS
+    public boolean EsAdmin()    
     {
         return false;
     }
