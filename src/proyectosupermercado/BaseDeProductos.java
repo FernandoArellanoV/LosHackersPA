@@ -25,7 +25,7 @@ public class BaseDeProductos implements Mostrador
     {
         mapaPorCodigo = new HashMap<>();
         mapaPorNombre = new HashMap<>();
-        listaDeProductos = new ArrayList<Producto>();
+        listaDeProductos = new ArrayList();
     }
 
     //MÉTODOS
@@ -38,10 +38,9 @@ public class BaseDeProductos implements Mostrador
         return false;
     }
 
-    public void ProductoMasBarato()
+    public int ProductoMasBarato()
     {
         int precioMenor = (listaDeProductos.get(0)).getPrecio();
-        System.out.println("¡Productos con precios imperdible! ¡No dejes la oportunidad!\n");
         for (int i = 1; i < listaDeProductos.size(); i++)
         {
             if (precioMenor > (listaDeProductos.get(i)).getPrecio())
@@ -49,14 +48,7 @@ public class BaseDeProductos implements Mostrador
                 precioMenor = (listaDeProductos.get(i)).getPrecio();
             }
         }
-        for (int i = 0; i < listaDeProductos.size(); i++)
-        {
-            if (precioMenor == (listaDeProductos.get(i)).getPrecio())
-            {
-                System.out.println( "-" + (listaDeProductos.get(i)).getCodigo() + " " + (listaDeProductos.get(i)).getNombre() + " " + (listaDeProductos.get(i)).getPrecio());
-            }
-            System.out.println("\n");
-        }
+        return precioMenor;
     }
 
     public void BuscarPorRango(int precioMin, int precioMax)
@@ -70,6 +62,18 @@ public class BaseDeProductos implements Mostrador
             }
         }
         System.out.println("\n");
+    }
+    
+    public Producto CrearProducto(int codigo, int stock)
+    {
+        Producto aux = new Producto();
+        aux.setNombre((BuscarProducto(codigo)).getNombre());
+        aux.setCodigo((BuscarProducto(codigo)).getCodigo());
+        aux.setStock(stock);
+        aux.setPrecio((BuscarProducto(codigo)).getPrecio());
+        aux.setTipo((BuscarProducto(codigo)).getTipo());
+        BuscarProducto(codigo).setStock(BuscarProducto(codigo).getStock() - stock);
+        return (Producto) aux;
     }
 
     public void AgregarProducto(Producto datosProducto)
@@ -141,7 +145,6 @@ public class BaseDeProductos implements Mostrador
     {
         if(mapaPorCodigo.containsKey(codigo) == false)
         {
-            System.out.println("No existe el producto");
         }
         else
         {
@@ -149,7 +152,6 @@ public class BaseDeProductos implements Mostrador
             mapaPorCodigo.remove(aux.getCodigo(), aux);
             mapaPorNombre.remove(aux.getNombre(), aux);
             listaDeProductos.remove(aux);
-            System.out.println("Se elimino con exito");
         }
         System.out.println();
     }

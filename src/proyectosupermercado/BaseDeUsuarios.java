@@ -10,6 +10,7 @@ public class BaseDeUsuarios implements Mostrador
     //VARIABLES DE INSTANCIA
     private Map <String,Usuario> mapaPorCorreo;
     private ArrayList <Usuario> listaDeUsuarios;
+    
     public ArrayList<Usuario> getListaDeUsuarios()
     {
         return listaDeUsuarios;
@@ -97,13 +98,12 @@ public class BaseDeUsuarios implements Mostrador
     {
         if(mapaPorCorreo.containsKey(correo)==false)
         {
-            System.out.println("No existe el usuario ingresado");
         }
         else
         {
             Usuario aux = mapaPorCorreo.get(correo);
             mapaPorCorreo.remove(correo, aux);
-            System.out.println("Se elimino el usuario con exito");
+            listaDeUsuarios.remove(aux);
         }
         System.out.println();
     }
