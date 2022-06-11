@@ -173,16 +173,23 @@ public class CompraProductos extends javax.swing.JFrame {
     }//GEN-LAST:event_salirActionPerformed
 
     private void agregarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarPActionPerformed
-        int codigo = Integer.parseInt(produc.getText());
-        int stock = Integer.parseInt(stockP.getText());
-        Limpiar();
-        if(productos.ConfirmarStock(productos.BuscarProducto(codigo), stock) == false)
+        if(produc.getText().equals("") || stockP.getText().equals(""))
         {
-            JOptionPane.showMessageDialog(null, "Ingresó una cantidad mayor a la disponible","ERROR",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Rellene los campos","ERROR",JOptionPane.INFORMATION_MESSAGE);
         }else
         {
-            usuarios.AgregarProducto(productos.CrearProductoBoleta(codigo, stock));
-            TablaProductos();
+            int codigo = Integer.parseInt(produc.getText());
+            int stock = Integer.parseInt(stockP.getText());
+            Limpiar();
+            if (productos.ConfirmarStock(productos.BuscarProducto(codigo), stock) == false)
+            {
+                JOptionPane.showMessageDialog(null, "No existe el producto a agregar","ERROR",JOptionPane.INFORMATION_MESSAGE);
+            }else
+            {
+                usuarios.AgregarProducto(productos.CrearProductoBoleta(codigo, stock));
+                TablaProductos();
+            }
+            
         }
     }//GEN-LAST:event_agregarPActionPerformed
 

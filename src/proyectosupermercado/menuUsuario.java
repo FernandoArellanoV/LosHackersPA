@@ -273,13 +273,20 @@ public class MenuUsuario extends javax.swing.JFrame
     }//GEN-LAST:event_nombrePActionPerformed
 
     private void buscarCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarCodigoActionPerformed
-        if(productos.BuscarProducto(Integer.parseInt(codigoP.getText()))==null)
+        if(codigoP.getText().equals(""))
         {
-            JOptionPane.showMessageDialog(null, "No existe el producto buscado","ERROR",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Rellene el espacio","ERROR",JOptionPane.INFORMATION_MESSAGE);
         }else
         {
-            ProductosPorCodigo buscaPCodigo = new ProductosPorCodigo(usuarios, productos,Integer.parseInt(codigoP.getText()) );
-            buscaPCodigo.setVisible(true);
+            if (productos.BuscarProducto(Integer.parseInt(codigoP.getText()))==null)
+            {
+                JOptionPane.showMessageDialog(null, "No existe el producto buscado","ERROR",JOptionPane.INFORMATION_MESSAGE);
+            }else
+            {
+                ProductosPorCodigo buscaPCodigo = new ProductosPorCodigo(usuarios, productos,Integer.parseInt(codigoP.getText()) );
+                buscaPCodigo.setVisible(true);
+            }
+            
         }
         Limpiar();
     }//GEN-LAST:event_buscarCodigoActionPerformed

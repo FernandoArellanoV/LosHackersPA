@@ -119,20 +119,16 @@ public class BaseDeProductos implements Mostrador
         System.out.println();
     }
 
-    public void MostrarPor(String nombre)
+    public boolean MostrarPor(String nombre)
     {
         if(mapaPorNombre.containsKey(nombre) == false)
         {
-            System.out.println("No existe el producto");
+            return false;
         }
         else
         {
-            for (Producto aux : mapaPorNombre.get(nombre))
-            {
-                System.out.println(aux.toString());
-            }
+            return true;
         }
-        System.out.println();
     }
 
     public void MostrarPor(int codigo)

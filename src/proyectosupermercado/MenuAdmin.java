@@ -290,13 +290,20 @@ public class MenuAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_correoEliminarActionPerformed
 
     private void buscarPCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarPCodigoActionPerformed
-        if(productos.BuscarProducto(Integer.parseInt(codigoP.getText()))==null)
+        if(codigoP.getText().equals(""))
         {
-            JOptionPane.showMessageDialog(null, "No existe el producto buscado","ERROR",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Rellene el espacio","ERROR",JOptionPane.INFORMATION_MESSAGE);
         }else
         {
-            ProductosPorCodigo buscaPCodigo = new ProductosPorCodigo(usuarios, productos,Integer.parseInt(codigoP.getText()) );
-            buscaPCodigo.setVisible(true);
+            if (productos.BuscarProducto(Integer.parseInt(codigoP.getText()))==null)
+            {
+                JOptionPane.showMessageDialog(null, "No existe el producto buscado","ERROR",JOptionPane.INFORMATION_MESSAGE);
+            }else
+            {
+                ProductosPorCodigo buscaPCodigo = new ProductosPorCodigo(usuarios, productos,Integer.parseInt(codigoP.getText()) );
+                buscaPCodigo.setVisible(true);
+            }
+            
         }
         Limpiar();
     }//GEN-LAST:event_buscarPCodigoActionPerformed
@@ -309,9 +316,9 @@ public class MenuAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_salirActionPerformed
 
     private void buscarPNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarPNombreActionPerformed
-        if(productos.BuscarProducto(Integer.parseInt(codigoP.getText()))==null)
+        if(nombreP.getText().equals(""))
         {
-            JOptionPane.showMessageDialog(null, "No existe el producto buscado","ERROR",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Rellene el espacio","ERROR",JOptionPane.INFORMATION_MESSAGE);
         }else
         {
             ProductosPorNombre buscaPNombre = new ProductosPorNombre(usuarios, productos, nombreP.getText());
@@ -331,13 +338,20 @@ public class MenuAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_mostrarUActionPerformed
 
     private void eliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarProductoActionPerformed
-        if(productos.BuscarProducto(Integer.parseInt(codigoEliminar.getText()))==null)
+        if(codigoEliminar.getText().equals(""))
         {
-            JOptionPane.showMessageDialog(null, "No existe el producto a eliminar","ERROR",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Rellene el espacio","ERROR",JOptionPane.INFORMATION_MESSAGE);
         }else
         {
-            productos.EliminarProducto(Integer.parseInt(codigoEliminar.getText()));
-            JOptionPane.showMessageDialog(null, "El producto se elimino con exito","Aviso",JOptionPane.INFORMATION_MESSAGE);
+            if (productos.BuscarProducto(Integer.parseInt(codigoEliminar.getText()))==null) 
+            {
+                JOptionPane.showMessageDialog(null, "No existe el producto a eliminar","ERROR",JOptionPane.INFORMATION_MESSAGE);
+            }else
+            {
+                productos.EliminarProducto(Integer.parseInt(codigoEliminar.getText()));
+                JOptionPane.showMessageDialog(null, "El producto se elimino con exito","Aviso",JOptionPane.INFORMATION_MESSAGE);
+            }
+            
         }
         Limpiar();
     }//GEN-LAST:event_eliminarProductoActionPerformed
