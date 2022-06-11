@@ -17,6 +17,7 @@ public class ProyectoSupermercado
         productos.AgregarProducto(hielo);
         usuarios.AgregarUsuario(admin);
         proyectoGui login = new proyectoGui(usuarios,productos);
+        login.setLocationRelativeTo(null);
         login.setVisible(true);
         //Scanner lector = new Scanner(System.in);
         //Menu.menuPrincipal(usuarios, productos, lector);

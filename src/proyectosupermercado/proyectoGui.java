@@ -11,7 +11,6 @@ public class proyectoGui extends javax.swing.JFrame
     public proyectoGui(BaseDeUsuarios u, BaseDeProductos p)
     {
         initComponents();
-        setLocationRelativeTo(null);
         usuarios = u;
         productos = p;
     }
@@ -181,11 +180,14 @@ public class proyectoGui extends javax.swing.JFrame
         {
             if (usuarios.confirmarUsuario(correoLogin.getText() ,contrasena)== 1) 
             {
-                //administrador 
+                MenuAdmin menuA = new MenuAdmin(usuarios, productos);
+                menuA.setLocationRelativeTo(null);
+                menuA.setVisible(true);
             }
             else
             {
-                menuUsuario menuU = new menuUsuario(usuarios, productos);
+                MenuUsuario menuU = new MenuUsuario(usuarios, productos);
+                menuU.setLocationRelativeTo(null);
                 menuU.setVisible(true);
             }
         }

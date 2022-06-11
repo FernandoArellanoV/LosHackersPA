@@ -18,7 +18,6 @@ public class CompraProductos extends javax.swing.JFrame {
     
     public CompraProductos(BaseDeUsuarios u, BaseDeProductos p) {
         initComponents();
-        setLocationRelativeTo(null);
         usuarios = u;
         productos = p;
         TablaProductos();
@@ -167,7 +166,8 @@ public class CompraProductos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-        menuUsuario menuU = new menuUsuario(usuarios, productos);
+        MenuUsuario menuU = new MenuUsuario(usuarios, productos);
+        menuU.setLocationRelativeTo(null);
         menuU.setVisible(true);
         dispose();
     }//GEN-LAST:event_salirActionPerformed
@@ -181,7 +181,7 @@ public class CompraProductos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Ingresó una cantidad mayor a la disponible","ERROR",JOptionPane.INFORMATION_MESSAGE);
         }else
         {
-            usuarios.AgregarProducto(productos.CrearProducto(codigo, stock));
+            usuarios.AgregarProducto(productos.CrearProductoBoleta(codigo, stock));
             TablaProductos();
         }
     }//GEN-LAST:event_agregarPActionPerformed
