@@ -1,11 +1,9 @@
 package proyectosupermercado;
 
-import java.util.Scanner;
-
 //MAIN
 public class ProyectoSupermercado
 {
-    public static void main(String args[]) throws ArchivoInexistenteException
+    public static void main(String args[]) //throws ArchivoInexistenteException
     {
         //INICIALIZACIÓN DE VARIABLES, MAPAS Y OBJETOS
         BaseDeProductos productos = new BaseDeProductos();
@@ -19,8 +17,5 @@ public class ProyectoSupermercado
         proyectoGui login = new proyectoGui(usuarios,productos);
         login.setLocationRelativeTo(null);
         login.setVisible(true);
-        //Scanner lector = new Scanner(System.in);
-        //Menu.menuPrincipal(usuarios, productos, lector);
-        //lector.close();
     }
 }

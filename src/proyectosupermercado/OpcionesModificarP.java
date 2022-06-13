@@ -1,23 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package proyectosupermercado;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author PerezPSN
- */
-public class OpcionesModificarP extends javax.swing.JFrame {
+public class OpcionesModificarP extends javax.swing.JFrame
+{
 
     BaseDeProductos productos = new BaseDeProductos();
     BaseDeUsuarios usuarios = new BaseDeUsuarios();
     private int codigoP;
     
-    public OpcionesModificarP(BaseDeUsuarios u, BaseDeProductos p, int c) {
+    public OpcionesModificarP(BaseDeUsuarios u, BaseDeProductos p, int c)
+    {
         initComponents();
         setLocationRelativeTo(null);
         usuarios = u;
@@ -33,9 +27,8 @@ public class OpcionesModificarP extends javax.swing.JFrame {
         this.stock.setText("");
     }
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
-
+    private void initComponents()
+    {
         jPopupMenu1 = new javax.swing.JPopupMenu();
         label1 = new java.awt.Label();
         salir = new javax.swing.JButton();
@@ -58,36 +51,46 @@ public class OpcionesModificarP extends javax.swing.JFrame {
         label1.setText("Opciones");
 
         salir.setText("Salir");
-        salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        salir.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 salirActionPerformed(evt);
             }
         });
 
         modNombre.setText("Modificar");
-        modNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        modNombre.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 modNombreActionPerformed(evt);
             }
         });
 
         modCodigo.setText("Modificar");
-        modCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        modCodigo.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 modCodigoActionPerformed(evt);
             }
         });
 
         modStock.setText("Modificar");
-        modStock.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        modStock.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt) 
+        {
                 modStockActionPerformed(evt);
             }
         });
 
         modPrecio.setText("Modificar");
-        modPrecio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        modPrecio.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 modPrecioActionPerformed(evt);
             }
         });
@@ -189,41 +192,44 @@ public class OpcionesModificarP extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+    private void salirActionPerformed(java.awt.event.ActionEvent evt)
+    {
         ModificarProducto modProducto = new ModificarProducto(usuarios, productos);
         modProducto.setVisible(true);
         dispose();
-    }//GEN-LAST:event_salirActionPerformed
+    }
 
-    private void modNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modNombreActionPerformed
+    private void modNombreActionPerformed(java.awt.event.ActionEvent evt)
+    {
         productos.ModificarNombre(nombre.getText(), codigoP);
         JOptionPane.showMessageDialog(null, "Se a modificado con exito","Aviso",JOptionPane.INFORMATION_MESSAGE);
         Limpiar();
-    }//GEN-LAST:event_modNombreActionPerformed
+    }
 
-    private void modCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modCodigoActionPerformed
+    private void modCodigoActionPerformed(java.awt.event.ActionEvent evt)
+    {
         productos.ModificarCodigo(Integer.parseInt(codigo.getText()), codigoP);
         this.codigoP = Integer.parseInt(codigo.getText());
-        JOptionPane.showMessageDialog(null, "Se a modificado con exito","Aviso",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Se ha modificado con exito","Aviso",JOptionPane.INFORMATION_MESSAGE);
         Limpiar();
-    }//GEN-LAST:event_modCodigoActionPerformed
+    }
 
-    private void modStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modStockActionPerformed
+    private void modStockActionPerformed(java.awt.event.ActionEvent evt)
+    {
         productos.ModificarStock(Integer.parseInt(stock.getText()), codigoP);
-        JOptionPane.showMessageDialog(null, "Se a modificado con exito","Aviso",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Se ha modificado con exito","Aviso",JOptionPane.INFORMATION_MESSAGE);
         Limpiar();
-    }//GEN-LAST:event_modStockActionPerformed
+    }
 
-    private void modPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modPrecioActionPerformed
+    private void modPrecioActionPerformed(java.awt.event.ActionEvent evt)
+    {
         productos.ModificarPrecio(Integer.parseInt(precio.getText()), codigoP);
-        JOptionPane.showMessageDialog(null, "Se a modificado con exito","Aviso",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Se ha modificado con exito","Aviso",JOptionPane.INFORMATION_MESSAGE);
         Limpiar();
-    }//GEN-LAST:event_modPrecioActionPerformed
+    }
 
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField codigo;
     private javax.swing.JPopupMenu jPopupMenu1;
     private java.awt.Label label1;
@@ -239,5 +245,4 @@ public class OpcionesModificarP extends javax.swing.JFrame {
     private javax.swing.JTextField precio;
     private javax.swing.JButton salir;
     private javax.swing.JTextField stock;
-    // End of variables declaration//GEN-END:variables
 }

@@ -1,23 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyectosupermercado;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author PerezPSN
- */
-public class ModificarUsuario extends javax.swing.JFrame {
+public class ModificarUsuario extends javax.swing.JFrame
+{
 
     
     BaseDeProductos productos = new BaseDeProductos();
     BaseDeUsuarios usuarios = new BaseDeUsuarios();
     
-    public ModificarUsuario(BaseDeUsuarios u, BaseDeProductos p) {
+    public ModificarUsuario(BaseDeUsuarios u, BaseDeProductos p)
+    {
         initComponents();
         setLocationRelativeTo(null);
         usuarios = u;
@@ -50,8 +43,8 @@ public class ModificarUsuario extends javax.swing.JFrame {
     }
     
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         label1 = new java.awt.Label();
         salir = new javax.swing.JButton();
@@ -162,11 +155,8 @@ public class ModificarUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No existe el usuario","ERROR",JOptionPane.INFORMATION_MESSAGE);
             Limpiar();
         }
-    }//GEN-LAST:event_aceptarActionPerformed
+    }
 
-   
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aceptar;
     private javax.swing.JTextField correoU;
     private javax.swing.JScrollPane jScrollPane1;
@@ -174,5 +164,4 @@ public class ModificarUsuario extends javax.swing.JFrame {
     private java.awt.Label label1;
     private java.awt.Label label2;
     private javax.swing.JButton salir;
-    // End of variables declaration//GEN-END:variables
 }

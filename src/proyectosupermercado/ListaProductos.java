@@ -1,19 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyectosupermercado;
 
-/**
- *
- * @author PerezPSN
- */
-public class ListaProductos extends javax.swing.JFrame {
+public class ListaProductos extends javax.swing.JFrame
+{
 
     BaseDeProductos productos = new BaseDeProductos();
     
-    public ListaProductos(BaseDeProductos p) {
+    public ListaProductos(BaseDeProductos p)
+    {
         initComponents();
         setLocationRelativeTo(null);
         productos = p;
@@ -35,22 +28,20 @@ public class ListaProductos extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
-
+    private void initComponents()
+    {
         label1 = new java.awt.Label();
         cerrar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         label1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         label1.setText("Productos");
-
         cerrar.setText("Cerrar");
-        cerrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        cerrar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 cerrarActionPerformed(evt);
             }
         });
@@ -98,17 +89,16 @@ public class ListaProductos extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarActionPerformed
+    private void cerrarActionPerformed(java.awt.event.ActionEvent evt)
+    {
         dispose();
-    }//GEN-LAST:event_cerrarActionPerformed
+    }
 
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cerrar;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private java.awt.Label label1;
-    // End of variables declaration//GEN-END:variables
+
 }

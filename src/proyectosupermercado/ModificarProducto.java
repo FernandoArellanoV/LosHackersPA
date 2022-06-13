@@ -1,22 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyectosupermercado;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author PerezPSN
- */
-public class ModificarProducto extends javax.swing.JFrame {
+public class ModificarProducto extends javax.swing.JFrame
+{
 
     BaseDeProductos productos = new BaseDeProductos();
     BaseDeUsuarios usuarios = new BaseDeUsuarios();
     
-    public ModificarProducto(BaseDeUsuarios u, BaseDeProductos p) {
+    public ModificarProducto(BaseDeUsuarios u, BaseDeProductos p)
+    {
         initComponents();
         setLocationRelativeTo(null);
         usuarios = u;
@@ -43,8 +36,8 @@ public class ModificarProducto extends javax.swing.JFrame {
     }
     
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -70,8 +63,10 @@ public class ModificarProducto extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         salir.setText("Salir");
-        salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        salir.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 salirActionPerformed(evt);
             }
         });
@@ -80,14 +75,18 @@ public class ModificarProducto extends javax.swing.JFrame {
         label1.setText("Modificar Producto");
 
         modificar.setText("Modificar");
-        modificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        modificar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 modificarActionPerformed(evt);
             }
         });
 
-        codigoP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        codigoP.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 codigoPActionPerformed(evt);
             }
         });
@@ -145,19 +144,22 @@ public class ModificarProducto extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void codigoPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigoPActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_codigoPActionPerformed
+    private void codigoPActionPerformed(java.awt.event.ActionEvent evt)
+    {
 
-    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+    }
+
+    private void salirActionPerformed(java.awt.event.ActionEvent evt)
+    {
         MenuAdmin menuA = new MenuAdmin(usuarios, productos);
         menuA.setVisible(true);
         dispose();
-    }//GEN-LAST:event_salirActionPerformed
+    }
 
-    private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
+    private void modificarActionPerformed(java.awt.event.ActionEvent evt)
+    {
         if(productos.BuscarProducto(Integer.parseInt(codigoP.getText()))==null)
         {
             JOptionPane.showMessageDialog(null, "No existe el producto","ERROR",JOptionPane.INFORMATION_MESSAGE);
@@ -168,10 +170,8 @@ public class ModificarProducto extends javax.swing.JFrame {
             modProducto.setVisible(true);
             dispose();
         }
-    }//GEN-LAST:event_modificarActionPerformed
+    }
 
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField codigoP;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
@@ -179,5 +179,4 @@ public class ModificarProducto extends javax.swing.JFrame {
     private java.awt.Label label2;
     private javax.swing.JButton modificar;
     private javax.swing.JButton salir;
-    // End of variables declaration//GEN-END:variables
 }

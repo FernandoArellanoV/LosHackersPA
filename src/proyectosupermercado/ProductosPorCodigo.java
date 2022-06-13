@@ -1,20 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyectosupermercado;
 
-/**
- *
- * @author PerezPSN
- */
-public class ProductosPorCodigo extends javax.swing.JFrame {
+public class ProductosPorCodigo extends javax.swing.JFrame
+{
 
     BaseDeProductos productos = new BaseDeProductos();
     BaseDeUsuarios usuarios = new BaseDeUsuarios();
     
-    public ProductosPorCodigo(BaseDeUsuarios u, BaseDeProductos p, int c) {
+    public ProductosPorCodigo(BaseDeUsuarios u, BaseDeProductos p, int c)
+    {
         initComponents();
         setLocationRelativeTo(null);
         usuarios = u;
@@ -35,7 +28,6 @@ public class ProductosPorCodigo extends javax.swing.JFrame {
     }
     
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -99,17 +91,15 @@ public class ProductosPorCodigo extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)
+    {
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }
     
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private java.awt.Label label1;
-    // End of variables declaration//GEN-END:variables
 }

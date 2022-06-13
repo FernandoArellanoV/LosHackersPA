@@ -1,8 +1,6 @@
-
 package proyectosupermercado;
 
 import javax.swing.JOptionPane;
-
 
 public class proyectoGui extends javax.swing.JFrame
 {
@@ -15,8 +13,8 @@ public class proyectoGui extends javax.swing.JFrame
         productos = p;
     }
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jDialog1 = new javax.swing.JDialog();
         jButton1 = new javax.swing.JButton();
@@ -166,15 +164,15 @@ public class proyectoGui extends javax.swing.JFrame
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)
-    {//GEN-FIRST:event_jButton1ActionPerformed
+    {
         char contraArray[] = claveLogin.getPassword();
         String contrasena = new String(contraArray);
         if (usuarios.confirmarUsuario(correoLogin.getText() ,contrasena)== 2) 
         {
-           JOptionPane.showMessageDialog(null, "El correo o contraseña que usted ha ingresado no existe","ERROR",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "El correo o contraseña que usted ha ingresado no existe","ERROR",JOptionPane.INFORMATION_MESSAGE);
         }
         else
         {
@@ -190,12 +188,12 @@ public class proyectoGui extends javax.swing.JFrame
                 menuU.setLocationRelativeTo(null);
                 menuU.setVisible(true);
             }
-        }
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+        }
+    }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt)
-    {//GEN-FIRST:event_jButton2ActionPerformed
+    {
         char contraArray[] = contraseñaRegistro.getPassword();
         String[] datosUsuario = new String[4];
         datosUsuario[0] = nombreRegistro.getText();
@@ -220,31 +218,31 @@ public class proyectoGui extends javax.swing.JFrame
                 }
             }
             
-        } catch (Exception e) 
+        } catch (Exception ex) 
         {
-            e.printStackTrace();
+            ex.printStackTrace();
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt)
-    {//GEN-FIRST:event_jButton3ActionPerformed
+    {
         productos.EliminarProducto(4324);
         usuarios.EliminarUsuario("fvt@gmail.com");
         ImportarTxt.importarUsuario(usuarios);
         ImportarTxt.importarProducto(productos);
         dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }
 
-    private void correoRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_correoRegistroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_correoRegistroActionPerformed
+    private void correoRegistroActionPerformed(java.awt.event.ActionEvent evt) 
+    {
+        
+    }
 
-    private void correoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_correoLoginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_correoLoginActionPerformed
+    private void correoLoginActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        
+    }
 
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField claveLogin;
     private javax.swing.JPasswordField contraseñaRegistro;
     private javax.swing.JTextField correoLogin;
@@ -260,5 +258,4 @@ public class proyectoGui extends javax.swing.JFrame
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField nombreRegistro;
-    // End of variables declaration//GEN-END:variables
 }

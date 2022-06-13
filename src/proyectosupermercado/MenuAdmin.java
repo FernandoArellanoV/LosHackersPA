@@ -1,22 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyectosupermercado;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author PerezPSN
- */
-public class MenuAdmin extends javax.swing.JFrame {
+public class MenuAdmin extends javax.swing.JFrame
+{
 
     BaseDeProductos productos = new BaseDeProductos();
     BaseDeUsuarios usuarios = new BaseDeUsuarios();
     
-    public MenuAdmin(BaseDeUsuarios u, BaseDeProductos p){
+    public MenuAdmin(BaseDeUsuarios u, BaseDeProductos p)
+    {
         initComponents();
         setLocationRelativeTo(null);
         usuarios = u;
@@ -33,8 +26,8 @@ public class MenuAdmin extends javax.swing.JFrame {
     }
     
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         salir = new javax.swing.JButton();
         eliminarUsuario = new javax.swing.JButton();
@@ -62,56 +55,72 @@ public class MenuAdmin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         salir.setText("Cerrar Sesión");
-        salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        salir.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 salirActionPerformed(evt);
             }
         });
 
         eliminarUsuario.setText("Eliminar Usuario");
-        eliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        eliminarUsuario.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 eliminarUsuarioActionPerformed(evt);
             }
         });
 
-        correoEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        correoEliminar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 correoEliminarActionPerformed(evt);
             }
         });
 
         eliminarProducto.setText("Eliminar Producto");
-        eliminarProducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        eliminarProducto.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 eliminarProductoActionPerformed(evt);
             }
         });
 
         modificarU.setText("Modificar Usuario");
-        modificarU.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        modificarU.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 modificarUActionPerformed(evt);
             }
         });
 
         modificarP.setText("Modificar Producto");
-        modificarP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        modificarP.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 modificarPActionPerformed(evt);
             }
         });
 
         buscarPNombre.setText("Buscar");
-        buscarPNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        buscarPNombre.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 buscarPNombreActionPerformed(evt);
             }
         });
 
         buscarPCodigo.setText("Buscar");
-        buscarPCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        buscarPCodigo.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 buscarPCodigoActionPerformed(evt);
             }
         });
@@ -125,8 +134,10 @@ public class MenuAdmin extends javax.swing.JFrame {
         label4.setText("Ingrese el correo de usuario");
 
         buscarUsuario.setText("Buscar");
-        buscarUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        buscarUsuario.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 buscarUsuarioActionPerformed(evt);
             }
         });
@@ -134,22 +145,28 @@ public class MenuAdmin extends javax.swing.JFrame {
         label5.setText("Ingrese el correo de usuario");
 
         mostrarU.setText("Usuarios");
-        mostrarU.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        mostrarU.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 mostrarUActionPerformed(evt);
             }
         });
 
         mostrarP.setText("Productos");
-        mostrarP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        mostrarP.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 mostrarPActionPerformed(evt);
             }
         });
 
         agregarP.setText("Agregar Producto");
-        agregarP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        agregarP.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 agregarPActionPerformed(evt);
             }
         });
@@ -271,9 +288,10 @@ public class MenuAdmin extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void eliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarUsuarioActionPerformed
+    private void eliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt)
+    {
         if(usuarios.ExisteCorreo(correoEliminar.getText())==true)
         {
             usuarios.EliminarUsuario(correoEliminar.getText());
@@ -283,13 +301,15 @@ public class MenuAdmin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No existe el usuario buscado","ERROR",JOptionPane.INFORMATION_MESSAGE);
         }
         Limpiar();
-    }//GEN-LAST:event_eliminarUsuarioActionPerformed
+    }
 
-    private void correoEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_correoEliminarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_correoEliminarActionPerformed
+    private void correoEliminarActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        
+    }
 
-    private void buscarPCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarPCodigoActionPerformed
+    private void buscarPCodigoActionPerformed(java.awt.event.ActionEvent evt)
+    {
         if(codigoP.getText().equals(""))
         {
             JOptionPane.showMessageDialog(null, "Rellene el espacio","ERROR",JOptionPane.INFORMATION_MESSAGE);
@@ -306,16 +326,18 @@ public class MenuAdmin extends javax.swing.JFrame {
             
         }
         Limpiar();
-    }//GEN-LAST:event_buscarPCodigoActionPerformed
+    }
 
-    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+    private void salirActionPerformed(java.awt.event.ActionEvent evt)
+    {
         proyectoGui login = new proyectoGui(usuarios,productos);
         login.setLocationRelativeTo(null);
         login.setVisible(true);
         dispose();
-    }//GEN-LAST:event_salirActionPerformed
+    }
 
-    private void buscarPNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarPNombreActionPerformed
+    private void buscarPNombreActionPerformed(java.awt.event.ActionEvent evt)
+    {
         if(nombreP.getText().equals(""))
         {
             JOptionPane.showMessageDialog(null, "Rellene el espacio","ERROR",JOptionPane.INFORMATION_MESSAGE);
@@ -325,19 +347,22 @@ public class MenuAdmin extends javax.swing.JFrame {
             buscaPNombre.setVisible(true);
         }
         Limpiar();
-    }//GEN-LAST:event_buscarPNombreActionPerformed
+    }
 
-    private void mostrarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarPActionPerformed
+    private void mostrarPActionPerformed(java.awt.event.ActionEvent evt)
+    {
         ListaProductos listaP = new ListaProductos(productos);
         listaP.setVisible(true);
-    }//GEN-LAST:event_mostrarPActionPerformed
+    }
 
-    private void mostrarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarUActionPerformed
+    private void mostrarUActionPerformed(java.awt.event.ActionEvent evt)
+    {
         ListaUsuarios listaU = new ListaUsuarios(usuarios);
         listaU.setVisible(true);
-    }//GEN-LAST:event_mostrarUActionPerformed
+    }
 
-    private void eliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarProductoActionPerformed
+    private void eliminarProductoActionPerformed(java.awt.event.ActionEvent evt)
+    {
         if(codigoEliminar.getText().equals(""))
         {
             JOptionPane.showMessageDialog(null, "Rellene el espacio","ERROR",JOptionPane.INFORMATION_MESSAGE);
@@ -354,14 +379,16 @@ public class MenuAdmin extends javax.swing.JFrame {
             
         }
         Limpiar();
-    }//GEN-LAST:event_eliminarProductoActionPerformed
+    }
 
-    private void agregarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarPActionPerformed
+    private void agregarPActionPerformed(java.awt.event.ActionEvent evt)
+    {
         AgregarProducto agregar = new AgregarProducto(productos);
         agregar.setVisible(true);
-    }//GEN-LAST:event_agregarPActionPerformed
+    }
 
-    private void buscarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarUsuarioActionPerformed
+    private void buscarUsuarioActionPerformed(java.awt.event.ActionEvent evt)
+    {
         if(usuarios.ExisteCorreo(correoUsuario.getText())==false)
         {
             JOptionPane.showMessageDialog(null, "El usuario no existe","ERROR",JOptionPane.INFORMATION_MESSAGE);
@@ -370,26 +397,22 @@ public class MenuAdmin extends javax.swing.JFrame {
             buscarPCorreo.setVisible(true);
         }
         Limpiar();
-    }//GEN-LAST:event_buscarUsuarioActionPerformed
+    }
 
-    private void modificarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarUActionPerformed
+    private void modificarUActionPerformed(java.awt.event.ActionEvent evt)
+    {
         ModificarUsuario modUsuario = new ModificarUsuario(usuarios, productos);
         modUsuario.setVisible(true);
         dispose();
-    }//GEN-LAST:event_modificarUActionPerformed
+    }
 
-    private void modificarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarPActionPerformed
+    private void modificarPActionPerformed(java.awt.event.ActionEvent evt)
+    {
         ModificarProducto modProducto = new ModificarProducto(usuarios, productos);
         modProducto.setVisible(true);
         dispose();
-    }//GEN-LAST:event_modificarPActionPerformed
+    }
 
-    /**
-     * @param args the command line arguments
-     */
-    
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregarP;
     private javax.swing.JButton buscarPCodigo;
     private javax.swing.JButton buscarPNombre;
@@ -412,5 +435,4 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JButton mostrarU;
     private javax.swing.JTextField nombreP;
     private javax.swing.JButton salir;
-    // End of variables declaration//GEN-END:variables
 }

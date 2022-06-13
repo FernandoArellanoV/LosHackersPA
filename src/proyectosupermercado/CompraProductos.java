@@ -1,22 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyectosupermercado;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author PerezPSN
- */
-public class CompraProductos extends javax.swing.JFrame {
+public class CompraProductos extends javax.swing.JFrame
+{
 
     BaseDeProductos productos = new BaseDeProductos();
     BaseDeUsuarios usuarios = new BaseDeUsuarios();
     
-    public CompraProductos(BaseDeUsuarios u, BaseDeProductos p) {
+    public CompraProductos(BaseDeUsuarios u, BaseDeProductos p)
+    {
         initComponents();
         usuarios = u;
         productos = p;
@@ -45,8 +38,8 @@ public class CompraProductos extends javax.swing.JFrame {
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
-
+    private void initComponents()
+    {
         label1 = new java.awt.Label();
         salir = new javax.swing.JButton();
         comprarP = new javax.swing.JButton();
@@ -64,15 +57,19 @@ public class CompraProductos extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         salir.setText("Salir");
-        salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        salir.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 salirActionPerformed(evt);
             }
         });
 
         comprarP.setText("Comprar");
-        comprarP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        comprarP.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 comprarPActionPerformed(evt);
             }
         });
@@ -91,8 +88,10 @@ public class CompraProductos extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         agregarP.setText("Agregar");
-        agregarP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        agregarP.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 agregarPActionPerformed(evt);
             }
         });
@@ -172,7 +171,8 @@ public class CompraProductos extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_salirActionPerformed
 
-    private void agregarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarPActionPerformed
+    private void agregarPActionPerformed(java.awt.event.ActionEvent evt)
+    {
         if(produc.getText().equals("") || stockP.getText().equals(""))
         {
             JOptionPane.showMessageDialog(null, "Rellene los campos","ERROR",JOptionPane.INFORMATION_MESSAGE);
@@ -191,18 +191,14 @@ public class CompraProductos extends javax.swing.JFrame {
             }
             
         }
-    }//GEN-LAST:event_agregarPActionPerformed
+    }
 
-    private void comprarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarPActionPerformed
+    private void comprarPActionPerformed(java.awt.event.ActionEvent evt)
+    {
         ImportarTxt.importarBoleta(usuarios);
         JOptionPane.showMessageDialog(null, "Su compra se ha realizado con exito, revise su boleta","Compra realizada",JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_comprarPActionPerformed
+    }
 
-    /**
-     * @param args the command line arguments
-     */
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregarP;
     private javax.swing.JButton comprarP;
     private javax.swing.JScrollPane jScrollPane1;
@@ -214,5 +210,4 @@ public class CompraProductos extends javax.swing.JFrame {
     private javax.swing.JTextField produc;
     private javax.swing.JButton salir;
     private javax.swing.JTextField stockP;
-    // End of variables declaration//GEN-END:variables
 }

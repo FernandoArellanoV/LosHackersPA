@@ -1,16 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyectosupermercado;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author PerezPSN
- */
 public class MenuUsuario extends javax.swing.JFrame
 {
     BaseDeProductos productos = new BaseDeProductos();
@@ -32,9 +23,8 @@ public class MenuUsuario extends javax.swing.JFrame
     }
     
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
-
+    private void initComponents()
+    {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
         label1 = new java.awt.Label();
@@ -67,62 +57,80 @@ public class MenuUsuario extends javax.swing.JFrame
         jLabel1.setInheritsPopupMenu(false);
 
         mostrarProductos.setText("Productos");
-        mostrarProductos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        mostrarProductos.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 mostrarProductosActionPerformed(evt);
             }
         });
 
         buscarNombre.setText("Buscar");
-        buscarNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        buscarNombre.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 buscarNombreActionPerformed(evt);
             }
         });
 
         buscarCodigo.setText("Buscar");
-        buscarCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        buscarCodigo.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 buscarCodigoActionPerformed(evt);
             }
         });
 
         comprar.setText("Comprar");
-        comprar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        comprar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 comprarActionPerformed(evt);
             }
         });
 
         masBarato.setText("Producto mas barato");
-        masBarato.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        masBarato.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 masBaratoActionPerformed(evt);
             }
         });
 
         buscarRango.setText("Buscar");
-        buscarRango.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        buscarRango.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 buscarRangoActionPerformed(evt);
             }
         });
 
         CerrarSesion.setText("Cerrar Sesión");
-        CerrarSesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        CerrarSesion.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 CerrarSesionActionPerformed(evt);
             }
         });
 
-        nombreP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        nombreP.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 nombrePActionPerformed(evt);
             }
         });
 
-        minimo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        minimo.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 minimoActionPerformed(evt);
             }
         });
@@ -243,36 +251,42 @@ public class MenuUsuario extends javax.swing.JFrame
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void CerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarSesionActionPerformed
+    private void CerrarSesionActionPerformed(java.awt.event.ActionEvent evt)
+    {
         proyectoGui login = new proyectoGui(usuarios,productos);
         login.setLocationRelativeTo(null);
         login.setVisible(true);
         dispose();
-    }//GEN-LAST:event_CerrarSesionActionPerformed
+    }
 
-    private void mostrarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarProductosActionPerformed
+    private void mostrarProductosActionPerformed(java.awt.event.ActionEvent evt)
+    {
         ListaProductos lista = new ListaProductos(productos);
         lista.setVisible(true);
-    }//GEN-LAST:event_mostrarProductosActionPerformed
+    }
 
-    private void minimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_minimoActionPerformed
+    private void minimoActionPerformed(java.awt.event.ActionEvent evt)
+    {
 
-    private void comprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarActionPerformed
+    }
+
+    private void comprarActionPerformed(java.awt.event.ActionEvent evt)
+    {
         CompraProductos comprarP = new CompraProductos(usuarios, productos);
         comprarP.setLocationRelativeTo(null);
         comprarP.setVisible(true);
         dispose();
-    }//GEN-LAST:event_comprarActionPerformed
+    }
 
-    private void nombrePActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombrePActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nombrePActionPerformed
+    private void nombrePActionPerformed(java.awt.event.ActionEvent evt)
+    {
 
-    private void buscarCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarCodigoActionPerformed
+    }
+
+    private void buscarCodigoActionPerformed(java.awt.event.ActionEvent evt)
+    {
         if(codigoP.getText().equals(""))
         {
             JOptionPane.showMessageDialog(null, "Rellene el espacio","ERROR",JOptionPane.INFORMATION_MESSAGE);
@@ -289,20 +303,23 @@ public class MenuUsuario extends javax.swing.JFrame
             
         }
         Limpiar();
-    }//GEN-LAST:event_buscarCodigoActionPerformed
+    }
 
-    private void buscarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarNombreActionPerformed
+    private void buscarNombreActionPerformed(java.awt.event.ActionEvent evt)
+    {
         ProductosPorNombre buscaPNombre = new ProductosPorNombre(usuarios, productos, nombreP.getText());
         buscaPNombre.setVisible(true);
         Limpiar();
-    }//GEN-LAST:event_buscarNombreActionPerformed
+    }
 
-    private void masBaratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masBaratoActionPerformed
+    private void masBaratoActionPerformed(java.awt.event.ActionEvent evt)
+    {
         ProductoMenor menor = new ProductoMenor(usuarios, productos);
         menor.setVisible(true);
-    }//GEN-LAST:event_masBaratoActionPerformed
+    }
 
-    private void buscarRangoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarRangoActionPerformed
+    private void buscarRangoActionPerformed(java.awt.event.ActionEvent evt)
+    {
         if(maximo.getText().equals("")==true || minimo.getText().equals("")==true)
         {
             JOptionPane.showMessageDialog(null, "Rellene ambas casillas","ERROR",JOptionPane.INFORMATION_MESSAGE);
@@ -312,13 +329,8 @@ public class MenuUsuario extends javax.swing.JFrame
             rangos.setVisible(true);
         }
         Limpiar();
-    }//GEN-LAST:event_buscarRangoActionPerformed
+    }
 
-    /**
-     * @param args the command line arguments
-     */
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CerrarSesion;
     private java.awt.Label asadasd;
     private javax.swing.JButton buscarCodigo;
@@ -339,5 +351,4 @@ public class MenuUsuario extends javax.swing.JFrame
     private javax.swing.JTextField minimo;
     private javax.swing.JButton mostrarProductos;
     private javax.swing.JTextField nombreP;
-    // End of variables declaration//GEN-END:variables
 }

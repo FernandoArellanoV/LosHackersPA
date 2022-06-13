@@ -1,7 +1,7 @@
 shampooh&s-3456-20-700-Higiene
 nuggets-4321-8-1300-Congelados
 leche-5555-58-700-Lacteos
-spaghetti-2345-3-900-Pastas
+spaghetti-2345-1-900-Pastas
 agua-6543-30-700-Condimento
 cafe-23587-5-800-Infuciones
 cereal chocapic-4444-5-3700-Cereal
@@ -9,4 +9,4 @@ vino gato 1L-6666-2-3000-Licor
 desodorante axe-7777-300-2700-Higiene
 helado frac-8888-300-1000-Congelados
 hamburguesa vacuno-9999-100-820-Congelados
-zapallo-9876-32-587-higiene
+zapallo-9876-9-587-higiene

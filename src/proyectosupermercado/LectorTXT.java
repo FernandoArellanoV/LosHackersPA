@@ -25,7 +25,7 @@ public class LectorTxt
         }
     }
 
-    public static void llenarProductos(BaseDeProductos objetoProducto) throws ArchivoInexistenteException
+    public static void llenarProductos(BaseDeProductos objetoProducto) //throws ArchivoInexistenteException
     {   //Lee el txt de productos y llena los mapas y la lista
         try
         {
