@@ -1,0 +1,25 @@
+Usuarios
+nandeishan-Andre123-Jose@gmail.com-2423
+Montecinos-InventorDel-Willsmith@gmail.com-0
+sdfg-fernando123-angel@gmail.com-0
+javier-andre-javierperez0108@gmail.com-0
+jose-nando-andre-1111
+andrenando-elpepe-andreXnando@gmail.com-0
+messirve-messichikito-siuuuu@gmail.com-3123
+profe-holis-profeloquiero@gmail.com-0
+fabi-perromagico-fvt@gmail.com-1234
+Productos
+shampooh&s-3456-18-700-Higiene
+nuggets-4321-8-1300-Congelados
+leche-5555-58-700-Lacteos
+spaghetti-2345-3-900-Pastas
+agua-6543-30-700-Condimento
+cafe-23587-5-800-Infuciones
+chocolate milka-3333-30-1000-Dulces
+cereal chocapic-4444-5-3700-Cereal
+vino gato 1L-6666-2-3000-Licor
+desodorante axe-7777-300-2700-Higiene
+helado frac-8888-300-1000-Congelados
+hamburguesa vacuno-9999-100-820-Congelados
+zapallo-9876-32-587-higiene
+hielo-4324-100-1000-congelado

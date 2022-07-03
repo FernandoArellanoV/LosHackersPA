@@ -10,7 +10,7 @@ public class LectorTxt
         try
         {
             String[] datosUsuario = new String[4];
-            Scanner input = new Scanner(new File("Usuarios.txt")); 
+            Scanner input = new Scanner(new File("Usuarios.csv")); 
             while(input.hasNextLine())
             {
                 String linea = input.nextLine();
@@ -25,12 +25,12 @@ public class LectorTxt
         }
     }
 
-    public static void llenarProductos(BaseDeProductos objetoProducto) //throws ArchivoInexistenteException
+    public static void llenarProductos(BaseDeProductos objetoProducto) throws ArchivoInexistenteException
     {   //Lee el txt de productos y llena los mapas y la lista
         try
         {
             String[] datosProducto = new String[4];
-            Scanner input = new Scanner(new File("Productos.txt")); 
+            Scanner input = new Scanner(new File("Productos.csv")); 
             while(input.hasNextLine())
             {
                 String linea = input.nextLine();

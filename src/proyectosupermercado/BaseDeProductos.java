@@ -31,7 +31,7 @@ public class BaseDeProductos implements Mostrador
     //MÉTODOS
     public boolean ConfirmarStock(Producto prod, int stock)
     {
-        if (prod.getStock() >= stock)
+        if(prod.getStock() >= stock)
         {
             return true;
         }

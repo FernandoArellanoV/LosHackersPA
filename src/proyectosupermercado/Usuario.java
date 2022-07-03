@@ -16,10 +16,7 @@ public abstract class Usuario
     }
 
     //MÉTODOS
-    public boolean EsAdmin()    
-    {
-        return false;
-    }
+    public abstract boolean EsAdmin();    
     
     public abstract void Inicio();
     
