@@ -195,8 +195,13 @@ public class CompraProductos extends javax.swing.JFrame implements LimpiarGUI {
     }//GEN-LAST:event_agregarPActionPerformed
 
     private void comprarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarPActionPerformed
-        ExportarTxt.ExportarBoleta(usuarios);
-        JOptionPane.showMessageDialog(null, "Su compra se ha realizado con exito, revise su boleta","Compra realizada",JOptionPane.INFORMATION_MESSAGE);
+        try{
+            ExportarTxt.ExportarBoleta(usuarios);
+            JOptionPane.showMessageDialog(null, "Su compra se ha realizado con exito, revise su boleta","Compra realizada",JOptionPane.INFORMATION_MESSAGE);
+        }catch(BoletaNoGeneradaException bng)
+        {
+            System.out.println("Se lanzó la excepción");
+        }
     }//GEN-LAST:event_comprarPActionPerformed
 
     /**

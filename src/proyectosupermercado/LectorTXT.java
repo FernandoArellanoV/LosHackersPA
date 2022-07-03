@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class LectorTxt
 {
-    public static void llenarUsuarios(BaseDeUsuarios objetoUsuario) //throws ArchivoInexistenteException
+    public static void llenarUsuarios(BaseDeUsuarios objetoUsuario)
     {   //Lee el txt de usuarios y llena el mapa y la lista
         try
         {
@@ -25,7 +25,7 @@ public class LectorTxt
         }
     }
 
-    public static void llenarProductos(BaseDeProductos objetoProducto) throws ArchivoInexistenteException
+    public static void llenarProductos(BaseDeProductos objetoProducto)
     {   //Lee el txt de productos y llena los mapas y la lista
         try
         {

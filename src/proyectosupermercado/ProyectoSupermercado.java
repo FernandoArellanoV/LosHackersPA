@@ -6,7 +6,7 @@ import proyectosupermercadoGUI.proyectoGui;
 //MAIN
 public class ProyectoSupermercado
 {
-    public static void main(String args[]) throws ArchivoInexistenteException
+    public static void main(String args[])
     {
         //INICIALIZACIÓN DE VARIABLES, MAPAS Y OBJETOS
         BaseDeProductos productos = new BaseDeProductos();

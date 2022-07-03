@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class ExportarTxt
 {   //Escribe los cambios hechos durante la ejecución del código en los txt respectivos, se llama al cerrar el programa
-    public static void ExportarUsuario(BaseDeUsuarios bdu) //throws ArchivoNoModificadoException
+    public static void ExportarUsuario(BaseDeUsuarios bdu)throws ArchivoNoModificadoException
     {
         try
         {
@@ -17,6 +17,10 @@ public class ExportarTxt
             FileWriter fichero = new FileWriter(archivo);
             BufferedWriter escritor = new BufferedWriter(fichero);
             ArrayList <Usuario> listaAux = bdu.getListaDeUsuarios();
+            if(listaAux == null)
+            {
+                throw new ArchivoNoModificadoException();
+            }
             for (int i = 0; i < listaAux.size(); i++)
             {
                 if ((listaAux.get(i)).EsAdmin())
@@ -38,7 +42,7 @@ public class ExportarTxt
         }
     }
 
-    public static void ExportarProducto(BaseDeProductos bdp) //throws ArchivoNoModificadoException
+    public static void ExportarProducto(BaseDeProductos bdp) throws ArchivoNoModificadoException
     {
         try
         {
@@ -46,6 +50,10 @@ public class ExportarTxt
             FileWriter fichero = new FileWriter(archivo);
             BufferedWriter escritor = new BufferedWriter(fichero);
             ArrayList <Producto> listaAux = bdp.getListaDeProductos();
+            if(listaAux == null)
+            {
+                throw new ArchivoNoModificadoException();
+            }
             for (int i = 0; i < listaAux.size(); i++)
             {
                 Producto aux = listaAux.get(i);
@@ -59,7 +67,7 @@ public class ExportarTxt
         }
     }
 
-    public static void ExportarBoleta(BaseDeUsuarios bdu) //throws BoletaNoGeneradaException
+    public static void ExportarBoleta(BaseDeUsuarios bdu) throws BoletaNoGeneradaException
     {
         try
         {
@@ -75,6 +83,10 @@ public class ExportarTxt
             DateTimeFormatter dtf4 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
             escritor.write ("Fecha de la compra: " + dtf4.format(LocalDateTime.now()) + "\n");
             ArrayList <Producto> listaProductos = user.getCarrito();
+            if(listaProductos == null)
+            {
+                throw new BoletaNoGeneradaException();
+            }
             int total = 0;
             for (int i = 0; i < listaProductos.size(); i++)
             {

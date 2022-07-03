@@ -242,8 +242,20 @@ public class proyectoGui extends javax.swing.JFrame implements LimpiarGUI
     {//GEN-FIRST:event_jButton3ActionPerformed
         productos.EliminarProducto(4324);
         usuarios.EliminarUsuario("fvt@gmail.com");
-        ExportarTxt.ExportarUsuario(usuarios);
-        ExportarTxt.ExportarProducto(productos);
+        try
+        {
+            ExportarTxt.ExportarUsuario(usuarios);
+        }catch(ArchivoNoModificadoException anm)
+        {
+            System.out.println("Se lanzó la excepción");
+        }
+        try
+        {
+            ExportarTxt.ExportarProducto(productos);
+        }catch(ArchivoNoModificadoException anm)
+        {
+            System.out.println("Se lanzó la excepción");
+        }
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
