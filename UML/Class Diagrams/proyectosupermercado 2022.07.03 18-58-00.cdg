@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="proyectosupermercado">
+  <ClassDiagramComponents>
+    <Class name="Administrador" package="proyectosupermercado" visibility="public" xPosition="1133.0" yPosition="1210.0">
+      <Fields>
+        <Field name="id" type="String" visibility="private"/>
+        <Field name="enSesion" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="contrasena"/>
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="id"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="EsAdmin" returnType="boolean" visibility="public"/>
+        <Method name="Inicio" returnType="void" visibility="public"/>
+        <Method name="Cierre" returnType="void" visibility="public"/>
+        <Method name="EstaConectado" returnType="boolean" visibility="public"/>
+        <Method name="getId" returnType="String" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ArchivoNoModificadoException" package="proyectosupermercado" visibility="public" xPosition="782.0" yPosition="75.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="BaseDeProductos" package="proyectosupermercado" visibility="public" xPosition="441.0" yPosition="224.0">
+      <Fields>
+        <Field name="mapaPorCodigo" type="Map&lt;Integer, Producto&gt;" visibility="private"/>
+        <Field name="mapaPorNombre" type="Map&lt;String, ArrayList&lt;Producto&gt;&gt;" visibility="private"/>
+        <Field name="listaDeProductos" type="ArrayList&lt;Producto&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getListaDeProductos" returnType="ArrayList&lt;Producto&gt;" visibility="public"/>
+        <Method name="setListaDeProductos" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Producto&gt;" name="listaDeProductos"/>
+        </Method>
+        <Method name="ConfirmarStock" returnType="boolean" visibility="public">
+          <Argument type="Producto" name="prod"/>
+          <Argument type="int" name="stock"/>
+        </Method>
+        <Method name="ProductoMasBarato" returnType="int" visibility="public"/>
+        <Method name="BuscarPorRango" returnType="ArrayList&lt;Producto&gt;" visibility="public">
+          <Argument type="int" name="precioMin"/>
+          <Argument type="int" name="precioMax"/>
+        </Method>
+        <Method name="CrearProductoBoleta" returnType="Producto" visibility="public">
+          <Argument type="int" name="codigo"/>
+          <Argument type="int" name="stock"/>
+        </Method>
+        <Method name="CrearProducto" returnType="Producto" visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="int" name="codigo"/>
+          <Argument type="int" name="stock"/>
+          <Argument type="int" name="precio"/>
+          <Argument type="String" name="tipo"/>
+        </Method>
+        <Method name="AgregarProducto" returnType="void" visibility="public">
+          <Argument type="Producto" name="datosProducto"/>
+        </Method>
+        <Method name="Mostrar" returnType="void" visibility="public"/>
+        <Method name="MostrarPor" returnType="boolean" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="MostrarPor" returnType="void" visibility="public">
+          <Argument type="int" name="codigo"/>
+        </Method>
+        <Method name="BuscarProducto" returnType="Producto" visibility="public">
+          <Argument type="int" name="codigo"/>
+        </Method>
+        <Method name="EliminarProducto" returnType="void" visibility="public">
+          <Argument type="int" name="codigo"/>
+        </Method>
+        <Method name="ModificarNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="int" name="codigo"/>
+        </Method>
+        <Method name="ModificarCodigo" returnType="void" visibility="public">
+          <Argument type="int" name="codigoNuevo"/>
+          <Argument type="int" name="codigoAntiguo"/>
+        </Method>
+        <Method name="ModificarStock" returnType="void" visibility="public">
+          <Argument type="int" name="stock"/>
+          <Argument type="int" name="codigo"/>
+        </Method>
+        <Method name="ModificarPrecio" returnType="void" visibility="public">
+          <Argument type="int" name="precio"/>
+          <Argument type="int" name="codigo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="BaseDeUsuarios" package="proyectosupermercado" visibility="public" xPosition="312.0" yPosition="766.0">
+      <Fields>
+        <Field name="mapaPorCorreo" type="Map&lt;String, Usuario&gt;" visibility="private"/>
+        <Field name="listaDeUsuarios" type="ArrayList&lt;Usuario&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getListaDeUsuarios" returnType="ArrayList&lt;Usuario&gt;" visibility="public"/>
+        <Method name="ExisteCorreo" returnType="boolean" visibility="public">
+          <Argument type="String" name="correo"/>
+        </Method>
+        <Method name="ContrasenaCoincide" returnType="boolean" visibility="public">
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="contrasena"/>
+        </Method>
+        <Method name="CorreoCoincide" returnType="boolean" visibility="public">
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="correoConectado"/>
+        </Method>
+        <Method name="EsAdministrador" returnType="boolean" visibility="public">
+          <Argument type="String" name="correo"/>
+        </Method>
+        <Method name="Mostrar" returnType="void" visibility="public"/>
+        <Method name="AgregarProducto" returnType="void" visibility="public">
+          <Argument type="Producto" name="prod"/>
+        </Method>
+        <Method name="BuscarUsuario" returnType="Usuario" visibility="public">
+          <Argument type="String" name="correo"/>
+        </Method>
+        <Method name="AgregarUsuario" returnType="void" visibility="public">
+          <Argument type="Usuario" name="datosUsuario"/>
+        </Method>
+        <Method name="CrearUsuario" returnType="void" visibility="public">
+          <Argument type="String[]" name="datos"/>
+        </Method>
+        <Method name="EliminarUsuario" returnType="void" visibility="public">
+          <Argument type="String" name="correo"/>
+        </Method>
+        <Method name="ModificarNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="correo"/>
+        </Method>
+        <Method name="ModificarCorreo" returnType="void" visibility="public">
+          <Argument type="String" name="correoNuevo"/>
+          <Argument type="String" name="correoAntiguo"/>
+        </Method>
+        <Method name="ModificarContrasena" returnType="void" visibility="public">
+          <Argument type="String" name="contrasena"/>
+          <Argument type="String" name="correo"/>
+        </Method>
+        <Method name="InicioSesion" returnType="void" visibility="public">
+          <Argument type="String" name="correo"/>
+        </Method>
+        <Method name="CierreSesion" returnType="void" visibility="public"/>
+        <Method name="BuscarConectado" returnType="Usuario" visibility="public"/>
+        <Method name="confirmarUsuario" returnType="int" visibility="public">
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="contrasena"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="BoletaNoGeneradaException" package="proyectosupermercado" visibility="public" xPosition="1103.0" yPosition="39.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Cliente" package="proyectosupermercado" visibility="public" xPosition="1545.0" yPosition="39.0">
+      <Fields>
+        <Field name="carrito" type="ArrayList&lt;Producto&gt;" visibility="private" isFinal="true"/>
+        <Field name="enSesion" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="contrasena"/>
+          <Argument type="String" name="correo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCarrito" returnType="ArrayList&lt;Producto&gt;" visibility="public"/>
+        <Method name="AgregarAlCarrito" returnType="void" visibility="public">
+          <Argument type="Producto" name="prod"/>
+        </Method>
+        <Method name="EsAdmin" returnType="boolean" visibility="public"/>
+        <Method name="Inicio" returnType="void" visibility="public"/>
+        <Method name="Cierre" returnType="void" visibility="public"/>
+        <Method name="EstaConectado" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ExportarTxt" package="proyectosupermercado" visibility="public" xPosition="1845.0" yPosition="425.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="ExportarUsuario" returnType="void" visibility="public" isStatic="true">
+          <Argument type="BaseDeUsuarios" name="bdu"/>
+        </Method>
+        <Method name="ExportarProducto" returnType="void" visibility="public" isStatic="true">
+          <Argument type="BaseDeProductos" name="bdp"/>
+        </Method>
+        <Method name="ExportarBoleta" returnType="void" visibility="public" isStatic="true">
+          <Argument type="BaseDeUsuarios" name="bdu"/>
+        </Method>
+        <Method name="ExportarReporte" returnType="void" visibility="public" isStatic="true">
+          <Argument type="BaseDeUsuarios" name="bdu"/>
+          <Argument type="BaseDeProductos" name="bdp"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="LectorTxt" package="proyectosupermercado" visibility="public" xPosition="1588.0" yPosition="772.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="llenarUsuarios" returnType="void" visibility="public" isStatic="true">
+          <Argument type="BaseDeUsuarios" name="objetoUsuario"/>
+        </Method>
+        <Method name="llenarProductos" returnType="void" visibility="public" isStatic="true">
+          <Argument type="BaseDeProductos" name="objetoProducto"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Menu" package="proyectosupermercado" visibility="public" xPosition="2252.0" yPosition="626.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="menuPrincipal" returnType="void" visibility="public" isStatic="true">
+          <Argument type="BaseDeUsuarios" name="usuarios"/>
+          <Argument type="BaseDeProductos" name="productos"/>
+          <Argument type="Scanner" name="lector"/>
+        </Method>
+        <Method name="menuCliente" returnType="void" visibility="public" isStatic="true">
+          <Argument type="BaseDeUsuarios" name="usuarios"/>
+          <Argument type="BaseDeProductos" name="productos"/>
+          <Argument type="Scanner" name="lector"/>
+        </Method>
+        <Method name="menuAdministrador" returnType="void" visibility="public" isStatic="true">
+          <Argument type="BaseDeUsuarios" name="usuarios"/>
+          <Argument type="BaseDeProductos" name="productos"/>
+          <Argument type="Scanner" name="lector"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Producto" package="proyectosupermercado" visibility="public" xPosition="1073.0" yPosition="488.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="codigo" type="int" visibility="private"/>
+        <Field name="stock" type="int" visibility="private"/>
+        <Field name="precio" type="int" visibility="private"/>
+        <Field name="tipo" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="codigo"/>
+          <Argument type="String" name="stock"/>
+          <Argument type="String" name="precio"/>
+          <Argument type="String" name="tipo"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="getCodigo" returnType="int" visibility="public"/>
+        <Method name="getStock" returnType="int" visibility="public"/>
+        <Method name="getPrecio" returnType="int" visibility="public"/>
+        <Method name="getTipo" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="setCodigo" returnType="void" visibility="public">
+          <Argument type="int" name="codigo"/>
+        </Method>
+        <Method name="setStock" returnType="void" visibility="public">
+          <Argument type="int" name="stock"/>
+        </Method>
+        <Method name="setPrecio" returnType="void" visibility="public">
+          <Argument type="int" name="precio"/>
+        </Method>
+        <Method name="setTipo" returnType="void" visibility="public">
+          <Argument type="String" name="tipo"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ProyectoSupermercado" package="proyectosupermercado" visibility="public" xPosition="179.0" yPosition="141.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Usuario" package="proyectosupermercado" visibility="public" isAbstract="true" xPosition="1893.0" yPosition="929.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="contrasena" type="String" visibility="private"/>
+        <Field name="correo" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="contrasena"/>
+          <Argument type="String" name="correo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="EsAdmin" returnType="boolean" visibility="public" isAbstract="true"/>
+        <Method name="Inicio" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="Cierre" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="EstaConectado" returnType="boolean" visibility="public" isAbstract="true"/>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="getContrasena" returnType="String" visibility="public"/>
+        <Method name="getCorreo" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="setContrasena" returnType="void" visibility="public">
+          <Argument type="String" name="contrasena"/>
+        </Method>
+        <Method name="setCorreo" returnType="void" visibility="public">
+          <Argument type="String" name="correo"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Mostrador" package="proyectosupermercado" visibility="public" xPosition="811.0" yPosition="772.0">
+      <Methods>
+        <Method name="Mostrar" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="proyectosupermercado.Cliente" target="proyectosupermercado.Usuario"/>
+    <HasRelation name="listaDeProductos" source="proyectosupermercado.BaseDeProductos" target="proyectosupermercado.Producto" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Producto&gt;"/>
+    <UseRelation source="proyectosupermercado.ExportarTxt" target="proyectosupermercado.Usuario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="proyectosupermercado.LectorTxt" target="proyectosupermercado.Producto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="proyectosupermercado.Menu" target="proyectosupermercado.Usuario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="carrito" source="proyectosupermercado.Cliente" target="proyectosupermercado.Producto" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Producto&gt;"/>
+    <UseRelation source="proyectosupermercado.ExportarTxt" target="proyectosupermercado.Producto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="listaDeUsuarios" source="proyectosupermercado.BaseDeUsuarios" target="proyectosupermercado.Usuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Usuario&gt;"/>
+    <HasRelation name="mapaPorCorreo" source="proyectosupermercado.BaseDeUsuarios" target="proyectosupermercado.Usuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Map&lt;String, Usuario&gt;"/>
+    <UseRelation source="proyectosupermercado.BaseDeUsuarios" target="proyectosupermercado.Producto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="proyectosupermercado.BaseDeProductos" target="proyectosupermercado.Producto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="proyectosupermercado.LectorTxt" target="proyectosupermercado.Usuario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="proyectosupermercado.BaseDeUsuarios" target="proyectosupermercado.Usuario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="proyectosupermercado.Administrador" target="proyectosupermercado.Usuario"/>
+    <HasRelation name="mapaPorNombre" source="proyectosupermercado.BaseDeProductos" target="proyectosupermercado.Producto" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Map&lt;String, ArrayList&lt;Producto&gt;&gt;"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="proyectosupermercado.BaseDeProductos" target="proyectosupermercado.Mostrador"/>
+    <UseRelation source="proyectosupermercado.Cliente" target="proyectosupermercado.Producto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="mapaPorCodigo" source="proyectosupermercado.BaseDeProductos" target="proyectosupermercado.Producto" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Map&lt;Integer, Producto&gt;"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="proyectosupermercado.BaseDeUsuarios" target="proyectosupermercado.Mostrador"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

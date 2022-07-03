@@ -1,4 +1,4 @@
-/*package proyectosupermercado;
+package proyectosupermercado;
 
 import java.util.Scanner;
 import java.util.InputMismatchException;
@@ -104,8 +104,8 @@ public class Menu
                         break;
                     case 3:
                         System.out.println("Ingrese el código del producto a buscar\n");
-                        int códigoProd = lector.nextInt();
-                        productos.MostrarPor(códigoProd);
+                        int codigoProd = lector.nextInt();
+                        productos.MostrarPor(codigoProd);
                         break;
                     case 4:
                         int parar = 0;
@@ -135,7 +135,13 @@ public class Menu
                             System.out.println("¿Desea seguir comprando? (0 = Sí || 1 = No)\n");
                             parar = lector.nextInt();
                         }
-                        ExportarTxt.ExportarBoleta(usuarios);
+                        try
+                        {
+                            ExportarTxt.ExportarUsuario(usuarios);
+                        }catch(ArchivoNoModificadoException anm)
+                        {
+                            System.out.println("Se lanzó la excepción");                            
+                        }
                         break;
                     case 5:
                         productos.ProductoMasBarato();
@@ -221,8 +227,8 @@ public class Menu
                         break;
                     case 6:
                         System.out.println("Ingrese el código del producto a buscar\n");
-                        int códigoProd = lector.nextInt();
-                        productos.MostrarPor(códigoProd);
+                        int codigoProd = lector.nextInt();
+                        productos.MostrarPor(codigoProd);
                         break;
                     case 7:
                         System.out.println("Ingrese lo que desea modificar del producto\n");
@@ -233,26 +239,26 @@ public class Menu
                             case 1:
                                 System.out.println("Ingrese el nuevo nombre y el codigo asociado al producto\n");
                                 String nombre = lector.next();
-                                códigoProd = lector.nextInt();
-                                productos.ModificarNombre(nombre,códigoProd);
+                                codigoProd = lector.nextInt();
+                                productos.ModificarNombre(nombre,codigoProd);
                                 break;
                             case 2:
                                 System.out.println("Ingrese el nuevo codigo y el codigo antiguo del producto\n");
                                 int codigo = lector.nextInt();
-                                códigoProd = lector.nextInt();
-                                productos.ModificarCodigo(codigo, códigoProd);
+                                codigoProd = lector.nextInt();
+                                productos.ModificarCodigo(codigo, codigoProd);
                                 break;
                             case 3:
                                 System.out.println("Ingrese el nuevo stock y el codigo asociado al producto\n");
                                 int stock =lector.nextInt();
-                                códigoProd = lector.nextInt();
-                                productos.ModificarStock(stock, códigoProd);
+                                codigoProd = lector.nextInt();
+                                productos.ModificarStock(stock, codigoProd);
                                 break;
                             case 4:
                                 System.out.println("Ingrese el nuevo precio y el codigo asociado al producto\n");
                                 int precio =lector.nextInt();
-                                códigoProd = lector.nextInt();
-                                productos.ModificarPrecio(precio, códigoProd);
+                                codigoProd = lector.nextInt();
+                                productos.ModificarPrecio(precio, codigoProd);
                                 break;
                             default:
                                 System.out.println("Ingrese una opción válida\n");
@@ -316,4 +322,4 @@ public class Menu
             }
         }
     }
-}*/
+}
