@@ -35,5 +35,6 @@ En caso de iniciar sesión como "Administrador" las opciones son:
 	9. Eliminar producto
 	10. Eliminar Usuario
 	11. Cerrar sesión
+	12. Reporte
 
 4. Si se realizó una compra mediante un usuario-cliente la boleta resultante de la compra se habrá creado en un archivo "nombre.txt" siendo la palabra nombre sustituida por el nombre personal del usuario con el cual se realizó la compra. 
